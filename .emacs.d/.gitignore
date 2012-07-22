@@ -1,0 +1,7 @@
+*.elc
+auto-save-list/*
+elisp/*
+elpa/*
+public_repos/*
+
+!.gitkeep
