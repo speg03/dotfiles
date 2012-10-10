@@ -11,7 +11,7 @@
 (setq transient-mark-mode t)
 
 ;;; disable bar
-(menu-bar-mode -1)
+(menu-bar-mode nil)
 
 ;;; no backup files
 (setq make-backup-files nil)
