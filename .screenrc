@@ -1,0 +1,35 @@
+startup_message off
+
+deflogin on
+autodetach on
+defscrollback 1024
+
+escape ^j^j
+
+bind ^k
+bind ^\
+
+bind \\ quit
+bind K kill
+bind I login on
+bind O login off
+bind } history
+
+bind x command -c REGION
+bind -c REGION 2 split
+bind -c REGION 1 only
+bind -c REGION 0 remove
+bind -c REGION o focus
+
+bind -c REGION r eval 'echo "Resize window"' 'command -c RESIZE'
+bind -c RESIZE ^] command
+bind -c RESIZE j eval 'resize +1' 'command -c RESIZE'
+bind -c RESIZE k eval 'resize -1' 'command -c RESIZE'
+
+markkeys h=^b:l=^f:$=^e:^u=b:^d=f
+
+hardstatus off
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+vbell off
+vbell_msg "   Wuff  ----  Wuff!!  "
