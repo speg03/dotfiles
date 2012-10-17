@@ -22,6 +22,9 @@
 ;;; show pare brace
 (show-paren-mode t)
 
+;;; インデントにタブ文字を使用しない
+(setq-default indent-tabs-mode nil)
+
 ;;; general key
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "C-x ?") 'help-command)
