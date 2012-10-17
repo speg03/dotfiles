@@ -23,19 +23,19 @@
 (show-paren-mode t)
 
 ;;; general key
-(global-set-key "\C-h" 'backward-delete-char-untabify)
-(global-set-key "\C-xh" 'help-command)
+(global-set-key (kbd "C-h") 'backward-delete-char-untabify)
+(global-set-key (kbd "C-x ?") 'help-command)
 
-(global-set-key "\C-m" 'newline-and-indent)
-(global-set-key "\C-j" 'newline)
+(global-set-key (kbd "C-m") 'newline-and-indent)
+(global-set-key (kbd "C-j") 'newline)
 
 ;;; enable to delete region
 (delete-selection-mode t)
 
 ;;; list-buffer to bs
-(global-set-key "\C-x\C-b" 'bs-show)
-(global-set-key "\M-n" 'bs-cycle-previous)
-(global-set-key "\M-p" 'bs-cycle-next)
+(global-set-key (kbd "C-x C-b") 'bs-show)
+(global-set-key (kbd "M-n") 'bs-cycle-previous)
+(global-set-key (kbd "M-p") 'bs-cycle-next)
 (setq bs-configurations
       '(;; name
         ;; regex of display buffer
