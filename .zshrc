@@ -25,6 +25,8 @@ SAVEHIST=10000
 alias ls='ls --color=auto'
 alias ll='ls -al'
 alias grep='grep --color=auto -n'
+alias em='emacsclient -t'
+alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
 alias -g L='| less'
 alias -g H='| head'
