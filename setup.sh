@@ -10,6 +10,7 @@ ln -sf \
   `readlink -e .zshrc` \
   `readlink -e .zprofile` \
   `readlink -e .screenrc` \
+  `readlink -e .gitconfig` \
   $HOME
 
 ## Emacsの設定
