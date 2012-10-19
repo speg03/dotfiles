@@ -1,3 +1,5 @@
+# -*- coding: utf-8; mode: shell-script; -*-
+
 if [ $TERM != 'screen' ] ; then
     screen -xR
 fi
