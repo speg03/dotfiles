@@ -80,3 +80,8 @@ if [ "$TERM" = "screen" ]; then
     }
     chpwd
 fi
+
+## 個人用設定ファイルが存在すれば読み込む
+if [ -e ~/.zshrc_private ]; then
+    source ~/.zshrc_private
+fi
