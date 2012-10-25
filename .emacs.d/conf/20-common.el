@@ -26,19 +26,19 @@
 (setq-default indent-tabs-mode nil)
 
 ;;; general key
-(global-set-key (kbd "C-h") 'backward-delete-char-untabify)
-(global-set-key (kbd "C-x ?") 'help-command)
+(define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
+(define-key global-map (kbd "C-x ?") 'help-command)
 
-(global-set-key (kbd "C-m") 'newline-and-indent)
-(global-set-key (kbd "C-j") 'newline)
+(define-key global-map (kbd "C-m") 'newline-and-indent)
+(define-key global-map (kbd "C-j") 'newline)
 
 ;;; enable to delete region
 (delete-selection-mode t)
 
 ;;; list-buffer to bs
-(global-set-key (kbd "C-x C-b") 'bs-show)
-(global-set-key (kbd "M-n") 'bs-cycle-previous)
-(global-set-key (kbd "M-p") 'bs-cycle-next)
+(define-key global-map (kbd "C-x C-b") 'bs-show)
+(define-key global-map (kbd "M-n") 'bs-cycle-previous)
+(define-key global-map (kbd "M-p") 'bs-cycle-next)
 (setq bs-configurations
       '(;; name
         ;; regex of display buffer
