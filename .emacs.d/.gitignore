@@ -4,5 +4,6 @@ archives/*
 elisp/*
 elpa/*
 public_repos/*
+tramp
 
 !.gitkeep
