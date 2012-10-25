@@ -1,5 +1,6 @@
 *.elc
 auto-save-list/*
+archives/*
 elisp/*
 elpa/*
 public_repos/*
