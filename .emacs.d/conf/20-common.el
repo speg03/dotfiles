@@ -5,13 +5,13 @@
 (setq vc-follow-symlinks t)
 
 ;;; color font
-(global-font-lock-mode t)
+(global-font-lock-mode 1)
 
 ;;; color selected region
-(setq transient-mark-mode t)
+(transient-mark-mode 1)
 
 ;;; disable bar
-(menu-bar-mode nil)
+(menu-bar-mode -1)
 
 ;;; no backup files
 (setq make-backup-files nil)
@@ -20,10 +20,10 @@
 (setq mode-require-final-newline nil)
 
 ;;; show pare brace
-(show-paren-mode t)
+(show-paren-mode 1)
 
 ;;; インデントにタブ文字を使用しない
-(setq-default indent-tabs-mode nil)
+(setq indent-tabs-mode nil)
 
 ;;; general key
 (define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
@@ -33,7 +33,7 @@
 (define-key global-map (kbd "C-j") 'newline)
 
 ;;; enable to delete region
-(delete-selection-mode t)
+(delete-selection-mode 1)
 
 ;;; list-buffer to bs
 (define-key global-map (kbd "C-x C-b") 'bs-show)
