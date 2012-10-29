@@ -37,7 +37,8 @@ curl -LO https://gist.github.com/raw/1021706/b9aff51e7e40afa7abb3c7d6ef7708993ad
 
 # markdown: http://jblevins.org/projects/markdown-mode/
 curl -LO http://jblevins.org/projects/markdown-mode/markdown-mode.el
+echo '** Install pandoc'
 
 # auto-async-byte-compile: http://d.hatena.ne.jp/rubikitch/20100423/bytecomp
-echo 'Install auto-async-byte-compile'
+echo '** Install auto-async-byte-compile:'
 echo 'M-x install-elisp-from-emacswiki auto-async-byte-compile.el'
