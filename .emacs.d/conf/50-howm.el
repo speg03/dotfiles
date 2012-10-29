@@ -1,4 +1,4 @@
-;;; -*- coding: utf-8; mode: elisp; -*-
+;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
 ;; howm-menuの言語を日本語に
 (setq howm-menu-lang 'ja)
