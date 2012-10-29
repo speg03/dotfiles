@@ -1,7 +1,5 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
-;; http://howm.sourceforge.jp/index-j.html
-
 ;; howm-menuの言語を日本語に
 (setq howm-menu-lang 'ja)
 ;; howmメモを1日1ファイルにする
