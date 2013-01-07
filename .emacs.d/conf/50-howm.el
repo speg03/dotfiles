@@ -6,7 +6,7 @@
 (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
 
 ;; howm-modeを読み込む
-(when (require 'howm-mode nil t)
+(when (require 'howm nil t)
   ;; C-c,,でhowm-menuを起動
   (define-key global-map (kbd "C-c ,,") 'howm-menu))
 
