@@ -1,6 +1,8 @@
-export PATH=$HOME/local/bin:$HOME/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
 export EDITOR='emacsclient -t'
 
+## rbenvに関する設定
+export PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
     export PATH=$HOME/.rbenv/shims:$PATH
@@ -10,3 +12,6 @@ fi
 if [ -e ~/.zprofile_private ]; then
     source ~/.zprofile_private
 fi
+
+## ユーザの実行ファイルパスを追加
+export PATH=$HOME/local/bin:$HOME/bin:$PATH
