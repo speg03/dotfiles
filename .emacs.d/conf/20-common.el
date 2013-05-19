@@ -29,8 +29,8 @@
 (define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
 (define-key global-map (kbd "C-x ?") 'help-command)
 
-(define-key global-map (kbd "C-m") 'newline-and-indent)
-(define-key global-map (kbd "C-j") 'newline)
+(define-key global-map (kbd "C-j") 'newline-and-indent)
+(define-key global-map (kbd "C-m") 'newline)
 
 ;;; enable to delete region
 (delete-selection-mode 1)
