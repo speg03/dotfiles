@@ -18,10 +18,16 @@ HISTFILE="$HOME/.zhistory"
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias ls='ls --color=auto'
+if [ "`uname`" = "Linux" ]; then
+    alias ls='ls --color=auto'
+elif [ "`uname`" = "Darwin" ]; then
+    alias ls='ls -G'
+fi
+
 alias ll='ls -alF'
 alias grep='grep --color=auto -n'
-alias em='emacsclient -t'
+alias e='emacsclient -t'
+alias be='bundle exec'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
 alias -g L='| less'
