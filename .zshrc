@@ -19,7 +19,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 alias ls='ls --color=auto'
-alias ll='ls -al'
+alias ll='ls -alF'
 alias grep='grep --color=auto -n'
 alias em='emacsclient -t'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
