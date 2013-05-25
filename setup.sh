@@ -1,17 +1,10 @@
 #!/bin/sh
 
-fullpath=`readlink -e $0`
-basedir=`dirname $fullpath`
+cd `dirname $0`
+basedir=`pwd`
 
 ## 各設定の有効化
-cd $basedir
-ln -sf \
-  `readlink -e .emacs.d` \
-  `readlink -e .zshrc` \
-  `readlink -e .zprofile` \
-  `readlink -e .screenrc` \
-  `readlink -e .gitconfig` \
-  $HOME
+ln -sf .emacs.d .zshrc .zprofile .screenrc .gitconfig $HOME
 
 
 ## Emacsの設定
