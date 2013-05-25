@@ -11,17 +11,6 @@ done
 
 ## Emacsの設定
 
-cd $basedir/.emacs.d/archives
-
-# howm: http://howm.sourceforge.jp/index-j.html
-curl -LO http://howm.sourceforge.jp/a/howm-1.4.0.tar.gz
-tar xzf howm-1.4.0.tar.gz
-cd howm-1.4.0
-./configure
-make
-sudo make install
-
-
 cd $basedir/.emacs.d/elisp
 
 # auto-install: http://d.hatena.ne.jp/rubikitch/20091221/autoinstall
