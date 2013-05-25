@@ -4,7 +4,9 @@ cd `dirname $0`
 basedir=`pwd`
 
 ## 各設定の有効化
-ln -sf .emacs.d .zshrc .zprofile .screenrc .gitconfig $HOME
+for rc in .emacs.d .zshrc .zprofile .screenrc .gitconfig; do
+  ln -sf $basedir/$rc $HOME
+done
 
 
 ## Emacsの設定
