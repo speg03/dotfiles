@@ -3,4 +3,4 @@
 
 p1mark='┌>'
 p2mark=''
-PROMPT=$'$p1mark%F$fg[cyan](%*)%f %F$fg[green]%n@%m%f %F$fg[yellow][%2~]%f\n$p2mark%(!|%F%{$fg[red]%}#%f|$) '
+PROMPT=$'$p1mark%F{cyan}(%*)%f %F{green}%n@%m%f %F{yellow}[%2~]%f\n$p2mark%(!|%F{red}#%f|$) '
