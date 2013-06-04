@@ -32,6 +32,8 @@ alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
 alias gs='git status'
 alias gl='git log'
+alias gcn='git clean -dxn'
+alias gcf='git clean -dxf'
 
 alias .='cd ..'
 alias ..='cd ../..'
