@@ -30,6 +30,9 @@ alias e='emacsclient -t'
 alias be='bundle exec'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
+alias gs='git status'
+alias gl='git log'
+
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
