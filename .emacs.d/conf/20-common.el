@@ -23,7 +23,7 @@
 (show-paren-mode 1)
 
 ;;; インデントにタブ文字を使用しない
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 ;;; general key
 (define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
