@@ -4,7 +4,7 @@ cd `dirname $0`
 basedir=`pwd`
 
 ## 各設定の有効化
-for rc in .emacs.d .zshrc .zprofile .screenrc .gitconfig .tmux.conf; do
+for rc in .emacs.d .zshrc .zsh.d .zprofile .screenrc .gitconfig .tmux.conf; do
   ln -sf $basedir/$rc $HOME
 done
 
