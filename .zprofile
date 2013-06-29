@@ -9,8 +9,8 @@ if which rbenv > /dev/null; then
 fi
 
 ## 個人用設定ファイルが存在すれば読み込む
-if [ -e ~/.zprofile_private ]; then
-    source ~/.zprofile_private
+if [ -e ~/.zprofile.local ]; then
+    source ~/.zprofile.local
 fi
 
 ## ユーザの実行ファイルパスを追加

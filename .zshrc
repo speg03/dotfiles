@@ -6,6 +6,6 @@ for rc in $HOME/.zsh.d/*; do
 done
 
 ## 個人用設定ファイルが存在すれば読み込む
-if [ -e ~/.zshrc_local ]; then
-    source ~/.zshrc_local
+if [ -e ~/.zshrc.local ]; then
+    source ~/.zshrc.local
 fi
