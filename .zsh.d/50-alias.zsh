@@ -11,6 +11,8 @@ alias gl='git log'
 alias gcn='git clean -dxn'
 alias gcf='git clean -dxf'
 
+alias vsr='vagrant sandbox rollback'
+
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
