@@ -6,7 +6,7 @@ alias e='emacsclient -t'
 alias be='bundle exec'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
-alias gs='git status'
+alias gs='git status -sb'
 alias gl='git log'
 alias gcn='git clean -dxn'
 alias gcf='git clean -dxf'
