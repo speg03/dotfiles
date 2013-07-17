@@ -3,8 +3,12 @@
 alias ll='ls -alF'
 alias grep='grep --color=auto -n'
 alias e='emacsclient -t'
-alias be='bundle exec'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
+
+alias be='bundle exec'
+alias tbe='RAILS_ENV=test bundle exec'
+alias dbe='RAILS_ENV=development bundle exec'
+alias tbe='RAILS_ENV=production bundle exec'
 
 alias gs='git status -sb'
 alias gl='git log'
@@ -22,7 +26,6 @@ alias .....='cd ../../../../..'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
-
 alias -g G='| grep'
 alias -g W='| wc'
 alias -g S='| sed'
