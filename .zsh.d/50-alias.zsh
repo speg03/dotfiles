@@ -12,9 +12,11 @@ alias tbe='RAILS_ENV=production bundle exec'
 
 alias gs='git status -sb'
 alias gl='git log'
+alias gd='git diff'
 alias gcn='git clean -dxn'
 alias gcf='git clean -dxf'
 
+alias vs='vagrant ssh'
 alias vsr='vagrant sandbox rollback'
 
 alias .='cd ..'
