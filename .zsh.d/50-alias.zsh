@@ -8,7 +8,7 @@ alias kill-emacs="emacsclient -e '(kill-emacs)'"
 alias be='bundle exec'
 alias tbe='RAILS_ENV=test bundle exec'
 alias dbe='RAILS_ENV=development bundle exec'
-alias tbe='RAILS_ENV=production bundle exec'
+alias pbe='RAILS_ENV=production bundle exec'
 
 alias gs='git status -sb'
 alias gl='git log'
