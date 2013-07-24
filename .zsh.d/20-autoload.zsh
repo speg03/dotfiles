@@ -1,7 +1,7 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-autoload -U colors
-colors
-
-autoload -U compinit
-compinit
+autoload -Uz add-zsh-hook
+autoload -Uz colors
+autoload -Uz compinit
+autoload -Uz is-at-least
+autoload -Uz vcs_info
