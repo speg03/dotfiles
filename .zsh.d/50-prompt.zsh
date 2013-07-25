@@ -1,3 +1,3 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-PROMPT=$'%{$fg[green]%}%n@%m%{$reset_color%}%{$fg[yellow]%}:%1~%{$reset_color%}\n%(!.#.$) '
+PROMPT=$'%F{green}%n@%m%f%F{yellow}:%1~%f\n%(!.#.$) '
