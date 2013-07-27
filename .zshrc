@@ -1,7 +1,7 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
 ## 各種設定ファイルを読み込む
-for rc in $HOME/.zsh.d/*; do
+for rc in $HOME/.zsh.d/*.zsh; do
     source $rc
 done
 
