@@ -48,7 +48,7 @@ function _vcs_info_prompt() {
         vcs_message=""
     else
         # 各状態のマークを連結する
-        vcs_message="%F{cyan}${vcs_info_msg_0_}%f "
+        vcs_message="%F{cyan}(${vcs_info_msg_0_})%f "
         vcs_message+=`_vcs_info_remote_prompt`
         [ -n "${vcs_info_msg_1_}" ] && vcs_message+="%F{green}${vcs_info_msg_1_}%f"
         [ -n "${vcs_info_msg_2_}" ] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
