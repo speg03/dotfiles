@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
-export EDITOR='emacsclient -t'
+export EDITOR='emacsclient -e nil >/dev/null 2>&1 || emacs --daemon; emacsclient -t'
 
 ## rbenvに関する設定
 export PATH=$HOME/.rbenv/bin:$PATH

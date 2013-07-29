@@ -2,7 +2,7 @@
 
 alias ll='ls -alF'
 alias grep='grep --color=auto -n'
-alias e='emacsclient -t'
+alias e='emacsclient -e nil >/dev/null 2>&1 || emacs --daemon; emacsclient -t'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
 alias be='bundle exec'
