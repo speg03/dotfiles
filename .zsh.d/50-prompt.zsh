@@ -31,6 +31,13 @@ function _vcs_info_remote_prompt() {
     [ -n "$remote_mark" ] && print -Pn "%F{magenta}$remote_mark%f"
 }
 
+### stash がある場合
+function _vcs_info_stash_prompt() {
+    if [ -n "`git stash list`" ]; then
+        print -Pn "%F{yellow}S%f"
+    fi
+}
+
 ### untracked なファイルがある場合
 function _vcs_info_untracked_prompt() {
     if command git status --porcelain | \grep '^??' >/dev/null 2>&1; then
@@ -52,8 +59,9 @@ function _vcs_info_prompt() {
         vcs_message+=`_vcs_info_remote_prompt`
         [ -n "${vcs_info_msg_1_}" ] && vcs_message+="%F{green}${vcs_info_msg_1_}%f"
         [ -n "${vcs_info_msg_2_}" ] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
+        vcs_message+=`_vcs_info_stash_prompt`
         vcs_message+=`_vcs_info_untracked_prompt`
-        [ -n "${vcs_info_msg_3_}" ] && vcs_message+="%F{red}${vcs_info_msg_3_}%f"
+        [ -n "${vcs_info_msg_3_}" ] && vcs_message+=" %F{red}${vcs_info_msg_3_}%f"
     fi
 
     print -Pn ${vcs_message}
