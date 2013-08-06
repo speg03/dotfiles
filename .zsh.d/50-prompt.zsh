@@ -18,6 +18,7 @@ function _base_prompt() {
 
 function _vcs_info_prompt() {
     local vcs_message
+    local git_status
 
     LANG=en_US.UTF-8 vcs_info
 
@@ -26,27 +27,23 @@ function _vcs_info_prompt() {
         return 0
     fi
 
+    git_status=`git status -b --porcelain`
+
     ### ブランチ名
     vcs_message="%F{cyan}(${vcs_info_msg_0_})%f "
 
     ### git fetch して merge していないコミットがある場合
-    if command git status -b --porcelain | \grep '^##.*behind' >/dev/null 2>&1; then
-        vcs_message+="%F{magenta}F%f"
-    fi
+    [[ "${git_status}" =~ ^##.*behind ]] && vcs_message+="%F{magenta}F%f"
 
     ### git commit して push していないコミットがある場合
-    if command git status -b --porcelain | \grep '^##.*ahead' >/dev/null 2>&1; then
-        vcs_message+="%F{magenta}C%f"
-    fi
+    [[ "${git_status}" =~ ^##.*ahead ]] && vcs_message+="%F{magenta}C%f"
 
     ### staged/unstaged な変更がある場合
-    [ -n "${vcs_info_msg_1_}" ] && vcs_message+="%F{green}${vcs_info_msg_1_}%f"
-    [ -n "${vcs_info_msg_2_}" ] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
+    [[ -n "${vcs_info_msg_1_}" ]] && vcs_message+="%F{green}${vcs_info_msg_1_}%f"
+    [[ -n "${vcs_info_msg_2_}" ]] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
 
     ### stash がある場合
-    if [ -n "`git stash list`" ]; then
-        vcs_message+="%F{yellow}S%f"
-    fi
+    [[ -n "`git stash list`" ]] && vcs_message+="%F{yellow}S%f"
 
     ### untracked なファイルがある場合
     if command git status --porcelain | \grep '^??' >/dev/null 2>&1; then
