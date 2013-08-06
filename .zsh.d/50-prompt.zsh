@@ -46,7 +46,7 @@ function _vcs_info_prompt() {
     [[ -n "`git stash list`" ]] && vcs_message+="%F{yellow}S%f"
 
     ### untracked なファイルがある場合
-    if command git status --porcelain | \grep '^??' >/dev/null 2>&1; then
+    if command echo "${git_status}" | \grep '^??' >/dev/null 2>&1; then
         vcs_message+="%F{yellow}?%f"
     fi
 
