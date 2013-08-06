@@ -16,33 +16,40 @@ function _base_prompt() {
     print -Pn '%F{green}%n@%m%f:%F{yellow}%1~%f'
 }
 
-### merge, pushしていないコミットがある場合
-function _vcs_info_remote_prompt() {
-    local remote_mark
+function _create_vcs_message() {
+    local vcs_message
+
+    ### ブランチ名
+    vcs_message="%F{cyan}(${vcs_info_msg_0_})%f "
+
     ### git fetch して merge していないコミットがある場合
     if command git status -b --porcelain | \grep '^##.*behind' >/dev/null 2>&1; then
-        remote_mark='F'
+        vcs_message+="%F{magenta}F%f"
     fi
+
     ### git commit して push していないコミットがある場合
     if command git status -b --porcelain | \grep '^##.*ahead' >/dev/null 2>&1; then
-        remote_mark+='C'
+        vcs_message+="%F{magenta}C%f"
     fi
 
-    [ -n "$remote_mark" ] && print -Pn "%F{magenta}$remote_mark%f"
-}
+    ### staged/unstaged な変更がある場合
+    [ -n "${vcs_info_msg_1_}" ] && vcs_message+="%F{green}${vcs_info_msg_1_}%f"
+    [ -n "${vcs_info_msg_2_}" ] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
 
-### stash がある場合
-function _vcs_info_stash_prompt() {
+    ### stash がある場合
     if [ -n "`git stash list`" ]; then
-        print -Pn "%F{yellow}S%f"
+        vcs_message+="%F{yellow}S%f"
     fi
-}
 
-### untracked なファイルがある場合
-function _vcs_info_untracked_prompt() {
+    ### untracked なファイルがある場合
     if command git status --porcelain | \grep '^??' >/dev/null 2>&1; then
-        print -Pn "%F{yellow}?%f"
+        vcs_message+="%F{yellow}?%f"
     fi
+
+    ### conflict などのメッセージがある場合
+    [ -n "${vcs_info_msg_3_}" ] && vcs_message+=" %F{red}${vcs_info_msg_3_}%f"
+
+    print -Pn ${vcs_message}
 }
 
 function _vcs_info_prompt() {
@@ -54,14 +61,7 @@ function _vcs_info_prompt() {
         # vcs_info で何も取得していない場合はプロンプトを表示しない
         vcs_message=""
     else
-        # 各状態のマークを連結する
-        vcs_message="%F{cyan}(${vcs_info_msg_0_})%f "
-        vcs_message+=`_vcs_info_remote_prompt`
-        [ -n "${vcs_info_msg_1_}" ] && vcs_message+="%F{green}${vcs_info_msg_1_}%f"
-        [ -n "${vcs_info_msg_2_}" ] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
-        vcs_message+=`_vcs_info_stash_prompt`
-        vcs_message+=`_vcs_info_untracked_prompt`
-        [ -n "${vcs_info_msg_3_}" ] && vcs_message+=" %F{red}${vcs_info_msg_3_}%f"
+        vcs_message=`_create_vcs_message`
     fi
 
     print -Pn ${vcs_message}
