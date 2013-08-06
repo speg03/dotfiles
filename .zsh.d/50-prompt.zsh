@@ -16,8 +16,15 @@ function _base_prompt() {
     print -Pn '%F{green}%n@%m%f:%F{yellow}%1~%f'
 }
 
-function _create_vcs_message() {
+function _vcs_info_prompt() {
     local vcs_message
+
+    LANG=en_US.UTF-8 vcs_info
+
+    if [ -z "${vcs_info_msg_0_}" ]; then
+        # vcs_info で何も取得していない場合は何も表示しない
+        return 0
+    fi
 
     ### ブランチ名
     vcs_message="%F{cyan}(${vcs_info_msg_0_})%f "
@@ -48,21 +55,6 @@ function _create_vcs_message() {
 
     ### conflict などのメッセージがある場合
     [ -n "${vcs_info_msg_3_}" ] && vcs_message+=" %F{red}${vcs_info_msg_3_}%f"
-
-    print -Pn ${vcs_message}
-}
-
-function _vcs_info_prompt() {
-    local vcs_message
-
-    LANG=en_US.UTF-8 vcs_info
-
-    if [ -z "${vcs_info_msg_0_}" ]; then
-        # vcs_info で何も取得していない場合はプロンプトを表示しない
-        vcs_message=""
-    else
-        vcs_message=`_create_vcs_message`
-    fi
 
     print -Pn ${vcs_message}
 }
