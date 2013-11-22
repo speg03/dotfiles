@@ -1,8 +1,10 @@
-[include]
-	path = .gitconfig.local
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [push]
 	default = simple
+[credential]
+	helper = cache --timeout=3600
+[include]
+	path = .gitconfig.local
