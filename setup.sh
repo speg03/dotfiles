@@ -26,3 +26,13 @@ echo '** Install pandoc'
 # auto-async-byte-compile: http://d.hatena.ne.jp/rubikitch/20100423/bytecomp
 echo '** Install auto-async-byte-compile:'
 echo 'M-x install-elisp-from-emacswiki auto-async-byte-compile.el'
+
+
+## Zshの設定
+
+if [ "`uname`" = "Linux" ]; then
+    cd $basedir/.zsh.d/completion
+
+    curl -L https://raw.github.com/git/git/master/contrib/completion/git-completion.zsh -o _git
+    curl -LO https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+fi
