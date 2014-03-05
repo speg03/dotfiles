@@ -27,6 +27,7 @@
 
 ;;; general key
 (define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
+(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
 (define-key global-map (kbd "C-x ?") 'help-command)
 
 (define-key global-map (kbd "C-j") 'newline-and-indent)
