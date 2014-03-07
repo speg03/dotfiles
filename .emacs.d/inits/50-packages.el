@@ -6,6 +6,9 @@
 ;; git-commit-mode
 (install-and-require 'git-commit-mode)
 
+;; git-gutter+
+(install-and-require 'git-gutter+)
+
 ;; markdown-mode
 (when (install-and-require 'markdown-mode)
   (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
