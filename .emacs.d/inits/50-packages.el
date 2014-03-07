@@ -1,13 +1,29 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
 ;; auto-complete
-(install-and-require 'auto-complete)
+(when (install-and-require 'auto-complete)
+  (global-auto-complete-mode t))
+
+;; diminish
+(when (install-and-require 'diminish)
+  (eval-after-load "auto-complete"
+    '(diminish 'auto-complete-mode))
+  (eval-after-load "git-gutter+"
+    '(diminish 'git-gutter+-mode))
+  (eval-after-load "undo-tree"
+    '(diminish 'undo-tree-mode)))
 
 ;; git-commit-mode
 (install-and-require 'git-commit-mode)
 
 ;; git-gutter+
-(install-and-require 'git-gutter+)
+(when (install-and-require 'git-gutter+)
+  (global-git-gutter+-mode t))
+
+;; helm
+(when (install-and-require 'helm)
+  (define-key helm-map (kbd "C-h") 'delete-backward-char)
+  (helm-mode 1))
 
 ;; markdown-mode
 (when (install-and-require 'markdown-mode)
@@ -18,4 +34,4 @@
 
 ;; undo-tree
 (when (install-and-require 'undo-tree)
-  (global-undo-tree-mode))
+  (global-undo-tree-mode t))
