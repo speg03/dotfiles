@@ -15,6 +15,7 @@
 
 ;;; no backup files
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;;; not insert final newline
 (setq mode-require-final-newline nil)
@@ -51,3 +52,11 @@
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	))
 (setq bs-default-configuration "files")
+
+;;; (yes or no) to (y or n)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;; Do not confirm server-kill-buffer
+;;; (Do not work yet)
+(when (server-running-p)
+  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
