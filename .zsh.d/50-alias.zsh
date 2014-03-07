@@ -16,6 +16,8 @@ alias gd='git diff'
 alias gcn='git clean -dxn'
 alias gcf='git clean -dxf'
 
+alias ts='tig status'
+
 alias v='vagrant'
 alias vs='vagrant status'
 alias vss='vagrant sandbox'
