@@ -1,5 +1,8 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
+;; auto-complete
+(install-and-require 'auto-complete)
+
 ;; git-commit-mode
 (install-and-require 'git-commit-mode)
 
