@@ -35,3 +35,7 @@
 ;; undo-tree
 (when (install-and-require 'undo-tree)
   (global-undo-tree-mode t))
+
+;; yaml-mode
+(when (install-and-require 'yaml-mode)
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
