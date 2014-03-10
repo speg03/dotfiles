@@ -17,8 +17,8 @@
 (install-and-require 'git-commit-mode)
 
 ;; git-gutter+
-(when (install-and-require 'git-gutter+)
-  (global-git-gutter+-mode t))
+(when (install-and-require 'git-gutter)
+  (global-git-gutter-mode t))
 
 ;; helm
 (when (install-and-require 'helm)
