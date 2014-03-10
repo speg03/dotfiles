@@ -8,7 +8,7 @@
 (when (install-and-require 'diminish)
   (eval-after-load "auto-complete"
     '(diminish 'auto-complete-mode))
-  (eval-after-load "git-gutter+"
+  (eval-after-load "git-gutter"
     '(diminish 'git-gutter+-mode))
   (eval-after-load "undo-tree"
     '(diminish 'undo-tree-mode)))
