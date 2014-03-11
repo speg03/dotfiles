@@ -9,14 +9,14 @@
   (eval-after-load "auto-complete"
     '(diminish 'auto-complete-mode))
   (eval-after-load "git-gutter"
-    '(diminish 'git-gutter+-mode))
+    '(diminish 'git-gutter-mode))
   (eval-after-load "undo-tree"
     '(diminish 'undo-tree-mode)))
 
 ;; git-commit-mode
 (install-and-require 'git-commit-mode)
 
-;; git-gutter+
+;; git-gutter
 (when (install-and-require 'git-gutter)
   (global-git-gutter-mode t))
 
