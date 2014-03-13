@@ -5,6 +5,9 @@ alias grep='grep --color=auto -n'
 alias e='emacsclient -e nil >/dev/null 2>&1 || emacs --daemon; emacsclient -t'
 alias kill-emacs="emacsclient -e '(kill-emacs)'"
 
+alias ej='termit en ja'
+alias je='termit ja en'
+
 alias be='bundle exec'
 alias tbe='RAILS_ENV=test bundle exec'
 alias dbe='RAILS_ENV=development bundle exec'
