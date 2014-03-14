@@ -23,7 +23,6 @@ alias ts='tig status'
 
 alias v='vagrant'
 alias vs='vagrant status'
-alias vss='vagrant sandbox'
 
 alias .='cd ..'
 alias ..='cd ../..'
