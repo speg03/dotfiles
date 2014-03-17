@@ -39,3 +39,6 @@
 ;; yaml-mode
 (when (install-and-require 'yaml-mode)
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
+
+;; wc-mode
+(install-and-require 'wc-mode)
