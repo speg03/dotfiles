@@ -1,7 +1,5 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+	ui = auto
 [push]
 	default = simple
 [credential]
