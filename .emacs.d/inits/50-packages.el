@@ -45,5 +45,6 @@
 
 ;; web-mode
 (when (install-and-require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)))
