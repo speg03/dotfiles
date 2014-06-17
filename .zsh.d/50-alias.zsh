@@ -25,6 +25,10 @@ alias v='vagrant'
 alias vs='vagrant status'
 alias vgs='vagrant global-status'
 
+alias d='docker'
+alias ds='docker ps'
+alias dl='docker ps -lq'
+
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
