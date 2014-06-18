@@ -28,6 +28,8 @@ alias vgs='vagrant global-status'
 alias d='docker'
 alias ds='docker ps'
 alias dl='docker ps -lq'
+alias dclean='docker ps -aq | xargs docker rm'
+alias dcleani='docker images | awk "/^<none>/ { print \$3 }" | xargs docker rmi'
 
 alias .='cd ..'
 alias ..='cd ../..'
