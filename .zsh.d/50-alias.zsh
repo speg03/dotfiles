@@ -30,6 +30,7 @@ alias ds='docker ps'
 alias dl='docker ps -lq'
 alias dclean='docker ps -aq | xargs docker rm'
 alias dcleani='docker images | awk "/^<none>/ { print \$3 }" | xargs docker rmi'
+alias dsshd='docker run -dp 2222:22 -v `pwd`:/docker speg03/sshd-centos'
 
 alias .='cd ..'
 alias ..='cd ../..'
