@@ -8,6 +8,13 @@ if which rbenv > /dev/null; then
     export PATH=$HOME/.rbenv/shims:$PATH
 fi
 
+## Goに関する設定
+if [ ! -d ~/.go ]; then
+    mkdir ~/.go
+fi
+export GOPATH=$HOME/.go
+export PATH=$HOME/.go/bin:$PATH
+
 ## 個人用設定ファイルが存在すれば読み込む
 if [ -e ~/.zprofile.local ]; then
     source ~/.zprofile.local
