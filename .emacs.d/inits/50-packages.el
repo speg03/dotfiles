@@ -20,6 +20,9 @@
 (when (install-and-require 'git-gutter)
   (global-git-gutter-mode t))
 
+;; go-mode
+(install-and-require 'go-mode)
+
 ;; helm
 (when (install-and-require 'helm)
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
