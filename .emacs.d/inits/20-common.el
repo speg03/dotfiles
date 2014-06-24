@@ -23,8 +23,9 @@
 ;;; show pare brace
 (show-paren-mode 1)
 
-;;; インデントにタブ文字を使用しない
+;;; Don't use tabs for indentation as default
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;;; general key
 (define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
