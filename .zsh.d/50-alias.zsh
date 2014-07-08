@@ -33,6 +33,9 @@ alias dclean='docker ps -aq | xargs docker rm'
 alias dcleani='docker images | awk "/^<none>/ { print \$3 }" | xargs docker rmi'
 alias dup='docker run -dp 2222:22 -v `pwd`:/docker speg03/sshd-centos'
 
+peco-exec() { peco | while read LINE; do $@ $LINE; done }
+alias cdr='ghq list -p | peco-exec cd'
+
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
@@ -46,3 +49,4 @@ alias -g G='| grep'
 alias -g W='| wc'
 alias -g S='| sed'
 alias -g A='| awk'
+alias -g P='| peco-exec'
