@@ -21,9 +21,7 @@ alias gcf='git clean -dxf'
 
 alias ts='tig status'
 
-alias v='vagrant'
-alias vs='vagrant status'
-alias vgs='vagrant global-status'
+alias v='pecrant'
 
 alias d='docker'
 alias ds='docker ps'
