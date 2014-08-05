@@ -33,11 +33,10 @@ alias dup='docker run -dp 3222:22 -v `pwd`:/docker speg03/sshd-centos'
 
 alias cdr='cd $(ghq list -p | peco)'
 
-alias .='cd ..'
-alias ..='cd ../..'
-alias ...='cd ../../..'
-alias ....='cd ../../../..'
-alias .....='cd ../../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 alias -g L='| less'
 alias -g H='| head'
