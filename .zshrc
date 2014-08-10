@@ -1,11 +1,11 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-## 各種設定ファイルを読み込む
+## load configurations
 for rc in $HOME/.zsh.d/*.zsh; do
     source $rc
 done
 
-## 個人用設定ファイルが存在すれば読み込む
+## server specific configuration
 if [ -e $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
 fi
