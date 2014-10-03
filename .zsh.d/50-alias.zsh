@@ -28,7 +28,7 @@ alias ds='docker ps'
 alias dl='docker ps -lq'
 alias di='docker images'
 alias dclean='docker ps -aq | xargs docker rm'
-alias dcleani='docker images | awk "/^<none>/ { print \$3 }" | xargs docker rmi'
+alias dcleani='docker images -qf "dangling=true" | xargs docker rmi'
 alias dup='docker run -dp 3222:22 -v `pwd`:/docker speg03/sshd-centos'
 
 alias cdr='cd $(ghq list -p | peco)'
