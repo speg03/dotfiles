@@ -10,6 +10,7 @@ DOTFILES=`cat <<EOT
   .zprofile
   .gitconfig
   .tmux.conf
+  .bundle
 EOT
 `
 
