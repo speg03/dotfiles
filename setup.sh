@@ -1,26 +1,11 @@
 #!/bin/sh
 
-cd `dirname $0`
-basedir=`pwd`
+cd $(dirname $0)
 
-DOTFILES=`cat <<EOT
-  .emacs.d
-  .zshrc
-  .zsh.d
-  .zprofile
-  .gitconfig
-  .tmux.conf
-  .bundle
-EOT
-`
+find sources -maxdepth 1 -mindepth 1 \
+    -exec sh -c 'ln -snf $(pwd)/{} $HOME/.$(basename {})' \;
 
-## enable configuration
-for rc in $DOTFILES
-do
-    ln -snf $basedir/$rc $HOME
-done
-
-## enable completion for zsh
+## completion for zsh
 if [ "$(uname)" = "Linux" ]; then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh \
         -o $HOME/.zsh.d/completion/_git
