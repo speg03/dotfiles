@@ -15,6 +15,9 @@ fi
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
 
+## Heroku
+export PATH="/usr/local/heroku/bin:$PATH"
+
 ## server specific profile
 if [ -e $HOME/.zprofile.local ]; then
     source $HOME/.zprofile.local
