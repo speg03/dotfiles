@@ -20,3 +20,7 @@ if [ ! -e $HOME/.rbenv ]; then
     git clone https://github.com/sstephenson/rbenv $HOME/.rbenv
     git clone https://github.com/sstephenson/ruby-build $HOME/.rbenv/plugins/ruby-build
 fi
+
+## tools
+go get github.com/motemen/ghq
+go get github.com/peco/peco/cmd/peco
