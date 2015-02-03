@@ -24,3 +24,9 @@ fi
 ## tools
 go get github.com/motemen/ghq
 go get github.com/peco/peco/cmd/peco
+
+## git config
+if [ ! -e $HOME/.gitconfig.local ]; then
+    git config -f $HOME/.gitconfig.local user.name 'Takahiro Yano'
+    git config -f $HOME/.gitconfig.local user.email 'speg03@gmail.com'
+fi
