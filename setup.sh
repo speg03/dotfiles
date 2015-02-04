@@ -22,6 +22,7 @@ if [ ! -e $HOME/.rbenv ]; then
 fi
 
 ## tools
+. $HOME/.zprofile
 go get github.com/motemen/ghq
 go get github.com/peco/peco/cmd/peco
 
