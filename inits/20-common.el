@@ -5,7 +5,7 @@
 (prefer-coding-system 'utf-8)
 
 ;; avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
-(setq vc-follow-symlinks t)
+(setq-default vc-follow-symlinks t)
 
 ;; no backup files
 (setq-default make-backup-files nil)
