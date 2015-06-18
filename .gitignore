@@ -3,5 +3,6 @@ ac-comphist.dat
 auto-save-list/*
 elisp/*
 packages/*
+server
 
 !.gitkeep
