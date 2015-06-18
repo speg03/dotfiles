@@ -56,8 +56,3 @@
 
 ;;; (yes or no) to (y or n)
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;;; Do not confirm server-kill-buffer
-;;; (Do not work yet)
-(when (server-running-p)
-  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
