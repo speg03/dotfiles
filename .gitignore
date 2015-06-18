@@ -1,6 +1,6 @@
 *.elc
 ac-comphist.dat
-auto-save-list/*
+auto-save-list
 elisp/*
 packages/*
 server
