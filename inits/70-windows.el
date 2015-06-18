@@ -1,6 +1,5 @@
+;;; -*- coding: utf-8; mode: emacs-lisp; -*-
+
+;; for Windows
 (when (eq window-system 'w32)
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0)
-  (set-language-environment "Japanese")
-  (prefer-coding-system 'utf-8)
   (set-file-name-coding-system 'cp932))
