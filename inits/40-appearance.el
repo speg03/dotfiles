@@ -1,18 +1,18 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
-;; not display startup-message
+;; Don't display startup-message
 (setq-default inhibit-startup-message t)
 
-;; color font
+;; Color
 (global-font-lock-mode 1)
 
-;; color selected region
+;; Color selected region
 (transient-mark-mode 1)
 
-;; show pare brace
+;; Show a pair of braces
 (show-paren-mode 1)
 
-;; disable bar
+;; Disable bars
 (menu-bar-mode 0)
 (when window-system
   (tool-bar-mode 0)

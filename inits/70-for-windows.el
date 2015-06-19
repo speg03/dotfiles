@@ -1,6 +1,6 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
-;; for Windows
+;; for Windows GUI
 (when (eq window-system 'w32)
   (set-file-name-coding-system 'cp932)
 

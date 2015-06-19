@@ -1,5 +1,6 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
+;; Use Emacs as a server
 (require 'server)
 
 ;; server-start for GUI

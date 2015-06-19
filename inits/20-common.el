@@ -1,27 +1,27 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
-;; encoding
+;; Encoding
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 
-;; avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
+;; Avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
 (setq-default vc-follow-symlinks t)
 
-;; no backup files
+;; No backup files
 (setq-default make-backup-files nil)
 (setq-default auto-save-default nil)
 
-;; not insert final newline
+;; Don't insert final newline
 (setq-default mode-require-final-newline nil)
 
 ;; Don't use tabs for indentation as default
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;; enable to delete region
+;; Enable to delete region
 (delete-selection-mode 1)
 
-;; list-buffer to bs
+;; Buffer list
 (setq-default bs-configurations
       '(;; name
         ;; regex of display buffer
