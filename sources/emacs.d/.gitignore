@@ -1,7 +1,0 @@
-*.elc
-ac-comphist.dat
-auto-save-list/*
-elisp/*
-packages/*
-
-!.gitkeep
