@@ -2,7 +2,8 @@
 
 (require 'server)
 
-(when (eq window-system 'w32)
+;; server-start for GUI
+(when window-system
   (unless (server-running-p)
     (server-start)))
 
