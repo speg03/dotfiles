@@ -18,4 +18,7 @@
        (interactive)
        (progn
          (kill-this-buffer)
-         (suspend-frame)))))
+         (suspend-frame))))
+
+  ;; End
+  )
