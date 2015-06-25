@@ -17,3 +17,7 @@
 (when window-system
   (tool-bar-mode 0)
   (scroll-bar-mode 0))
+
+;; zenburn-theme
+(when (install-and-require 'zenburn-theme)
+  (load-theme 'zenburn t))
