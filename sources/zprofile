@@ -1,6 +1,6 @@
 export LANG=ja_JP.UTF-8
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
-export EDITOR='emacsclient -e nil >/dev/null 2>&1 || emacs --daemon; emacsclient -t'
+export EDITOR='emacsclient -t'
 
 ## rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
