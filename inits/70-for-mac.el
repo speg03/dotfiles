@@ -13,13 +13,5 @@
                     'japanese-jisx0208
                     (font-spec :family "源ノ角ゴシック Code JP M"))
 
-  ;; Assign C-x C-c to suspend-frame instead of kill-emacs
-  (define-key global-map (kbd "C-x C-c")
-    '(lambda ()
-       (interactive)
-       (progn
-         (kill-this-buffer)
-         (suspend-frame))))
-
   ;; End
   )
