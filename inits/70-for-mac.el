@@ -13,7 +13,7 @@
                         :height 120)
     (set-fontset-font (frame-parameter nil 'font)
                       'japanese-jisx0208
-                      (font-spec :family "源ノ角ゴシック Code JP M"))
+                      (font-spec :family "源ノ角ゴシック Code JP R"))
 
     ;; End of window-system
     )
