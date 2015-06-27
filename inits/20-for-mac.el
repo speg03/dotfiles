@@ -7,6 +7,9 @@
 
   ;; for GUI
   (when window-system
+    ;; Emacsclient for magit
+    (setq-default magit-emacsclient-executable "/usr/local/bin/emacsclient")
+
     ;; Font
     (set-face-attribute 'default nil
                         :family "源ノ角ゴシック Code JP R"
