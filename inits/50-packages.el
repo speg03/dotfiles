@@ -28,6 +28,10 @@
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
   (helm-mode 1))
 
+;; magit
+(when (install-and-require 'magit)
+  (global-set-key (kbd "C-x g") 'magit-status))
+
 ;; markdown-mode
 (when (install-and-require 'markdown-mode)
   (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
