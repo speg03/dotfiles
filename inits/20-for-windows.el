@@ -2,6 +2,7 @@
 
 ;; Configurations for Windows
 (when (eq system-type 'windows-nt)
+  ;; File encoding
   (set-file-name-coding-system 'cp932)
 
   ;; for GUI
