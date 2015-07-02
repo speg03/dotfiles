@@ -5,9 +5,10 @@
   ;; File encoding
   (set-file-name-coding-system 'cp932)
 
+  ;; ----------
   ;; for GUI
   (when window-system
-    ;; Font
+    ;; Font (Source Han Code JP)
     (set-face-attribute 'default nil
                         :family "源ノ角ゴシック Code JP R"
                         :height 110)
@@ -22,5 +23,5 @@
          (progn
            (kill-this-buffer)
            (suspend-frame))))
-    ) ; End for GUI
-  ) ; End for configurations
+    ) ; End (for GUI)
+  ) ; End (Configurations for Windows)
