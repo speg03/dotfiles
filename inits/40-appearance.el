@@ -12,12 +12,19 @@
 ;; Show a pair of braces
 (show-paren-mode 1)
 
-;; Disable bars
+;; Disable menu bar
 (menu-bar-mode 0)
-(when window-system
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0))
 
-;; zenburn-theme
-(when (install-and-require 'zenburn-theme)
-  (load-theme 'zenburn t))
+;; ----------
+;; for GUI
+(when window-system
+  ;; Disable tool bar
+  (tool-bar-mode 0)
+
+  ;; Disable scroll bar
+  (scroll-bar-mode 0)
+
+  ;; zenburn-theme
+  (when (install-and-require 'zenburn-theme)
+    (load-theme 'zenburn t))
+  ) ; End (for GUI)
