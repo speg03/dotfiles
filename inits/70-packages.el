@@ -13,9 +13,6 @@
   (eval-after-load "undo-tree"
     '(diminish 'undo-tree-mode)))
 
-;; git-commit-mode
-(install-and-require 'git-commit-mode)
-
 ;; git-gutter
 (when (install-and-require 'git-gutter)
   (global-git-gutter-mode t))
