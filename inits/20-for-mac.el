@@ -8,8 +8,9 @@
   ;; ----------
   ;; for GUI
   (when window-system
-    ;; Emacsclient for magit
-    (setq-default magit-emacsclient-executable "/usr/local/bin/emacsclient")
+    ;; Set PATH variable for emacsclient used by magit
+    (when (install-and-require 'exec-path-from-shell)
+      (exec-path-from-shell-initialize))
 
     ;; Font (Source Han Code JP)
     (set-face-attribute 'default nil
