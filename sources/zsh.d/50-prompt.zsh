@@ -27,7 +27,8 @@ function _vcs_info_prompt() {
         return 0
     fi
 
-    git_status=`git status -b --porcelain`
+    git_status=$(git status -b --porcelain 2>/dev/null)
+    git_stash=$(git stash list 2>/dev/null)
 
     ### ブランチ名
     vcs_message="%F{cyan}(${vcs_info_msg_0_})%f "
@@ -43,7 +44,7 @@ function _vcs_info_prompt() {
     [[ -n "${vcs_info_msg_2_}" ]] && vcs_message+="%F{red}${vcs_info_msg_2_}%f"
 
     ### stash がある場合
-    [[ -n "`git stash list`" ]] && vcs_message+="%F{yellow}S%f"
+    [[ -n "${git_stash}" ]] && vcs_message+="%F{yellow}S%f"
 
     ### untracked なファイルがある場合
     if command echo "${git_status}" | \grep '^??' >/dev/null 2>&1; then
@@ -57,6 +58,6 @@ function _vcs_info_prompt() {
 }
 
 function _update_prompt() {
-    PROMPT="`_base_prompt` `_vcs_info_prompt`"$'\n%(!.%F{red}#%f.$) '
+    PROMPT="$(_base_prompt) $(_vcs_info_prompt)"$'\n%(!.%F{red}#%f.$) '
 }
 add-zsh-hook precmd _update_prompt
