@@ -19,6 +19,7 @@ function _base_prompt() {
 function _vcs_info_prompt() {
     local vcs_message
     local git_status
+    local git_stash
 
     LANG=en_US.UTF-8 vcs_info
 
