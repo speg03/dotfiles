@@ -2,6 +2,20 @@
 
 cd $(dirname $0)
 
+## Check if required packages exist
+packages="curl git go zsh"
+for package in $packages; do
+    if ! hash $package 2>/dev/null; then
+        require_packages="$require_packages $package"
+    fi
+done
+
+if [ -n "$require_packages" ]; then
+    echo "!!! You need to install packages:$require_packages"
+    exit 1
+fi
+
+## Create symbolic links of dotfiles at HOME
 find sources -maxdepth 1 -mindepth 1 \
     -exec sh -c 'ln -snf $(pwd)/{} $HOME/.$(basename {})' \;
 
