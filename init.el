@@ -20,6 +20,9 @@
   (when (require pkg nil t)
     (message "INFO: Loaded %s." pkg)))
 
+(when (file-exists-p "~/.emacs.d/proxy.el")
+  (load-file "~/.emacs.d/proxy.el"))
+
 (when (require 'package nil t)
   (setq package-user-dir "~/.emacs.d/packages/")
   (add-to-list 'package-archives

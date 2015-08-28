@@ -4,5 +4,6 @@ auto-save-list
 elisp/*
 packages/*
 server
+proxy.el
 
 !.gitkeep

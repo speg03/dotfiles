@@ -1,0 +1,13 @@
+;;; -*- coding: utf-8; mode: emacs-lisp; -*-
+
+;;; Proxy Server
+
+;; (setq url-proxy-services
+;;       '(("http"  . "proxyhostname:port")
+;;         ("https" . "proxyhostname:port")))
+
+;;; Proxy Authentication
+
+;; (setq url-http-proxy-basic-auth-storage
+;;       '(("proxyhostname:port"
+;;          ("Proxy" . (base64-encode-string "username:password")))))
