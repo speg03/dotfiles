@@ -5,7 +5,7 @@
 
 ;; server-start for GUI
 (when window-system
-  (unless (server-running-p)
+  (unless (eq (server-running-p) t)
     (server-start)))
 
 ;; Do not confirm server-kill-buffer
