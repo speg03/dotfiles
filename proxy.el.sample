@@ -7,7 +7,7 @@
 ;;         ("https" . "proxyhostname:port")))
 
 ;;; Proxy Authentication
+;;;   eval (base64-encode-string "username:password") to get the base64string
 
 ;; (setq url-http-proxy-basic-auth-storage
-;;       '(("proxyhostname:port"
-;;          ("Proxy" . (base64-encode-string "username:password")))))
+;;       '(("proxyhostname:port" ("Proxy" . "base64string"))))
