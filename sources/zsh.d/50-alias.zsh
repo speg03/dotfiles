@@ -27,9 +27,8 @@ alias d='docker'
 alias ds='docker ps'
 alias dl='docker ps -lq'
 alias di='docker images'
-alias dclean='docker ps -aq | xargs docker rm'
-alias dcleani='docker images -qf "dangling=true" | xargs docker rmi'
-alias dup='docker run -dp 3222:22 -v `pwd`:/docker speg03/sshd-centos'
+alias dclean='docker ps -q -f status=exited | xargs --no-run-if-empty docker rm'
+alias dcleani='docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi'
 
 alias cdr='cd $(ghq list -p | peco)'
 
