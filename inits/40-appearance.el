@@ -15,6 +15,10 @@
 ;; Disable menu bar
 (menu-bar-mode 0)
 
+;; zenburn-theme
+(when (install-and-require 'zenburn-theme)
+  (load-theme 'zenburn t))
+
 ;; ----------
 ;; for GUI
 (when window-system
@@ -23,8 +27,4 @@
 
   ;; Disable scroll bar
   (scroll-bar-mode 0)
-
-  ;; zenburn-theme
-  (when (install-and-require 'zenburn-theme)
-    (load-theme 'zenburn t))
   ) ; End (for GUI)
