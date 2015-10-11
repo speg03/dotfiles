@@ -21,7 +21,7 @@ alias gcf='git clean -dxf'
 
 alias ts='tig status'
 
-alias v='pecrant'
+alias v='vagrant'
 
 alias d='docker'
 alias ds='docker ps'
