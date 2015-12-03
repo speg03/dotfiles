@@ -5,7 +5,7 @@ cd $(dirname $0)
 ## Check if required packages exist
 packages="curl git go zsh"
 for package in $packages; do
-    if ! hash $package 2>/dev/null; then
+    if ! type $package &>/dev/null; then
         require_packages="$require_packages $package"
     fi
 done
