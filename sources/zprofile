@@ -24,5 +24,8 @@ if [ -e $HOME/.zprofile.local ]; then
     source $HOME/.zprofile.local
 fi
 
+## Vagrant
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+
 ## user specific PATHs
 export PATH=$HOME/local/bin:$HOME/bin:$PATH
