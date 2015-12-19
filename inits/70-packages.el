@@ -39,6 +39,9 @@
   (define-key markdown-mode-map (kbd "M-p") nil)
   (setq markdown-command "pandoc"))
 
+;; terraform-mode
+(install-and-require 'terraform-mode)
+
 ;; undo-tree
 (when (install-and-require 'undo-tree)
   (global-undo-tree-mode t))
