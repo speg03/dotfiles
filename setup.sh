@@ -35,6 +35,11 @@ if [ ! -e $HOME/.rbenv ]; then
     git clone https://github.com/sstephenson/ruby-build $HOME/.rbenv/plugins/ruby-build
 fi
 
+## tpm
+if [ ! -e $HOME/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
+
 ## tools
 . $HOME/.zprofile
 go get github.com/motemen/ghq
