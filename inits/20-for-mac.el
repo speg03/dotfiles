@@ -12,12 +12,7 @@
     (when (install-and-require 'exec-path-from-shell)
       (exec-path-from-shell-initialize))
 
-    ;; Font (Source Han Code JP)
-    (set-face-attribute 'default nil
-                        :family "源ノ角ゴシック Code JP R"
-                        :height 120)
-    (set-fontset-font (frame-parameter nil 'font)
-                      'japanese-jisx0208
-                      (font-spec :family "源ノ角ゴシック Code JP R"))
+    ;; Font size
+    (set-face-attribute 'default nil :height 140)
     ) ; End (for GUI)
   ) ; End (Configurations for Mac)
