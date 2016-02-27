@@ -22,6 +22,9 @@
 
 ;; helm
 (when (install-and-require 'helm)
+  (global-set-key (kbd "M-x") 'undefined)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
   (helm-mode 1))
 
