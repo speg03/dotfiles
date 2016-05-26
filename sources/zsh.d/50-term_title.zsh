@@ -5,7 +5,5 @@ function _update_term_title() {
     print -Pn "\e]0;%~\a"
 }
 
-if [ "$TERM" = "screen" ]; then
-    add-zsh-hook chpwd _update_term_title
-    _update_term_title
-fi
+add-zsh-hook chpwd _update_term_title
+_update_term_title
