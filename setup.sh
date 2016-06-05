@@ -20,14 +20,12 @@ find sources -maxdepth 1 -mindepth 1 \
     -exec sh -c 'ln -snf $(pwd)/{} $HOME/.$(basename {})' \;
 
 ## completion for zsh
-if [ "$(uname)" = "Linux" ]; then
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh \
-        -o $HOME/.zsh.d/completion/_git
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
-        -o $HOME/.zsh.d/completion/git-completion.bash
-    curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker \
-        -o $HOME/.zsh.d/completion/_docker
-fi
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh \
+     -o $HOME/.zsh.d/completion/_git
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash \
+     -o $HOME/.zsh.d/completion/git-completion.bash
+curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker \
+     -o $HOME/.zsh.d/completion/_docker
 
 ## rbenv
 if [ ! -e $HOME/.rbenv ]; then
