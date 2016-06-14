@@ -29,8 +29,6 @@ alias d='docker'
 alias ds='docker ps'
 alias dl='docker ps -lq'
 alias di='docker images'
-alias dclean='docker ps -q -f status=exited | xargs --no-run-if-empty docker rm'
-alias dcleani='docker images -q -f dangling=true | xargs --no-run-if-empty docker rmi'
 
 alias d-proxy-build="docker build --build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy --build-arg no_proxy=$no_proxy"
 
