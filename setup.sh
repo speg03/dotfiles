@@ -27,10 +27,11 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker \
      -o $HOME/.zsh.d/completion/_docker
 
-## rbenv
-if [ ! -e $HOME/.rbenv ]; then
-    git clone https://github.com/sstephenson/rbenv $HOME/.rbenv
-    git clone https://github.com/sstephenson/ruby-build $HOME/.rbenv/plugins/ruby-build
+## anyenv
+if [ ! -e $HOME/.anyenv ]; then
+    git clone https://github.com/riywo/anyenv $HOME/.anyenv
+    mkdir -p $HOME/.anyenv/plugins
+    git clone https://github.com/znz/anyenv-update $HOME/.anyenv/plugins/anyenv-update
 fi
 
 ## tpm
