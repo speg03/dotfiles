@@ -1,5 +1,5 @@
 export LANG=en_US.UTF-8
-export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export EDITOR='emacsclient -t'
 
 ## Suppress password dialogs
