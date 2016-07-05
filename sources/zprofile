@@ -1,3 +1,5 @@
+# -*- coding: utf-8; mode: shell-script; -*-
+
 export LANG=en_US.UTF-8
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export EDITOR='emacsclient -t'
