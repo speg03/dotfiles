@@ -39,11 +39,6 @@ if [ ! -e $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
-## tools
-. $HOME/.zprofile
-go get github.com/motemen/ghq
-go get github.com/peco/peco/cmd/peco
-
 ## git config
 if [ ! -e $HOME/.gitconfig.local ]; then
     git config -f $HOME/.gitconfig.local user.name 'Takahiro Yano'
