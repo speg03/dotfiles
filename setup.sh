@@ -3,7 +3,7 @@
 cd $(dirname $0)
 
 ## Check if required packages exist
-packages="curl git go zsh"
+packages="curl git zsh"
 for package in $packages; do
     if ! type $package &>/dev/null; then
         require_packages="$require_packages $package"
@@ -38,15 +38,6 @@ fi
 if [ ! -e $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
-
-## tools
-. $HOME/.zprofile
-go get -u github.com/Songmu/ghg/cmd/ghg
-
-go get -u github.com/motemen/gore
-go get -u github.com/nsf/gocode
-go get -u github.com/k0kubun/pp
-go get -u golang.org/x/tools/cmd/godoc
 
 ## git config
 if [ ! -e $HOME/.gitconfig.local ]; then
