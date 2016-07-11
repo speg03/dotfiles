@@ -15,8 +15,17 @@ if type anyenv &>/dev/null; then
     eval "$(anyenv init -)"
 fi
 
+## go
+if [ ! -d $HOME/.go ]; then
+    mkdir $HOME/.go
+fi
+export GOPATH=$HOME/.go
+export PATH=$HOME/.go/bin:$PATH
+
 ## ghg
-export PATH=$HOME/.ghg/bin:$PATH
+if type ghg &>/dev/null; then
+    export PATH=$(ghg bin):$PATH
+fi
 
 ## Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
