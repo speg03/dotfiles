@@ -43,6 +43,11 @@ fi
 . $HOME/.zprofile
 go get -u github.com/Songmu/ghg/cmd/ghg
 
+go get -u github.com/motemen/gore
+go get -u github.com/nsf/gocode
+go get -u github.com/k0kubun/pp
+go get -u golang.org/x/tools/cmd/godoc
+
 ## git config
 if [ ! -e $HOME/.gitconfig.local ]; then
     git config -f $HOME/.gitconfig.local user.name 'Takahiro Yano'
