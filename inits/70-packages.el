@@ -42,6 +42,12 @@
   (define-key markdown-mode-map (kbd "M-p") nil)
   (setq markdown-command "pandoc"))
 
+;; matlab-mode
+(when (require 'matlab)
+  (add-hook 'matlab-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-h") 'backward-delete-char-untabify))))
+
 ;; terraform-mode
 (install-and-require 'terraform-mode)
 
