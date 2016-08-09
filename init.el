@@ -12,12 +12,12 @@
 
 (add-to-load-path "elisp")
 
-(defun install-and-require (pkg)
-  "Install and require the package."
-  (unless (require pkg nil t)
+(defun install-package-if-not-exist (pkg)
+  "Install the package if it does not exist."
+  (unless (package-installed-p pkg)
     (message "INFO: Installing %s ..." pkg)
     (package-install pkg))
-  (when (require pkg nil t)
+  (when (package-installed-p pkg)
     (message "INFO: Loaded %s." pkg)))
 
 (when (file-exists-p "~/.emacs.d/proxy.el")
@@ -30,7 +30,8 @@
   (package-initialize)
   (package-refresh-contents)
 
-  (when (install-and-require 'init-loader)
+  (when (install-package-if-not-exist 'init-loader)
+    (require 'init-loader)
     (init-loader-load "~/.emacs.d/inits/")))
 
 (custom-set-variables

@@ -9,7 +9,7 @@
   ;; for GUI
   (when window-system
     ;; Set PATH variable for emacsclient used by magit
-    (when (install-and-require 'exec-path-from-shell)
+    (when (install-package-if-not-exist 'exec-path-from-shell)
       (exec-path-from-shell-initialize))
 
     ;; Font size

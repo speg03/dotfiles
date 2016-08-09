@@ -16,7 +16,7 @@
 (menu-bar-mode 0)
 
 ;; zenburn-theme
-(when (install-and-require 'zenburn-theme)
+(when (install-package-if-not-exist 'zenburn-theme)
   (load-theme 'zenburn t))
 
 ;; ----------
