@@ -33,18 +33,3 @@
   (when (install-package-if-not-exist 'init-loader)
     (require 'init-loader)
     (init-loader-load "~/.emacs.d/inits/")))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (zenburn-theme yaml-mode web-mode wc-mode undo-tree terraform-mode scala-mode2 markdown-mode magit init-loader helm go-mode git-gutter diminish auto-complete))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
