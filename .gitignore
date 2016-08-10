@@ -2,6 +2,7 @@
 .#ac-comphist.dat
 ac-comphist.dat
 auto-save-list
+custom/*
 elisp/*
 packages/*
 server

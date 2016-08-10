@@ -12,6 +12,13 @@
 
 (add-to-load-path "elisp")
 
+(setq emacs-version-short (replace-regexp-in-string
+                           "\\([0-9]+\\)\\.\\([0-9]+\\).*"
+                           "\\1_\\2" emacs-version))
+(setq custom-file (expand-file-name
+                   (concat "custom/custom_" emacs-version-short ".el")
+                   user-emacs-directory))
+
 (defun install-package-if-not-exist (pkg)
   "Install the package if it does not exist."
   (unless (package-installed-p pkg)
