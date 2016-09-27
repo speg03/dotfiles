@@ -8,7 +8,7 @@ alias dcleani='docker images -q -f dangling=true | xargs --no-run-if-empty docke
 
 if [ ! -e $HOME/bin/reattach-to-user-namespace ]; then
     mkdir -p $HOME/bin
-    cat <<EOF >$HOME/bin/reattach-to-user-namespace
+    cat <<'EOF' >$HOME/bin/reattach-to-user-namespace
 #!/bin/sh
 exec $SHELL
 EOF
