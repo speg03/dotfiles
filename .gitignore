@@ -5,7 +5,8 @@ auto-save-list
 custom/*
 elisp/*
 packages/*
-server
 proxy.el
+server
+srecode-map.el
 
 !.gitkeep
