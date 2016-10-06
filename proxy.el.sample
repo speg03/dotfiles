@@ -1,13 +1,5 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
-;;; Proxy Server
-
-;; (setq url-proxy-services
-;;       '(("http"  . "proxyhostname:port")
-;;         ("https" . "proxyhostname:port")))
-
-;;; Proxy Authentication
-;;;   eval (base64-encode-string "username:password") to get the base64string
-
-;; (setq url-http-proxy-basic-auth-storage
-;;       '(("proxyhostname:port" ("Proxy" . "base64string"))))
+;; (setenv "http_proxy" "http://proxyhost:proxyport")
+;; (setenv "https_proxy" (getenv "http_proxy"))
+;; (setenv "no_proxy" "localhost,127.0.0.1")
