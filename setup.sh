@@ -44,3 +44,12 @@ if [ ! -e $HOME/.gitconfig.local ]; then
     git config -f $HOME/.gitconfig.local user.name 'Takahiro Yano'
     git config -f $HOME/.gitconfig.local user.email 'speg03@gmail.com'
 fi
+
+## netrc
+if [ ! -e $HOME/.netrc ]; then
+    cat <<EOF >$HOME/.netrc
+#machine github.com
+#  login speg03
+#  password ACCESS_TOKEN
+EOF
+fi
