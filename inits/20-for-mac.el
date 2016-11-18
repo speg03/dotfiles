@@ -13,6 +13,8 @@
       (exec-path-from-shell-initialize))
 
     ;; Font size
-    (set-face-attribute 'default nil :height 140)
+    (setq default-face-attribute-height 160)
+    (set-face-attribute 'default nil
+                        :height default-face-attribute-height)
     ) ; End (for GUI)
   ) ; End (Configurations for Mac)
