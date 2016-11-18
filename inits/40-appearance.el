@@ -19,7 +19,25 @@
 (when (install-package-if-not-exist 'zenburn-theme)
   (load-theme 'zenburn t))
 
-;; ----------
+;; Font size
+(defun increment-font-height ()
+  "Increment height of face attributes"
+  (interactive)
+  (set-face-attribute 'default nil
+                      :height (+ (face-attribute 'default :height) 20)))
+
+(defun decrement-font-height ()
+  "Decrement height of face attributes"
+  (interactive)
+  (set-face-attribute 'default nil
+                      :height (- (face-attribute 'default :height) 20)))
+
+(defun reset-font-height ()
+  "Reset height of face attributes"
+  (interactive)
+  (set-face-attribute 'default nil
+                      :height default-face-attribute-height))
+
 ;; for GUI
 (when window-system
   ;; Disable tool bar

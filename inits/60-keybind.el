@@ -11,3 +11,8 @@
 (define-key global-map (kbd "C-x C-b") 'bs-show)
 (define-key global-map (kbd "M-n") 'bs-cycle-previous)
 (define-key global-map (kbd "M-p") 'bs-cycle-next)
+
+;; Font
+(define-key global-map (kbd "C-+") 'increment-font-height)
+(define-key global-map (kbd "C-=") 'decrement-font-height)
+(define-key global-map (kbd "C-0") 'reset-font-height)
