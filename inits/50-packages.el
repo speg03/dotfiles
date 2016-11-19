@@ -31,6 +31,11 @@
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
   (helm-mode 1))
 
+;; jedi
+(when (install-package-if-not-exist 'jedi)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:complete-on-dot t))
+
 ;; magit
 (when (install-package-if-not-exist 'magit)
   (setq magit-auto-revert-mode nil)
