@@ -33,8 +33,8 @@
 
 ;; jedi
 (when (install-package-if-not-exist 'jedi)
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (setq jedi:complete-on-dot t))
+  (setq jedi:complete-on-dot t)
+  (add-hook 'python-mode-hook 'jedi:setup))
 
 ;; magit
 (when (install-package-if-not-exist 'magit)
