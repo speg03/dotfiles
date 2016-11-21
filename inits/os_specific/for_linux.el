@@ -5,7 +5,7 @@
 ;; for GUI
 (when window-system
   ;; Font size
-  (setq default-face-attribute-height 100)
+  (setq default-face-attribute-height 110)
   (set-face-attribute 'default nil
                       :height default-face-attribute-height)
 
