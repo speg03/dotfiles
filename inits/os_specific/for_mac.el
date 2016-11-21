@@ -7,7 +7,7 @@
 
 ;; for GUI
 (when window-system
-  ;; Set PATH variable for emacsclient used by magit
+  ;; Set PATH variable
   (when (install-package-if-not-exist 'exec-path-from-shell)
     (exec-path-from-shell-initialize))
 
