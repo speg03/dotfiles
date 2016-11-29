@@ -52,4 +52,5 @@ if [ ! -e $HOME/.netrc ]; then
 #  login speg03
 #  password ACCESS_TOKEN
 EOF
+    chmod 0600 $HOME/.netrc
 fi
