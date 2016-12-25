@@ -1,18 +1,29 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
-;; auto-complete
-(when (install-package-if-not-exist 'auto-complete)
-  (require 'auto-complete-config)
-  (ac-config-default)
-  (global-auto-complete-mode t))
+;; company
+(when (install-package-if-not-exist 'company)
+  (global-company-mode t)
+  (global-set-key (kbd "M-/") 'company-complete)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous)
+  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+  (define-key company-active-map (kbd "C-i") 'company-complete-selection)
+  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+  (define-key company-active-map (kbd "C-h") 'backward-delete-char-untabify))
+
+;; company-quickhelp
+(when (install-package-if-not-exist 'company-quickhelp)
+  (company-quickhelp-mode t))
 
 ;; diminish
 (when (install-package-if-not-exist 'diminish)
-  (eval-after-load "auto-complete"
-    '(diminish 'auto-complete-mode))
-  (eval-after-load "git-gutter"
+  (eval-after-load 'company
+    '(diminish 'company-mode))
+  (eval-after-load 'git-gutter
     '(diminish 'git-gutter-mode))
-  (eval-after-load "undo-tree"
+  (eval-after-load 'undo-tree
     '(diminish 'undo-tree-mode)))
 
 ;; git-gutter
@@ -25,16 +36,17 @@
 ;; helm
 (when (install-package-if-not-exist 'helm)
   (require 'helm)
-  (global-set-key (kbd "M-x") 'undefined)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
   (helm-mode 1))
 
-;; jedi
-(when (install-package-if-not-exist 'jedi)
+;; company-jedi
+(when (install-package-if-not-exist 'company-jedi)
   (setq jedi:complete-on-dot t)
-  (add-hook 'python-mode-hook 'jedi:setup))
+  (setq jedi:use-shortcuts t)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-to-list 'company-backends 'company-jedi))
 
 ;; magit
 (when (install-package-if-not-exist 'magit)
