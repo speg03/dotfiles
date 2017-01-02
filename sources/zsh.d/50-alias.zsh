@@ -4,9 +4,6 @@ alias ll='ls -alF'
 alias lv='LANG=ja_JP.UTF-8 lv'
 alias grep='grep --color=auto -n'
 
-alias ej='termit en ja'
-alias je='termit ja en'
-
 alias be='bundle exec'
 alias tbe='RAILS_ENV=test bundle exec'
 alias dbe='RAILS_ENV=development bundle exec'
@@ -15,13 +12,6 @@ alias pbe='RAILS_ENV=production bundle exec'
 alias gs='git status -sb'
 alias gl='git log'
 alias gd='git diff'
-alias gcn='git clean -dxn'
-alias gcf='git clean -dxf'
-
-alias ts='tig status'
-
-alias v='vagrant'
-alias t='terraform'
 
 alias d='docker'
 alias ds='docker ps'
@@ -33,7 +23,6 @@ alias d-proxy-build="docker build --build-arg http_proxy=$http_proxy --build-arg
 alias jc='jupyter-console'
 alias jnb='jupyter-notebook --ip=0.0.0.0 --no-browser'
 alias cdr='cd $(ghq list -p | peco)'
-alias gore='GOROOT=$(go env GOROOT) gore'
 
 alias ..='cd ..'
 alias ...='cd ../..'
