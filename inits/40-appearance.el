@@ -15,6 +15,9 @@
 ;; Disable menu bar
 (menu-bar-mode 0)
 
+;; Disable tool bar
+(tool-bar-mode 0)
+
 ;; Line number
 (global-linum-mode 1)
 
@@ -40,12 +43,3 @@
   (interactive)
   (set-face-attribute 'default nil
                       :height default-face-attribute-height))
-
-;; for GUI
-(when window-system
-  ;; Disable tool bar
-  (tool-bar-mode 0)
-
-  ;; Disable scroll bar
-  (scroll-bar-mode 0)
-  ) ; End (for GUI)
