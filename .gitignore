@@ -1,6 +1,5 @@
 *.elc
 .#ac-comphist.dat
-.python-environments/
 ac-comphist.dat
 auto-save-list
 custom/*

@@ -13,9 +13,12 @@
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
   (define-key company-active-map (kbd "C-h") 'backward-delete-char-untabify))
 
-;; company-quickhelp
-(when (install-package-if-not-exist 'company-quickhelp)
-  (company-quickhelp-mode t))
+;; company-jedi
+(when (install-package-if-not-exist 'company-jedi)
+  (setq jedi:complete-on-dot t)
+  (setq jedi:use-shortcuts t)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-to-list 'company-backends 'company-jedi))
 
 ;; diminish
 (when (install-package-if-not-exist 'diminish)
@@ -41,13 +44,6 @@
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
   (helm-mode 1))
-
-;; company-jedi
-(when (install-package-if-not-exist 'company-jedi)
-  (setq jedi:complete-on-dot t)
-  (setq jedi:use-shortcuts t)
-  (add-hook 'python-mode-hook 'jedi:setup)
-  (add-to-list 'company-backends 'company-jedi))
 
 ;; magit
 (when (install-package-if-not-exist 'magit)
