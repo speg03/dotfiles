@@ -15,6 +15,9 @@
 ;; Disable menu bar
 (menu-bar-mode 0)
 
+;; Line number
+(global-linum-mode 1)
+
 ;; zenburn-theme
 (when (install-package-if-not-exist 'zenburn-theme)
   (load-theme 'zenburn t))

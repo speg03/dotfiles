@@ -28,7 +28,8 @@
 
 ;; git-gutter
 (when (install-package-if-not-exist 'git-gutter)
-  (global-git-gutter-mode t))
+  (global-git-gutter-mode t)
+  (git-gutter:linum-setup))
 
 ;; go-mode
 (install-package-if-not-exist 'go-mode)
