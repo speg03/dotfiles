@@ -4,14 +4,6 @@
 
 ;; for GUI
 (when window-system
-  ;; Set PATH variable
-  (when (install-package-if-not-exist 'exec-path-from-shell)
-    (exec-path-from-shell-initialize))
-
-  ;; Set PYENV_ROOT variable for pyenv
-  (setenv "PYENV_ROOT"
-          (concat (getenv "HOME") "/.anyenv/envs/pyenv"))
-
   ;; Mozc
   (when (install-package-if-not-exist 'mozc)
     (require 'mozc)
