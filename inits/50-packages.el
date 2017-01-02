@@ -64,6 +64,10 @@
             (lambda ()
               (local-set-key (kbd "C-h") 'backward-delete-char-untabify))))
 
+;; pyenv
+(when (install-package-if-not-exist 'pyenv-mode-auto)
+  (require 'pyenv-mode-auto))
+
 ;; terraform-mode
 (install-package-if-not-exist 'terraform-mode)
 
