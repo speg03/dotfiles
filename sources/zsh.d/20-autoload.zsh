@@ -1,5 +1,3 @@
-# -*- coding: utf-8; mode: shell-script; -*-
-
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh.d/completion $fpath)
 

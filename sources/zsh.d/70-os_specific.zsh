@@ -1,5 +1,3 @@
-# -*- coding: utf-8; mode: shell-script; -*-
-
 if [ "`uname`" = "Linux" ]; then
     source $HOME/.zsh.d/os_specific/for_linux.zsh
 fi

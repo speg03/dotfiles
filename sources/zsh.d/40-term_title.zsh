@@ -1,4 +1,4 @@
-# -*- coding: utf-8; mode: shell-script; -*-
+# -*- coding: utf-8; -*-
 
 function _update_term_title() {
     # xtermのタイトルに現在のディレクトリパスを設定

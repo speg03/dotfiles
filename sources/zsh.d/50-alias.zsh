@@ -1,4 +1,4 @@
-# -*- coding: utf-8; mode: shell-script; -*-
+# -*- coding: utf-8; -*-
 
 alias ll='ls -alF'
 alias lv='LANG=ja_JP.UTF-8 lv'

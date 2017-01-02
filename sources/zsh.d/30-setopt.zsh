@@ -1,5 +1,3 @@
-# -*- coding: utf-8; mode: shell-script; -*-
-
 unsetopt promptcr
 setopt prompt_subst
 

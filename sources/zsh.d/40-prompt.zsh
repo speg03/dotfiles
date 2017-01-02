@@ -1,4 +1,4 @@
-# -*- coding: utf-8; mode: shell-script; -*-
+# -*- coding: utf-8; -*-
 
 zstyle ':vcs_info:*' max-exports 4
 zstyle ':vcs_info:*' enable git
