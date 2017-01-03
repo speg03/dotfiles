@@ -26,6 +26,10 @@
     '(diminish 'company-mode))
   (eval-after-load 'git-gutter
     '(diminish 'git-gutter-mode))
+  (eval-after-load 'helm-mode
+    '(diminish 'helm-mode))
+  (eval-after-load 'magit
+    '(diminish 'auto-revert-mode))
   (eval-after-load 'undo-tree
     '(diminish 'undo-tree-mode)))
 
