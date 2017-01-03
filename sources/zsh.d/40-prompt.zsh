@@ -13,7 +13,10 @@ fi
 
 ### ベースのプロンプト
 function _base_prompt() {
-    print -Pn '%F{green}%n@%m%f:%F{yellow}%1~%f'
+    if [ -z "$HOSTNAME_COLOR" ]; then
+        HOSTNAME_COLOR=$(hostname_color)
+    fi
+    print -Pn "%F{$HOSTNAME_COLOR}%n@%m%f:%F{yellow}%1~%f"
 }
 
 function _vcs_info_prompt() {
