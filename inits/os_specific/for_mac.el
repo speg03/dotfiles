@@ -6,6 +6,6 @@
 (setq ns-command-modifier (quote meta))
 
 ;; Font size
-(setq default-face-attribute-height 160)
+(setq default-face-attribute-height 140)
 (set-face-attribute 'default nil
                     :height default-face-attribute-height)
