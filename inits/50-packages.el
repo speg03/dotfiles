@@ -70,7 +70,8 @@
 
 ;; pyenv
 (when (install-package-if-not-exist 'pyenv-mode-auto)
-  (require 'pyenv-mode-auto))
+  (require 'pyenv-mode-auto)
+  (add-hook 'python-mode-hook 'pyenv-mode))
 
 ;; terraform-mode
 (install-package-if-not-exist 'terraform-mode)
