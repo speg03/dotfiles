@@ -30,15 +30,6 @@ if type ghg &>/dev/null; then
     export PATH=$(ghg bin):$PATH
 fi
 
-## Heroku
-export PATH="/usr/local/heroku/bin:$PATH"
-
-## Vagrant
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
-
-## user specific PATHs
-export PATH=$HOME/local/bin:$HOME/bin:$PATH
-
 ## server specific profile
 if [ -e $HOME/.zprofile.local ]; then
     source $HOME/.zprofile.local
