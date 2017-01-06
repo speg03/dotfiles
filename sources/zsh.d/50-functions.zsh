@@ -20,13 +20,14 @@ function hostname_color() {
 ### Emacs
 
 function e() {
-    if emacsclient -e nil &>/dev/null; then
-        emacsclient -n "$@"
+    frames=$(emacsclient --eval '(length (visible-frame-list))' 2>/dev/null)
+    if [ -z "$frames" -o $frames -lt 2 ]; then
+        emacsclient --alternate-editor='' --create-frame --no-wait "$@"
     else
-        emacsclient -a '' -nc "$@"
+        emacsclient --no-wait "$@"
     fi
 }
 
 function kill-emacs() {
-    emacsclient -e '(kill-emacs)'
+    emacsclient --eval '(kill-emacs)'
 }
