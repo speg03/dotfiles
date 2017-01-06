@@ -23,14 +23,14 @@ function hostname_color() {
 ### Emacs
 
 function e() {
-    frames=$(emacsclient --eval '(length (visible-frame-list))' 2>/dev/null)
-    if [ -z "$frames" -o $frames -lt 2 ]; then
-        emacsclient --alternate-editor='' --create-frame --no-wait "$@"
+    frame_count=$(emacsclient -a '' -e '(length (visible-frame-list))')
+    if [ $frame_count -lt 2 ]; then
+        emacsclient -nc "$@"
     else
-        emacsclient --no-wait "$@"
+        emacsclient -n "$@"
     fi
 }
 
 function kill-emacs() {
-    emacsclient --eval '(kill-emacs)'
+    emacsclient -e '(kill-emacs)'
 }
