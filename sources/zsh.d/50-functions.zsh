@@ -1,9 +1,12 @@
 ### Color
 
-function print_colors() {
+function color_map() {
     for color in $(seq 0 255); do
+        if [ $(expr $color % 8) -eq 0 ]; then
+            echo
+        fi
         formatted_number=$(printf '%3d' $color)
-        print -Pn "%F{$color}$formatted_number%f "
+        print -Pn " %F{$color}$formatted_number%f"
     done
     echo
 }
