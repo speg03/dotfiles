@@ -13,8 +13,3 @@
 (setq default-face-attribute-height 110)
 (set-face-attribute 'default nil
                     :height default-face-attribute-height)
-
-;; Font (Source Han Code JP)
-(set-fontset-font (frame-parameter nil 'font)
-                  'japanese-jisx0208
-                  (font-spec :family "VL Gothic"))
