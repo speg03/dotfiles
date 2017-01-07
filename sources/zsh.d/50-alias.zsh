@@ -12,6 +12,7 @@ alias pbe='RAILS_ENV=production bundle exec'
 alias gs='git status -sb'
 alias gl='git log'
 alias gd='git diff'
+alias gsync='rsync -avzC --exclude=".git/" --filter=":- /.gitignore"'
 
 alias d='docker'
 alias ds='docker ps'
