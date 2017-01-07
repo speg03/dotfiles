@@ -31,7 +31,7 @@ function e() {
     fi
 }
 
-function kill-emacs() {
+function kill_emacs() {
     emacsclient -e '(kill-emacs)'
 }
 
