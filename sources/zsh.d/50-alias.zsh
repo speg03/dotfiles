@@ -9,7 +9,6 @@ alias tbe='RAILS_ENV=test bundle exec'
 alias dbe='RAILS_ENV=development bundle exec'
 alias pbe='RAILS_ENV=production bundle exec'
 
-alias g='_repo=$(ghq list -p | peco); [ -n "$_repo" ] && cd $_repo'
 alias gs='git status -sb'
 alias gl='git log'
 alias gd='git diff'

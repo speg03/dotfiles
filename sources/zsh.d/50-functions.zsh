@@ -34,3 +34,13 @@ function e() {
 function kill-emacs() {
     emacsclient -e '(kill-emacs)'
 }
+
+
+### Repository
+
+function g() {
+    repository=$(ghq list -p | peco)
+    if [ -n "$repository" ]; then
+        cd $repository
+    fi
+}
