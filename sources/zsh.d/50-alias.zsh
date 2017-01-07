@@ -1,5 +1,7 @@
 # -*- coding: utf-8; -*-
 
+alias reload='exec zsh -l'
+
 alias ll='ls -alF'
 alias lv='LANG=ja_JP.UTF-8 lv'
 alias grep='grep --color=auto -n'
