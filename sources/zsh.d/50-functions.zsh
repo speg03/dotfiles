@@ -39,8 +39,16 @@ function kill_emacs() {
 ### Repository
 
 function g() {
-    local repository=$(ghq list -p | peco)
+    local query
+    if [ $# -gt 0 ]; then
+        query="-q $@"
+    fi
+
+    local repository=$(ghq list -p | fzf-tmux --reverse -1 -0 $query)
     if [ -n "$repository" ]; then
         cd $repository
+    else
+        echo "Not do anything"
+        return 1
     fi
 }
