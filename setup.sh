@@ -34,6 +34,12 @@ if [ ! -e $HOME/.anyenv ]; then
     git clone https://github.com/znz/anyenv-update $HOME/.anyenv/plugins/anyenv-update
 fi
 
+## fzf
+if [ ! -e $HOME/.fzf ]; then
+    git clone https://github.com/junegunn/fzf $HOME/.fzf
+    $HOME/.fzf/install --bin
+fi
+
 ## tpm
 if [ ! -e $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
