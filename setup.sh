@@ -3,7 +3,7 @@
 cd $(dirname $0)
 
 ## Check if required packages exist
-packages="curl git zsh"
+packages="curl git go zsh"
 for package in $packages; do
     if ! type $package &>/dev/null; then
         require_packages="$require_packages $package"
@@ -43,6 +43,19 @@ fi
 ## tpm
 if [ ! -e $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+    $HOME/.tmux/plugins/tpm/bin/install_plugins
+fi
+
+## Load PATH
+source $HOME/.zprofile
+
+## Go packages
+go get -u github.com/motemen/ghq
+
+## pyenv
+if ! type pyenv &>/dev/null; then
+    anyenv install pyenv
+    git clone https://github.com/yyuu/pyenv-virtualenv.git $HOME/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
 fi
 
 ## git config
