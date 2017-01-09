@@ -48,7 +48,7 @@ function g() {
     if [ -n "$repository" ]; then
         cd $repository
     else
-        echo "Not do anything"
+        echo "Do not anything" >&2
         return 1
     fi
 }
