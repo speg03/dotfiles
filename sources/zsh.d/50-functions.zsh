@@ -1,8 +1,11 @@
 ### Color
 
 function color_map() {
+    local color
+    local formatted_number
+
     for color in $(seq 0 255); do
-        local formatted_number=$(printf '%3d' $color)
+        formatted_number=$(printf '%3d' $color)
         print -Pn " %F{$color}$formatted_number%f"
         if [ $(expr $color % 8) -eq 7 ]; then
             echo
