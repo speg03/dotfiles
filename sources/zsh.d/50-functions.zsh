@@ -41,7 +41,7 @@ function kill_emacs() {
 function g() {
     local query
     if [ $# -gt 0 ]; then
-        query="-q $@"
+        query="-q $*"
     fi
 
     local repository=$(ghq list -p | fzf-tmux -1 -0 $query)
