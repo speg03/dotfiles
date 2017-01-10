@@ -31,11 +31,6 @@ fi
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
 
-## ghg
-if type ghg &>/dev/null; then
-    export PATH=$(ghg bin):$PATH
-fi
-
 ## server specific profile
 if [ -e $HOME/.zprofile.local ]; then
     source $HOME/.zprofile.local
