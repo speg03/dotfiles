@@ -74,7 +74,7 @@ function install_tools() {
 
     # load anyenv
     echo "### Loading anyenv ..."
-    PATH=$HOME/.anyenv/bin:$PATH
+    export PATH=$HOME/.anyenv/bin:$PATH
     eval "$(anyenv init -)"
     echo
 
@@ -104,7 +104,7 @@ function install_tools() {
     fi
 
     # Go packages
-    GOPATH=$HOME/.go
+    export GOPATH=$HOME/.go
     echo "### Installing ghq ..."
     go get -u github.com/motemen/ghq
 }
