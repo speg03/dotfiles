@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function install_configurations() {
+    # dotemacs repository
+    local dotemacs=$HOME/.ghq/github.com/speg03/dotemacs
+    if [ ! -e $dotemacs ]; then
+        echo "### Downloading dotemacs ..."
+        git clone https://github.com/speg03/dotemacs $dotemacs
+        echo
+    fi
+    cd $dotemacs
+
+    # symlinks
+    echo "### Creating links to dotemacs ..."
+    ln -snf $(pwd) $HOME/.emacs.d
+}
+
+function main() {
+    install_configurations
+}
+
+main
