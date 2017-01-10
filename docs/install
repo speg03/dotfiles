@@ -19,13 +19,13 @@ function check_packages_installed() {
 
 function install_configurations() {
     # dotfiles repository
-    echo "### Downloading dotfiles ..."
     local dotfiles=$HOME/.ghq/github.com/speg03/dotfiles
     if [ ! -e $dotfiles ]; then
+        echo "### Downloading dotfiles ..."
         git clone https://github.com/speg03/dotfiles $dotfiles
+        echo
     fi
     cd $dotfiles
-    echo
 
     # symlinks
     echo "### Creating links to dotfiles ..."
