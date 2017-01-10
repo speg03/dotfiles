@@ -1,0 +1,108 @@
+#!/bin/bash
+
+function check_packages_installed() {
+    local packages="curl git go"
+    local require_packages
+    local pkg
+    for pkg in $packages; do
+        if ! type $package &>/dev/null; then
+            require_packages="$require_packages $pkg"
+        fi
+    done
+
+    if [ -n "$require_packages" ]; then
+        echo "!!! You need to install packages:$require_packages"
+        exit 1
+    fi
+}
+
+function install_configurations() {
+    # dotfiles repository
+    echo "Download dotfiles..."
+    local dotfiles=$HOME/.ghq/github.com/speg03/dotfiles
+    if [ ! -e $dotfiles ]; then
+        git clone https://github.com/speg03/dotfiles $dotfiles
+    fi
+    cd $dotfiles
+
+    # symlinks
+    echo "Create links to dotfiles..."
+    find sources -maxdepth 1 -mindepth 1 \
+         -exec sh -c 'ln -snf $(pwd)/{} $HOME/.$(basename {})' \;
+
+    # zsh completion
+    echo "Download completions for zsh"
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o $HOME/.zsh.d/completion/_git
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $HOME/.zsh.d/completion/git-completion.bash
+    curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o $HOME/.zsh.d/completion/_docker
+
+    # git config
+    if [ ! -e $HOME/.gitconfig.local ]; then
+        echo "Create git configuration for local..."
+        git config -f $HOME/.gitconfig.local user.name 'Takahiro Yano'
+        git config -f $HOME/.gitconfig.local user.email 'speg03@gmail.com'
+    fi
+
+    # netrc template
+    if [ ! -e $HOME/.netrc ]; then
+        echo "Create netrc template..."
+        {
+            echo "#machine github.com"
+            echo "#  login speg03"
+            echo "#  password ACCESS_TOKEN"
+        } >$HOME/.netrc
+        chmod 0600 $HOME/.netrc
+    fi
+}
+
+function install_tools() {
+    # anyenv
+    if [ ! -e $HOME/.anyenv ]; then
+        echo "Install anyenv..."
+        git clone https://github.com/riywo/anyenv $HOME/.anyenv
+        mkdir -p $HOME/.anyenv/plugins
+        git clone https://github.com/znz/anyenv-update \
+            $HOME/.anyenv/plugins/anyenv-update
+    fi
+
+    # load anyenv
+    echo "Load anyenv..."
+    PATH=$HOME/.anyenv/bin:$PATH
+    eval "$(anyenv init -)"
+
+    # pyenv
+    if ! type pyenv &>/dev/null; then
+        echo "Install pyenv..."
+        anyenv install pyenv
+        git clone https://github.com/yyuu/pyenv-virtualenv.git \
+            $HOME/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
+    fi
+
+    # fzf
+    if [ ! -e $HOME/.fzf ]; then
+        echo "Install fzf..."
+        git clone https://github.com/junegunn/fzf $HOME/.fzf
+        $HOME/.fzf/install --bin
+    fi
+
+    # tpm
+    if [ ! -e $HOME/.tmux/plugins/tpm ]; then
+        echo "Install tpm..."
+        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+        $HOME/.tmux/plugins/tpm/bin/install_plugins
+    fi
+
+    # Go packages
+    export GOPATH=$HOME/.go
+    echo "Install ghq..."
+    go get -u github.com/motemen/ghq
+}
+
+
+function main() {
+    check_packages_installed
+    install_configurations
+    install_tools
+}
+
+main

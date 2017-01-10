@@ -1,9 +1,9 @@
 dotfiles
 ========
 
-setup
------
+Install
+-------
 
 ```text
-$ curl -s https://speg03.github.io/dotfiles/setup.sh | sh
+$ curl -s https://speg03.github.io/dotfiles/install | bash
 ```
