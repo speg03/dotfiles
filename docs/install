@@ -1,5 +1,12 @@
 #!/bin/bash
 
+function check_packages_installed() {
+    if ! type git &>/dev/null; then
+        echo "!!! You need to install git"
+        exit 1
+    fi
+}
+
 function install_configurations() {
     # dotemacs repository
     local dotemacs=$HOME/.ghq/github.com/speg03/dotemacs
@@ -16,6 +23,7 @@ function install_configurations() {
 }
 
 function main() {
+    check_packages_installed
     install_configurations
 }
 
