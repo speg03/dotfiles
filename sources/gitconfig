@@ -6,3 +6,5 @@
 	helper = cache --timeout=3600
 [include]
 	path = .gitconfig.local
+[commit]
+	template = ~/.git_commit_template
