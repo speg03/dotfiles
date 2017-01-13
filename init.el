@@ -18,14 +18,14 @@
 (when (file-exists-p (locate-user-emacs-file "proxy.el"))
   (load-file (locate-user-emacs-file "proxy.el")))
 
-(when (require 'package nil t)
-  (setq package-user-dir
-        (locate-user-emacs-file "packages/"))
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (package-initialize)
-  (package-refresh-contents)
+(require 'package)
+(setq package-user-dir
+      (locate-user-emacs-file "packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+(package-refresh-contents)
 
-  (when (install-package-if-not-exist 'init-loader)
-    (require 'init-loader)
-    (init-loader-load (locate-user-emacs-file "inits/"))))
+(when (install-package-if-not-exist 'init-loader)
+  (require 'init-loader)
+  (init-loader-load (locate-user-emacs-file "inits/")))
