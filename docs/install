@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Install my custom .emacs.d
 
 
 function not_exists() {
