@@ -6,7 +6,7 @@ function check_packages_installed() {
 
     local pkg
     for pkg in $packages; do
-        if ! type $package &>/dev/null; then
+        if ! type "$pkg" &>/dev/null; then
             require_packages="$require_packages $pkg"
         fi
     done
@@ -19,62 +19,68 @@ function check_packages_installed() {
 
 function install_configurations() {
     # dotfiles repository
-    local dotfiles=$HOME/.ghq/github.com/speg03/dotfiles
-    if [ ! -e $dotfiles ]; then
+    local dotfiles_path="$HOME"/.ghq/github.com/speg03/dotfiles
+    if [ ! -e "$dotfiles_path" ]; then
         echo "### Downloading dotfiles ..."
-        git clone https://github.com/speg03/dotfiles $dotfiles
+        git clone https://github.com/speg03/dotfiles "$dotfiles_path"
         echo
     fi
-    cd $dotfiles
+
+    local sources_path="$dotfiles_path"/sources
+    cd "$sources_path" || exit 1
+    local sources
+    sources=$(ls)
 
     # symlinks
+    local src
     echo "### Creating links to dotfiles ..."
-    find sources -maxdepth 1 -mindepth 1 \
-         -exec sh -c 'ln -snf $(pwd)/{} $HOME/.$(basename {})' \;
+    for src in $sources; do
+        ln -snf "$sources_path"/"$src" "$HOME"/."$src"
+    done
     echo
 
     # zsh completion
     echo "### Downloading completions for zsh ..."
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o $HOME/.zsh.d/completion/_git
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $HOME/.zsh.d/completion/git-completion.bash
-    curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o $HOME/.zsh.d/completion/_docker
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$HOME"/.zsh.d/completion/_git
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$HOME"/.zsh.d/completion/git-completion.bash
+    curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o "$HOME"/.zsh.d/completion/_docker
     echo
 
     # git config
-    if [ ! -e $HOME/.gitconfig.local ]; then
+    if [ ! -e "$HOME"/.gitconfig.local ]; then
         echo "### Creating git configuration for local ..."
-        git config -f $HOME/.gitconfig.local user.name 'Takahiro Yano'
-        git config -f $HOME/.gitconfig.local user.email 'speg03@gmail.com'
+        git config -f "$HOME"/.gitconfig.local user.name 'Takahiro Yano'
+        git config -f "$HOME"/.gitconfig.local user.email 'speg03@gmail.com'
         echo
     fi
 
     # netrc template
-    if [ ! -e $HOME/.netrc ]; then
+    if [ ! -e "$HOME"/.netrc ]; then
         echo "### Creating netrc template ..."
         {
             echo "#machine github.com"
             echo "#  login speg03"
             echo "#  password ACCESS_TOKEN"
-        } >$HOME/.netrc
-        chmod 0600 $HOME/.netrc
+        } >"$HOME"/.netrc
+        chmod 0600 "$HOME"/.netrc
         echo
     fi
 }
 
 function install_tools() {
     # anyenv
-    if [ ! -e $HOME/.anyenv ]; then
+    if [ ! -e "$HOME"/.anyenv ]; then
         echo "### Installing anyenv ..."
-        git clone https://github.com/riywo/anyenv $HOME/.anyenv
-        mkdir -p $HOME/.anyenv/plugins
+        git clone https://github.com/riywo/anyenv "$HOME"/.anyenv
+        mkdir -p "$HOME"/.anyenv/plugins
         git clone https://github.com/znz/anyenv-update \
-            $HOME/.anyenv/plugins/anyenv-update
+            "$HOME"/.anyenv/plugins/anyenv-update
         echo
     fi
 
     # load anyenv
     echo "### Loading anyenv ..."
-    export PATH=$HOME/.anyenv/bin:$PATH
+    export PATH="$HOME"/.anyenv/bin:"$PATH"
     eval "$(anyenv init -)"
     echo
 
@@ -83,28 +89,28 @@ function install_tools() {
         echo "### Installing pyenv ..."
         anyenv install pyenv
         git clone https://github.com/yyuu/pyenv-virtualenv.git \
-            $HOME/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
+            "$HOME"/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
         echo
     fi
 
     # fzf
-    if [ ! -e $HOME/.fzf ]; then
+    if [ ! -e "$HOME"/.fzf ]; then
         echo "### Installing fzf ..."
-        git clone https://github.com/junegunn/fzf $HOME/.fzf
-        $HOME/.fzf/install --bin
+        git clone https://github.com/junegunn/fzf "$HOME"/.fzf
+        "$HOME"/.fzf/install --bin
         echo
     fi
 
     # tpm
-    if [ ! -e $HOME/.tmux/plugins/tpm ]; then
+    if [ ! -e "$HOME"/.tmux/plugins/tpm ]; then
         echo "### Installing tpm ..."
-        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-        $HOME/.tmux/plugins/tpm/bin/install_plugins
+        git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
+        "$HOME"/.tmux/plugins/tpm/bin/install_plugins
         echo
     fi
 
     # Go packages
-    export GOPATH=$HOME/.go
+    export GOPATH="$HOME"/.go
     echo "### Installing ghq ..."
     go get -u github.com/motemen/ghq
 }
