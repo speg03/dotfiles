@@ -1,22 +1,5 @@
 #!/bin/bash
 
-function check_packages_installed() {
-    local packages="curl git go"
-    local require_packages
-
-    local pkg
-    for pkg in $packages; do
-        if ! type "$pkg" &>/dev/null; then
-            require_packages="$require_packages $pkg"
-        fi
-    done
-
-    if [ -n "$require_packages" ]; then
-        echo "!!! You need to install packages:$require_packages"
-        exit 1
-    fi
-}
-
 function not_exists() {
     echo "### Check exists: $1"
     test ! -e "$1"
@@ -25,6 +8,24 @@ function not_exists() {
 function not_installed() {
     echo "### Check installed: $1"
     ! type "$1" &>/dev/null
+}
+
+function check_packages_installed() {
+    local packages="curl git go"
+    local require_packages
+
+    local pkg
+    for pkg in $packages; do
+        if not_installed "$pkg"; then
+            require_packages="$require_packages $pkg"
+        fi
+    done
+    echo
+
+    if [ -n "$require_packages" ]; then
+        echo "!!! You need to install packages:$require_packages"
+        exit 1
+    fi
 }
 
 function install_configurations() {
