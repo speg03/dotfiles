@@ -18,10 +18,12 @@ function check_packages_installed() {
 }
 
 function not_exists() {
+    echo "### Check exists: $1"
     test ! -e "$1"
 }
 
 function not_installed() {
+    echo "### Check installed: $1"
     ! type "$1" &>/dev/null
 }
 
@@ -29,10 +31,10 @@ function install_configurations() {
     # dotfiles repository
     local dotfiles_path="$HOME"/.ghq/github.com/speg03/dotfiles
     if not_exists "$dotfiles_path"; then
-        echo "### Downloading dotfiles ..."
+        echo "# Downloading dotfiles ..."
         git clone https://github.com/speg03/dotfiles "$dotfiles_path"
-        echo
     fi
+    echo
 
     local sources_path="$dotfiles_path"/sources
     cd "$sources_path" || exit 1
@@ -43,7 +45,7 @@ function install_configurations() {
     local src
     for src in $sources; do
         if not_exists "$HOME"/."$src"; then
-            echo "### Creating links to $src ..."
+            echo "# Creating links to $src ..."
             ln -s "$sources_path"/"$src" "$HOME"/."$src"
         fi
     done
@@ -51,87 +53,86 @@ function install_configurations() {
 
     # git completion
     if not_exists "$HOME"/.zsh.d/completion/_git; then
-        echo "### Downloading completions for git ..."
+        echo "# Downloading completions for git ..."
         curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$HOME"/.zsh.d/completion/_git
         curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$HOME"/.zsh.d/completion/git-completion.bash
-        echo
     fi
+    echo
 
     # docker completion
     if not_exists "$HOME"/.zsh.d/completion/_docker; then
-        echo "### Downloading completions for docker ..."
+        echo "# Downloading completions for docker ..."
         curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o "$HOME"/.zsh.d/completion/_docker
-        echo
     fi
+    echo
 
     # git config
     if not_exists "$HOME"/.gitconfig.local; then
-        echo "### Creating git configuration for local ..."
+        echo "# Creating git configuration for local ..."
         git config -f "$HOME"/.gitconfig.local user.name 'Takahiro Yano'
         git config -f "$HOME"/.gitconfig.local user.email 'speg03@gmail.com'
-        echo
     fi
+    echo
 
     # netrc template
     if not_exists "$HOME"/.netrc; then
-        echo "### Creating netrc template ..."
+        echo "# Creating netrc template ..."
         {
             echo "#machine github.com"
             echo "#  login speg03"
             echo "#  password ACCESS_TOKEN"
         } >"$HOME"/.netrc
         chmod 0600 "$HOME"/.netrc
-        echo
     fi
+    echo
 }
 
 function install_tools() {
     # anyenv
     if not_exists "$HOME"/.anyenv; then
-        echo "### Installing anyenv ..."
+        echo "# Installing anyenv ..."
         git clone https://github.com/riywo/anyenv "$HOME"/.anyenv
         mkdir -p "$HOME"/.anyenv/plugins
         git clone https://github.com/znz/anyenv-update \
             "$HOME"/.anyenv/plugins/anyenv-update
-        echo
     fi
+    echo
 
     # load anyenv
     if not_installed pyenv; then
-        echo "### Loading anyenv ..."
+        echo "# Loading anyenv ..."
         export PATH="$HOME"/.anyenv/bin:"$PATH"
         eval "$(anyenv init -)"
-        echo
 
         # pyenv
-        echo "### Installing pyenv ..."
+        echo "# Installing pyenv ..."
         anyenv install pyenv
         git clone https://github.com/yyuu/pyenv-virtualenv.git \
             "$HOME"/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
-        echo
     fi
+    echo
 
     # fzf
     if not_exists "$HOME"/.fzf; then
-        echo "### Installing fzf ..."
+        echo "# Installing fzf ..."
         git clone https://github.com/junegunn/fzf "$HOME"/.fzf
         "$HOME"/.fzf/install --bin
-        echo
     fi
+    echo
 
     # tpm
     if not_exists "$HOME"/.tmux/plugins/tpm; then
-        echo "### Installing tpm ..."
+        echo "# Installing tpm ..."
         git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
         "$HOME"/.tmux/plugins/tpm/bin/install_plugins
-        echo
     fi
+    echo
 
     # Go packages
     export GOPATH="$HOME"/.go
     export PATH="$HOME"/.go/bin:"$PATH"
     if not_installed ghq; then
-        echo "### Installing ghq ..."
+        echo "# Installing ghq ..."
         go get github.com/motemen/ghq
     fi
 }
@@ -139,6 +140,7 @@ function install_tools() {
 
 function main() {
     check_packages_installed
+
     install_configurations
     install_tools
 }
