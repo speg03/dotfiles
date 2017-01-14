@@ -1,25 +1,40 @@
 #!/bin/bash
 
+
+function not_exists() {
+    echo "### Check exists: $1"
+    test ! -e "$1"
+}
+
+function not_installed() {
+    echo "### Check installed: $1"
+    ! type "$1" &>/dev/null
+}
+
 function check_packages_installed() {
-    if ! type git &>/dev/null; then
+    if not_installed git; then
         echo "!!! You need to install git"
         exit 1
     fi
+    echo
 }
 
 function install_configurations() {
     # dotemacs repository
     local dotemacs=$HOME/.ghq/github.com/speg03/dotemacs
-    if [ ! -e $dotemacs ]; then
-        echo "### Downloading dotemacs ..."
-        git clone https://github.com/speg03/dotemacs $dotemacs
-        echo
+    if not_exists "$dotemacs"; then
+        echo "# Downloading dotemacs ..."
+        git clone https://github.com/speg03/dotemacs "$dotemacs"
     fi
-    cd $dotemacs
+    echo
+
+    cd "$dotemacs" || exit 1
 
     # symlinks
-    echo "### Creating links to dotemacs ..."
-    ln -snf $(pwd) $HOME/.emacs.d
+    if not_exists "$HOME"/.emacs.d; then
+        echo "# Creating links to emacs.d ..."
+        ln -s "$dotemacs" "$HOME"/.emacs.d
+    fi
 }
 
 function main() {
