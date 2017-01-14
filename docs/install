@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Install my custom dotfiles
+
 
 function not_exists() {
     echo "### Check exists: $1"
