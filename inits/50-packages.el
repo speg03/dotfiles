@@ -33,6 +33,13 @@
   (eval-after-load 'undo-tree
     '(diminish 'undo-tree-mode)))
 
+;; flycheck
+(when (install-package-if-not-exist 'flycheck)
+  (when (install-package-if-not-exist 'flycheck-pyflakes)
+    (require 'flycheck-pyflakes))
+  (add-hook 'python-mode-hook 'flycheck-mode)
+  (add-hook 'sh-mode-hook 'flycheck-mode))
+
 ;; git-gutter
 (when (install-package-if-not-exist 'git-gutter)
   (global-git-gutter-mode t)
