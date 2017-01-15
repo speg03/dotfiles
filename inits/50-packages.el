@@ -75,6 +75,10 @@
             (lambda ()
               (local-set-key (kbd "C-h") 'backward-delete-char-untabify))))
 
+;; py-yapf
+(when (install-package-if-not-exist 'py-yapf)
+  (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+
 ;; pyenv-mode
 (when (install-package-if-not-exist 'pyenv-mode)
   (add-hook 'python-mode-hook 'pyenv-mode))
