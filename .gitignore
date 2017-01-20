@@ -3,7 +3,6 @@ auto-save-list/
 custom/*
 packages/*
 proxy.el
-server
-srecode-map.el
+recentf
 
 !.gitkeep
