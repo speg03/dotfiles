@@ -35,8 +35,6 @@
     '(diminish 'company-mode))
   (eval-after-load 'git-gutter
     '(diminish 'git-gutter-mode))
-  (eval-after-load 'magit
-    '(diminish 'auto-revert-mode))
   (eval-after-load 'undo-tree
     '(diminish 'undo-tree-mode)))
 
@@ -64,6 +62,7 @@
 
 ;; magit
 (when (install-package-if-not-exist 'magit)
+  (setq magit-auto-revert-mode nil)
   (setq magit-push-always-verify nil)
   (define-key global-map (kbd "C-x g") 'magit-status))
 
