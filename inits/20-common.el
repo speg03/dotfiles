@@ -7,6 +7,9 @@
 ;; Enable to delete region
 (delete-selection-mode 1)
 
+;; Revert file automatically if changed
+(global-auto-revert-mode 1)
+
 ;; (yes or no) to (y or n)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
