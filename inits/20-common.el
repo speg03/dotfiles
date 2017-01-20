@@ -4,6 +4,12 @@
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 
+;; Enable to delete region
+(delete-selection-mode 1)
+
+;; (yes or no) to (y or n)
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
 (setq-default vc-follow-symlinks t)
 
@@ -18,9 +24,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;; Enable to delete region
-(delete-selection-mode 1)
-
 ;; Buffer list
 (setq-default bs-configurations
       '(;; name
@@ -32,6 +35,3 @@
         ("all" nil nil nil nil nil)
         ("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
 (setq-default bs-default-configuration "files")
-
-;; (yes or no) to (y or n)
-(fset 'yes-or-no-p 'y-or-n-p)
