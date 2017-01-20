@@ -20,8 +20,7 @@
   (define-key company-search-map (kbd "C-p") 'company-select-previous)
   (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
   (define-key company-active-map (kbd "C-i") 'company-complete-selection)
-  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-  (define-key company-active-map (kbd "C-h") 'backward-delete-char-untabify))
+  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer))
 
 ;; company-jedi
 (when (install-package-if-not-exist 'company-jedi)
@@ -77,10 +76,7 @@
   (setq markdown-command "pandoc"))
 
 ;; matlab-mode
-(when (install-package-if-not-exist 'matlab-mode)
-  (add-hook 'matlab-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-h") 'backward-delete-char-untabify))))
+(install-package-if-not-exist 'matlab-mode)
 
 ;; py-yapf
 (when (install-package-if-not-exist 'py-yapf)

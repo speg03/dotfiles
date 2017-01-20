@@ -1,8 +1,7 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
 ;; General
-(define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
-(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
+(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 (define-key global-map (kbd "C-x ?") 'help-command)
 (define-key global-map (kbd "C-j") 'newline-and-indent)
 (define-key global-map (kbd "C-m") 'newline)
