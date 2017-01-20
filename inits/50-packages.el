@@ -12,7 +12,7 @@
 
 ;; company
 (when (install-package-if-not-exist 'company)
-  (global-company-mode t)
+  (global-company-mode 1)
   (define-key global-map (kbd "M-/") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
@@ -56,7 +56,7 @@
 
 ;; git-gutter
 (when (install-package-if-not-exist 'git-gutter)
-  (global-git-gutter-mode t)
+  (global-git-gutter-mode 1)
   (git-gutter:linum-setup))
 
 ;; go-mode
@@ -95,7 +95,7 @@
 
 ;; undo-tree
 (when (install-package-if-not-exist 'undo-tree)
-  (global-undo-tree-mode t))
+  (global-undo-tree-mode 1))
 
 ;; yaml-mode
 (when (install-package-if-not-exist 'yaml-mode)
