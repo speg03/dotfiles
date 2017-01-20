@@ -1,5 +1,15 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
+;; anything
+(when (install-package-if-not-exist 'anything)
+  ;; http://emacs.rubikitch.com/anything/
+  (require 'anything-config)
+  (setq anything-enable-shortcuts 'prefix)
+  (define-key anything-map (kbd "@") 'anything-select-with-prefix-shortcut)
+  (global-set-key (kbd "M-x") 'anything-M-x)
+  (global-set-key (kbd "C-x C-f") 'anything-find-files)
+  (global-set-key (kbd "C-x b") 'anything-mini))
+
 ;; company
 (when (install-package-if-not-exist 'company)
   (global-company-mode t)
@@ -26,8 +36,6 @@
     '(diminish 'company-mode))
   (eval-after-load 'git-gutter
     '(diminish 'git-gutter-mode))
-  (eval-after-load 'helm-mode
-    '(diminish 'helm-mode))
   (eval-after-load 'magit
     '(diminish 'auto-revert-mode))
   (eval-after-load 'undo-tree
@@ -54,14 +62,6 @@
 
 ;; go-mode
 (install-package-if-not-exist 'go-mode)
-
-;; helm
-(when (install-package-if-not-exist 'helm)
-  (require 'helm-config)
-  (helm-mode 1)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (define-key helm-map (kbd "C-h") 'delete-backward-char))
 
 ;; magit
 (when (install-package-if-not-exist 'magit)
