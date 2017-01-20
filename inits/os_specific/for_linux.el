@@ -6,7 +6,7 @@
 (when (install-package-if-not-exist 'mozc)
   (require 'mozc)
   (setq default-input-method "japanese-mozc")
-  (global-set-key (kbd "<henkan>") 'toggle-input-method)
+  (define-key global-map (kbd "<henkan>") 'toggle-input-method)
   (define-key mozc-mode-map (kbd "<muhenkan>") 'toggle-input-method))
 
 ;; Font size

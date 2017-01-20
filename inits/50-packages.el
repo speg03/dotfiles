@@ -6,14 +6,14 @@
   (require 'anything-config)
   (setq anything-enable-shortcuts 'prefix)
   (define-key anything-map (kbd "@") 'anything-select-with-prefix-shortcut)
-  (global-set-key (kbd "M-x") 'anything-M-x)
-  (global-set-key (kbd "C-x C-f") 'anything-find-files)
-  (global-set-key (kbd "C-x b") 'anything-mini))
+  (define-key global-map (kbd "M-x") 'anything-M-x)
+  (define-key global-map (kbd "C-x C-f") 'anything-find-files)
+  (define-key global-map (kbd "C-x b") 'anything-mini))
 
 ;; company
 (when (install-package-if-not-exist 'company)
   (global-company-mode t)
-  (global-set-key (kbd "M-/") 'company-complete)
+  (define-key global-map (kbd "M-/") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (define-key company-search-map (kbd "C-n") 'company-select-next)
@@ -45,7 +45,7 @@
   ;; http://emacs.rubikitch.com/expand-region/
   (require 'expand-region)
   (push 'er/mark-outside-pairs er/try-expand-list)
-  (global-set-key (kbd "C-M-SPC") 'er/expand-region))
+  (define-key global-map (kbd "C-M-SPC") 'er/expand-region))
 
 ;; flycheck
 (when (install-package-if-not-exist 'flycheck)
@@ -65,7 +65,7 @@
 ;; magit
 (when (install-package-if-not-exist 'magit)
   (setq magit-push-always-verify nil)
-  (global-set-key (kbd "C-x g") 'magit-status))
+  (define-key global-map (kbd "C-x g") 'magit-status))
 
 ;; markdown-mode
 (when (install-package-if-not-exist 'markdown-mode)
