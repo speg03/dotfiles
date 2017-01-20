@@ -33,6 +33,13 @@
   (eval-after-load 'undo-tree
     '(diminish 'undo-tree-mode)))
 
+;; expand-region
+(when (install-package-if-not-exist 'expand-region)
+  ;; http://emacs.rubikitch.com/expand-region/
+  (require 'expand-region)
+  (push 'er/mark-outside-pairs er/try-expand-list)
+  (global-set-key (kbd "C-M-SPC") 'er/expand-region))
+
 ;; flycheck
 (when (install-package-if-not-exist 'flycheck)
   (when (install-package-if-not-exist 'flycheck-pyflakes)
