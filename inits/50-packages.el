@@ -59,7 +59,16 @@
   (setq anything-enable-shortcuts 'prefix)
   (define-key global-map (kbd "M-x") 'helm-M-x)
   (define-key global-map (kbd "C-x C-f") 'helm-find-files)
-  (define-key global-map (kbd "C-x b") 'helm-mini))
+  (define-key global-map (kbd "C-x b") 'helm-mini)
+
+  ;; helm-git-grep
+  (when (install-package-if-not-exist 'helm-git-grep)
+    (global-set-key (kbd "C-c g") 'helm-git-grep)
+    ;; Invoke `helm-git-grep' from isearch.
+    (define-key isearch-mode-map (kbd "C-c g") 'helm-git-grep-from-isearch)
+    ;; Invoke `helm-git-grep' from other helm.
+    (eval-after-load 'helm
+      '(define-key helm-map (kbd "C-c g") 'helm-git-grep-from-helm))))
 
 ;; magit
 (when (install-package-if-not-exist 'magit)
