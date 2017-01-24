@@ -18,3 +18,6 @@
 
 ;; Yen-mark(165) to bask-slash(92)
 (define-key global-map [165] [92])
+
+;; wdired
+(define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
