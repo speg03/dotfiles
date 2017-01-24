@@ -89,6 +89,11 @@
 ;; matlab-mode
 (install-package-if-not-exist 'matlab-mode)
 
+;; multiple-cursors
+(when (install-package-if-not-exist 'multiple-cursors)
+  (define-key global-map (kbd "C-M-l") 'mc/edit-lines)
+  (define-key global-map (kbd "C-M-a") 'mc/mark-all-dwim))
+
 ;; py-yapf
 (when (install-package-if-not-exist 'py-yapf)
   (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
