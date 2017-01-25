@@ -1,7 +1,5 @@
-if [ "`uname`" = "Linux" ]; then
+if [ "$(uname)" = "Linux" ]; then
     source $HOME/.zsh.d/os_specific/for_linux.zsh
-fi
-
-if [ "`uname`" = "Darwin" ]; then
+elif [ "$(uname)" = "Darwin" ]; then
     source $HOME/.zsh.d/os_specific/for_mac.zsh
 fi
