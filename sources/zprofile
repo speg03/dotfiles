@@ -1,35 +1,9 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-export LANG=en_US.UTF-8
-if [ "$TERM" != "screen-256color" ]; then
-    export TERM=xterm-256color
-fi
-
-export BASEPATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH=$BASEPATH
-
-export EDITOR='emacsclient -t'
-
-## Suppress password dialogs
-# default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
-unset SSH_ASKPASS
-
 ## anyenv
-export PATH=$HOME/.anyenv/bin:$PATH
 if type anyenv &>/dev/null; then
     eval "$(anyenv init -)"
 fi
-
-## fzf
-export PATH=$HOME/.fzf/bin:$PATH
-export MANPATH=$HOME/.fzf/man:$MANPATH
-
-## go
-if [ ! -d $HOME/.go ]; then
-    mkdir $HOME/.go
-fi
-export GOPATH=$HOME/.go
-export PATH=$HOME/.go/bin:$PATH
 
 ## server specific profile
 if [ -e $HOME/.zprofile.local ]; then
