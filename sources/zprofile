@@ -1,5 +1,7 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
+echo "Loading zprofile ..."
+
 ## anyenv
 if type anyenv &>/dev/null; then
     eval "$(anyenv init -)"

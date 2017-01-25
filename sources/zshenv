@@ -1,5 +1,7 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
+echo "Loading zshenv ..."
+
 # Disable loading rc files in /etc
 # /etc/zprofile will reset PATH variable by path_helper
 setopt no_global_rcs

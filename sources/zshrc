@@ -1,5 +1,7 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
+echo "Loading zshrc ..."
+
 function _load_configurations() {
     local rc
     for rc in $HOME/.zsh.d/*.zsh; do
