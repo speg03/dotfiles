@@ -29,6 +29,9 @@ export MANPATH=$HOME/.fzf/man:$MANPATH
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
 
+## tmux
+export TMUX_NEW_COMMAND="tmux new-session -A -s main"
+
 ## server specific env
 if [ -e $HOME/.zshenv.local ]; then
     source $HOME/.zshenv.local

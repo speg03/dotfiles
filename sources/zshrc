@@ -13,3 +13,7 @@ function _load_configurations() {
 }
 
 _load_configurations
+
+if [ "$TERM" != "screen-256color" ]; then
+    zsh -c "$TMUX_NEW_COMMAND"
+fi
