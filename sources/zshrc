@@ -1,15 +1,17 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-echo "Loading zshrc ..."
+debug "Loading zshrc ..."
 
 function _load_configurations() {
     local rc
     for rc in $HOME/.zsh.d/*.zsh; do
+        debug "  $rc"
         source $rc
     done
 
     ## server specific
-    if [ -e $HOME/.zshrc.local ]; then
+    if [ -e "$HOME/.zshrc.local" ]; then
+        debug "  $HOME/.zshrc.local"
         source $HOME/.zshrc.local
     fi
 }
@@ -17,5 +19,8 @@ function _load_configurations() {
 _load_configurations
 
 if [ "$TERM" != "screen-256color" ]; then
-    zsh -c "$TMUX_NEW_COMMAND"
+    debug "Starting tmux new session ..."
+    zsh -c $TMUX_NEW_COMMAND
 fi
+
+debug "Done."

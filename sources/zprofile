@@ -1,6 +1,6 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-echo "Loading zprofile ..."
+debug "Loading zprofile ..."
 
 ## anyenv
 if type anyenv &>/dev/null; then
@@ -8,6 +8,6 @@ if type anyenv &>/dev/null; then
 fi
 
 ## server specific profile
-if [ -e $HOME/.zprofile.local ]; then
+if [ -e "$HOME/.zprofile.local" ]; then
     source $HOME/.zprofile.local
 fi

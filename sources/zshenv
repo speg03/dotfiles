@@ -1,6 +1,10 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-echo "Loading zshenv ..."
+function debug() {
+    [ "$DEBUG" ] && echo "[$(date)] $@"
+}
+
+debug "Loading zshenv ..."
 
 # Disable loading rc files in /etc
 # /etc/zprofile will reset PATH variable by path_helper
@@ -14,7 +18,7 @@ fi
 export BASEPATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$BASEPATH
 
-export EDITOR='emacsclient -t'
+export EDITOR="emacsclient -t"
 
 ## Suppress password dialogs
 # default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
@@ -35,6 +39,7 @@ export PATH=$HOME/.go/bin:$PATH
 export TMUX_NEW_COMMAND="tmux new-session -A -s main"
 
 ## server specific env
-if [ -e $HOME/.zshenv.local ]; then
+if [ -e "$HOME/.zshenv.local" ]; then
+    debug "  $HOME/.zshenv.local"
     source $HOME/.zshenv.local
 fi
