@@ -9,5 +9,6 @@ fi
 
 ## server specific profile
 if [ -e "$HOME/.zprofile.local" ]; then
+    debug "$HOME/.zprofile.local"
     source $HOME/.zprofile.local
 fi

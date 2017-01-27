@@ -1,7 +1,7 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
 function debug() {
-    [ "$DEBUG" ] && echo "[$(date)] $@"
+    [ "$DEBUG" ] && echo "$(date +'%b %d %T') debug: $@" >&2
 }
 
 debug "Loading zshenv ..."
@@ -40,6 +40,6 @@ export TMUX_NEW_COMMAND="tmux new-session -A -s main"
 
 ## server specific env
 if [ -e "$HOME/.zshenv.local" ]; then
-    debug "  $HOME/.zshenv.local"
+    debug "$HOME/.zshenv.local"
     source $HOME/.zshenv.local
 fi

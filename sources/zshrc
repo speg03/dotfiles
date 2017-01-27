@@ -5,13 +5,13 @@ debug "Loading zshrc ..."
 function _load_configurations() {
     local rc
     for rc in $HOME/.zsh.d/*.zsh; do
-        debug "  $rc"
+        debug "$rc"
         source $rc
     done
 
     ## server specific
     if [ -e "$HOME/.zshrc.local" ]; then
-        debug "  $HOME/.zshrc.local"
+        debug "$HOME/.zshrc.local"
         source $HOME/.zshrc.local
     fi
 }
