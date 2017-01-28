@@ -15,8 +15,11 @@ if [ "$TERM" != "screen-256color" ]; then
     export TERM=xterm-256color
 fi
 
-export BASEPATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH=$BASEPATH
+typeset -U path manpath
+
+typeset -aUT BASEPATH basepath
+basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))
+path=($basepath)
 
 export EDITOR="emacsclient -t"
 
@@ -25,15 +28,18 @@ export EDITOR="emacsclient -t"
 unset SSH_ASKPASS
 
 ## anyenv
-export PATH=$HOME/.anyenv/bin:$PATH
+path=($HOME/.anyenv/bin(N-/) $path)
+if type anyenv &>/dev/null; then
+    eval "$(anyenv init -)"
+fi
 
 ## fzf
-export PATH=$HOME/.fzf/bin:$PATH
-export MANPATH=$HOME/.fzf/man:$MANPATH
+path=($HOME/.fzf/bin(N-/) $path)
+manpath=($HOME/.fzf/man(N-/) $manpath)
 
 ## go
 export GOPATH=$HOME/.go
-export PATH=$HOME/.go/bin:$PATH
+path=($GOPATH/bin(N-/) $path)
 
 ## tmux
 export TMUX_NEW_COMMAND="tmux new-session -A -s main"
