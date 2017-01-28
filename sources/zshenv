@@ -4,9 +4,10 @@ function debug() {
     [ "$DEBUG" ] && echo "$(date +'%b %d %T') debug: $@" >&2
 }
 
+export LANG=en_US.UTF-8
+
 debug "Loading zshenv ..."
 
-export LANG=en_US.UTF-8
 if [ "$TERM" != "screen-256color" ]; then
     export TERM=xterm-256color
 fi
