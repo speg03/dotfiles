@@ -3,24 +3,26 @@
 debug "Loading zshrc ..."
 
 function _load_configurations() {
-    local rc
-    for rc in $HOME/.zsh.d/*.zsh; do
-        debug "$rc"
-        source $rc
+    local config
+    for config in $HOME/.zsh.d/*.zsh; do
+        debug "$config"
+        source $config
     done
-
-    ## server specific
-    if [ -e "$HOME/.zshrc.local" ]; then
-        debug "$HOME/.zshrc.local"
-        source $HOME/.zshrc.local
-    fi
 }
 
 _load_configurations
 
-if [ "$TERM" != "screen-256color" ]; then
-    debug "Starting tmux new session ..."
-    zsh -c $TMUX_NEW_COMMAND
+## Host specific
+if [ -e "$HOME/.zshrc.local" ]; then
+    debug "$HOME/.zshrc.local"
+    source $HOME/.zshrc.local
 fi
 
 debug "Done."
+
+
+## Start tmux session
+if [ -z "$TMUX" ]; then
+    debug "Starting tmux new session ..."
+    bash -c $TMUX_NEW_COMMAND
+fi

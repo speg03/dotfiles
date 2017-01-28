@@ -6,46 +6,47 @@ function debug() {
 
 debug "Loading zshenv ..."
 
-# Disable loading rc files in /etc
-# /etc/zprofile will reset PATH variable by path_helper
-setopt no_global_rcs
-
 export LANG=en_US.UTF-8
 if [ "$TERM" != "screen-256color" ]; then
     export TERM=xterm-256color
 fi
 
+export EDITOR="emacsclient -t"
+export TMUX_NEW_COMMAND="tmux new-session -A -s main"
+
+## Suppress password dialogs
+# default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+unset SSH_ASKPASS
+
+
+## PATH
 typeset -U path manpath
 
 typeset -aUT BASEPATH basepath
 basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))
 path=($basepath)
 
-export EDITOR="emacsclient -t"
-
-## Suppress password dialogs
-# default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
-unset SSH_ASKPASS
-
-## anyenv
+# anyenv
 path=($HOME/.anyenv/bin(N-/) $path)
 if type anyenv &>/dev/null; then
     eval "$(anyenv init -)"
 fi
 
-## fzf
+# fzf
 path=($HOME/.fzf/bin(N-/) $path)
 manpath=($HOME/.fzf/man(N-/) $manpath)
 
-## go
+# go
 export GOPATH=$HOME/.go
 path=($GOPATH/bin(N-/) $path)
 
-## tmux
-export TMUX_NEW_COMMAND="tmux new-session -A -s main"
 
-## server specific env
+## Host specific
 if [ -e "$HOME/.zshenv.local" ]; then
     debug "$HOME/.zshenv.local"
     source $HOME/.zshenv.local
 fi
+
+## Disable loading rc files in /etc
+# /etc/zprofile will reset PATH variable by path_helper
+setopt no_global_rcs

@@ -2,7 +2,7 @@
 
 debug "Loading zprofile ..."
 
-## server specific profile
+## Host specific
 if [ -e "$HOME/.zprofile.local" ]; then
     debug "$HOME/.zprofile.local"
     source $HOME/.zprofile.local
