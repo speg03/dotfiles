@@ -19,10 +19,3 @@ if [ -e "$HOME/.zshrc.local" ]; then
 fi
 
 debug "Done."
-
-
-## Start tmux session
-if [ -z "$TMUX" ]; then
-    debug "Starting tmux new session ..."
-    bash -c $TMUX_NEW_COMMAND
-fi

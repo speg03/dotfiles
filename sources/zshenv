@@ -12,7 +12,6 @@ if [ "$TERM" != "screen-256color" ]; then
 fi
 
 export EDITOR="emacsclient -t"
-export TMUX_NEW_COMMAND="tmux new-session -A -s main"
 
 ## Suppress password dialogs
 # default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
