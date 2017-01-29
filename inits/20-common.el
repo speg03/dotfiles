@@ -38,3 +38,7 @@
         ("all" nil nil nil nil nil)
         ("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
 (setq-default bs-default-configuration "files")
+
+;; Make scripts executable
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
