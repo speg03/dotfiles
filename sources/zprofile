@@ -2,14 +2,14 @@
 
 debug "Loading zprofile ..."
 
-## Start tmux session
-if [ -z "$TMUX" ]; then
-    debug "Starting tmux new session ..."
-    exec tmux new-session -A -s main
-fi
-
 ## Host specific
 if [ -e "$HOME/.zprofile.local" ]; then
     debug "$HOME/.zprofile.local"
     source $HOME/.zprofile.local
+fi
+
+## Start tmux session
+if [ -z "$TMUX" ]; then
+    debug "Starting tmux new session ..."
+    exec tmux new-session -A -s main
 fi
