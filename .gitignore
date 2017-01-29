@@ -4,5 +4,7 @@ custom/*
 packages/*
 proxy.el
 recentf
+srecode-map.el
+tramp
 
 !.gitkeep
