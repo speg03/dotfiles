@@ -1,5 +1,6 @@
-if [ "$(uname)" = "Linux" ]; then
-    source $HOME/.zsh.d/rcs/os_specific/for_linux.zsh
-elif [ "$(uname)" = "Darwin" ]; then
-    source $HOME/.zsh.d/rcs/os_specific/for_mac.zsh
+## Load OS specific configuration
+# OS: Linux, Darwin(macOS)
+if exists $HOME/.zsh.d/rcs/os_specific/$(uname -s).zsh; then
+    debug "$HOME/.zsh.d/rcs/os_specific/$(uname -s).zsh"
+    source $HOME/.zsh.d/rcs/os_specific/$(uname -s).zsh
 fi
