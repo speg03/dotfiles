@@ -1,3 +1,7 @@
+## zsh
+fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
+fpath=($HOME/.zsh.d/completion(N-/) $fpath)
+
 ## AWS
 if exists /usr/local/share/zsh/site-functions/_aws; then
     debug "/usr/local/share/zsh/site-functions/_aws"

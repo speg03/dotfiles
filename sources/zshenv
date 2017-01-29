@@ -17,7 +17,7 @@ unset SSH_ASKPASS
 
 
 ## PATH
-typeset -U path manpath
+typeset -U path fpath manpath
 
 typeset -aUT BASEPATH basepath
 basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))

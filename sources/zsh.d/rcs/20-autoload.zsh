@@ -1,6 +1,3 @@
-fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=(~/.zsh.d/completion $fpath)
-
 autoload -Uz add-zsh-hook
 autoload -Uz colors
 autoload -Uz compinit
