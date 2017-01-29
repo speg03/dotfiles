@@ -4,7 +4,7 @@ debug "Loading zshrc ..."
 
 function _load_configurations() {
     local config
-    for config in $HOME/.zsh.d/*.zsh; do
+    for config in $HOME/.zsh.d/rcs/*.zsh; do
         debug "$config"
         source $config
     done
@@ -13,7 +13,7 @@ function _load_configurations() {
 _load_configurations
 
 ## Host specific
-if [ -e "$HOME/.zshrc.local" ]; then
+if exists $HOME/.zshrc.local; then
     debug "$HOME/.zshrc.local"
     source $HOME/.zshrc.local
 fi

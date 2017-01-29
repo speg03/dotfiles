@@ -3,7 +3,7 @@
 debug "Loading zprofile ..."
 
 ## Host specific
-if [ -e "$HOME/.zprofile.local" ]; then
+if exists $HOME/.zprofile.local; then
     debug "$HOME/.zprofile.local"
     source $HOME/.zprofile.local
 fi

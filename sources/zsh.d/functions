@@ -1,0 +1,29 @@
+# -*- mode: shell-script; -*-
+
+function exists() {
+    test -e "$1"
+}
+
+function installed() {
+    type "$1" &>/dev/null
+}
+
+function debug() {
+    if exists $HOME/.dotfiles_debug; then
+        echo "$(date +'%b %d %T') debug: $@" >&2
+    fi
+}
+
+function enable_debug() {
+    if ! exists $HOME/.dotfiles_debug; then
+        echo "Enable dotfiles debug" >&2
+        touch $HOME/.dotfiles_debug
+    fi
+}
+
+function disable_debug() {
+    if exists $HOME/.dotfiles_debug; then
+        echo "Disable dotfiles debug" >&2
+        rm $HOME/.dotfiles_debug
+    fi
+}

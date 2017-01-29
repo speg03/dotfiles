@@ -1,12 +1,8 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-function debug() {
-    local dotfiles_debug=$HOME/.dotfiles_debug
-    [ -e $dotfiles_debug ] && echo "$(date +'%b %d %T') debug: $@" >&2
-}
+source $HOME/.zsh.d/functions
 
 export LANG=en_US.UTF-8
-
 debug "Loading zshenv ..."
 
 if [ "$TERM" != "screen-256color" ]; then
@@ -29,7 +25,7 @@ path=($basepath)
 
 # anyenv
 path=($HOME/.anyenv/bin(N-/) $path)
-if type anyenv &>/dev/null; then
+if installed anyenv; then
     eval "$(anyenv init -)"
 fi
 
@@ -43,7 +39,7 @@ path=($GOPATH/bin(N-/) $path)
 
 
 ## Host specific
-if [ -e "$HOME/.zshenv.local" ]; then
+if exists $HOME/.zshenv.local; then
     debug "$HOME/.zshenv.local"
     source $HOME/.zshenv.local
 fi
