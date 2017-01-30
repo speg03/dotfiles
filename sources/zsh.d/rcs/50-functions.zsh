@@ -47,11 +47,8 @@ function g() {
         query="-q $*"
     fi
 
-    local repository=$(ghq list -p | fzf -1 -0 $query)
+    local repository=$(ghq list -p | fzf -1 $query)
     if [ -n "$repository" ]; then
         cd $repository
-    else
-        echo "Do not anything" >&2
-        return 1
     fi
 }
