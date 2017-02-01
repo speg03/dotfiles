@@ -8,10 +8,21 @@ zstyle ':vcs_info:git:*' actionformats \
        '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}<!%a>%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 
-zstyle ':vcs_info:git*+set-message:*' hooks vcs-init git-st vcs-green
+zstyle ':vcs_info:git*+set-message:*' hooks \
+       vcs-init git-untracked git-st vcs-green
 
 function +vi-vcs-init() {
+    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) != 'true' ]]; then
+        # skip other hooks
+        return 1
+    fi
     hook_com[misc]=''
+}
+
+function +vi-git-untracked() {
+    if git status --porcelain | grep '^??' &>/dev/null; then
+        hook_com[misc]+="%F{yellow}?%f"
+    fi
 }
 
 function +vi-git-st() {
