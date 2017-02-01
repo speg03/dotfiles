@@ -8,9 +8,9 @@ zstyle ':vcs_info:git:*' actionformats \
        '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}<!%a>%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 
-zstyle ':vcs_info:git*+set-message:*' hooks reset-misc git-st vcs-green
+zstyle ':vcs_info:git*+set-message:*' hooks vcs-init git-st vcs-green
 
-function +vi-reset-misc() {
+function +vi-vcs-init() {
     hook_com[misc]=''
 }
 
