@@ -5,7 +5,7 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats \
        '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m'
 zstyle ':vcs_info:git:*' actionformats \
-       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}<!%a>%f'
+       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 
 zstyle ':vcs_info:git*+set-message:*' hooks \
