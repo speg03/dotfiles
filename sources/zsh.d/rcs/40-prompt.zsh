@@ -56,13 +56,14 @@ function _update_prompt() {
     if [ -z "$HOSTNAME_COLOR" ]; then
         HOSTNAME_COLOR=$(hostname_color)
     fi
-    base_prompt="%F{$HOSTNAME_COLOR}%n@%m%f:%F{yellow}%1~%f"
+    base_prompt="%F{$HOSTNAME_COLOR}%n@%m%f"
 
     LANG=en_US.UTF-8 vcs_info
     if [ -n "${vcs_info_msg_0_}" ]; then
         vcs_prompt="${vcs_info_msg_0_}"
     fi
-    PROMPT="$base_prompt $vcs_prompt"$'\n%(!.%F{red}#%f.$) '
+    PROMPT="[$base_prompt]"$'\U26A1  '
+    RPROMPT="$vcs_prompt"
 }
 
 add-zsh-hook precmd _update_prompt
