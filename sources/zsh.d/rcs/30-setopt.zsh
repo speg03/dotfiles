@@ -9,6 +9,8 @@ setopt MARK_DIRS
 setopt APPEND_HISTORY
 # ヒストリリスト内で重複させない
 setopt HIST_IGNORE_ALL_DUPS
+# ヒストリ保存時に余分な空白を除去する
+setopt HIST_REDUCE_BLANKS
 
 ## Input/Output
 # コマンドのスペルミスを修正する
