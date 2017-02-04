@@ -1,6 +1,36 @@
-unsetopt promptcr
-setopt prompt_subst
+unsetopt PROMPT_CR
+setopt PROMPT_SUBST
 
-setopt append_history auto_list auto_menu auto_param_keys auto_param_slash auto_resume no_beep brace_ccl correct equals extended_glob no_flow_control hist_ignore_dups hist_ignore_space hist_verify no_hup ignore_eof interactive_comments list_types long_list_jobs magic_equal_subst mark_dirs multios numeric_glob_sort print_eightbit print_exit_value pushd_ignore_dups short_loops share_history hist_no_store pushd_silent
+setopt APPEND_HISTORY
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt AUTO_PARAM_KEYS
+setopt AUTO_PARAM_SLASH
+setopt AUTO_RESUME
+setopt NO_BEEP
+setopt BRACE_CCL
+setopt CORRECT
+setopt EQUALS
+setopt EXTENDED_GLOB
+setopt NO_FLOW_CONTROL
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt NO_HUP
+setopt IGNORE_EOF
+setopt INTERACTIVE_COMMENTS
+setopt LIST_TYPES
+setopt LONG_LIST_JOBS
+setopt MAGIC_EQUAL_SUBST
+setopt MARK_DIRS
+setopt MULTIOS
+setopt NUMERIC_GLOB_SORT
+setopt PRINT_EIGHTBIT
+setopt PRINT_EXIT_VALUE
+setopt PUSHD_IGNORE_DUPS
+setopt SHORT_LOOPS
+setopt SHARE_HISTORY
+setopt HIST_NO_STORE
+setopt PUSHD_SILENT
 
-setopt transient_rprompt
+setopt TRANSIENT_RPROMPT
