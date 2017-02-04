@@ -44,4 +44,4 @@ fi
 
 ## Disable loading rc files in /etc
 # /etc/zprofile will reset PATH variable by path_helper
-setopt no_global_rcs
+setopt NO_GLOBAL_RCS
