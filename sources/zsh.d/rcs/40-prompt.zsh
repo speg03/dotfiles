@@ -12,7 +12,9 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
        vcs-init git-untracked git-st vcs-green
 
 function +vi-vcs-init() {
-    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) != 'true' ]]; then
+    local in_git
+    in_git=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+    if [[ $in_git != 'true' ]]; then
         # skip other hooks
         return 1
     fi
