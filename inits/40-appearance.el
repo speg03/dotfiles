@@ -21,6 +21,9 @@
 ;; Line number
 (global-linum-mode 1)
 
+;; Transparent frame
+(set-frame-parameter nil 'alpha '(95 . 70))
+
 ;; zenburn-theme
 (when (install-package-if-not-exist 'zenburn-theme)
   (load-theme 'zenburn t))
