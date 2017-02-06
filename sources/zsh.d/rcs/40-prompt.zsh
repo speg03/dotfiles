@@ -52,21 +52,12 @@ function +vi-vcs-green() {
 }
 
 function _update_prompt() {
-    local base_prompt
-    local vcs_prompt
-
-    if [ -z "$HOSTNAME_COLOR" ]; then
-        HOSTNAME_COLOR=$(hostname_color)
-    fi
-    base_prompt="%F{$HOSTNAME_COLOR}%n@%m%f"
+    local color=${HOSTNAME_COLOR:-$(hostname_color)}
+    local symbol=${PROMPT_SYMBOL:-$'\U26A1 '}
 
     LANG=en_US.UTF-8 vcs_info
-    if [ -n "${vcs_info_msg_0_}" ]; then
-        vcs_prompt="${vcs_info_msg_0_}"
-    fi
-
-    PROMPT="[$base_prompt]"${PROMPT_SYMBOL:=$'\U26A1 '}" "
-    RPROMPT="$vcs_prompt"
+    PROMPT="[%F{$color}%n@%m%f]$symbol "
+    RPROMPT="${vcs_info_msg_0_}"
 }
 
 add-zsh-hook precmd _update_prompt
