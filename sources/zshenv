@@ -32,7 +32,7 @@ path=($HOME/.fzf/bin(N-/) $path)
 manpath=($HOME/.fzf/man(N-/) $manpath)
 
 # go
-export GOPATH=$HOME/.go
+GOPATH=$HOME/.go
 path=($GOPATH/bin(N-/) $path)
 
 

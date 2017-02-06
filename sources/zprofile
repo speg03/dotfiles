@@ -2,13 +2,13 @@
 
 debug "Loading zprofile ..."
 
-export EDITOR="emacsclient -t"
+EDITOR='emacsclient -t'
 
-export HISTFILE="$HOME/.zhistory"
-export HISTSIZE=10000
-export SAVEHIST=10000
+HISTFILE=$HOME/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
 
-export LESS='-giMR'
+LESS='-giMR'
 
 ## Host specific
 if exists $HOME/.zprofile.local; then
