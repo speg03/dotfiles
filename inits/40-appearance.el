@@ -24,6 +24,17 @@
 ;; Transparent frame
 (set-frame-parameter nil 'alpha '(95 . 70))
 
+;; Ediff
+; Open ediff control-panel in current frame
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+; Split window horizontally or vertically depending its width
+(add-hook 'ediff-before-setup-hook
+          (lambda ()
+            (setq ediff-split-window-function
+                  (if (> (frame-width) 150)
+                      'split-window-horizontally
+                    'split-window-vertically))))
+
 ;; zenburn-theme
 (when (install-package-if-not-exist 'zenburn-theme)
   (load-theme 'zenburn t))
