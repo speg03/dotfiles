@@ -64,7 +64,8 @@ function _update_prompt() {
     if [ -n "${vcs_info_msg_0_}" ]; then
         vcs_prompt="${vcs_info_msg_0_}"
     fi
-    PROMPT="[$base_prompt]"$'\U26A1  '
+
+    PROMPT="[$base_prompt]"${PROMPT_SYMBOL:=$'\U26A1 '}" "
     RPROMPT="$vcs_prompt"
 }
 
