@@ -1,3 +1,6 @@
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 ## zsh
 fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 fpath=($HOME/.zsh.d/completion(N-/) $fpath)
