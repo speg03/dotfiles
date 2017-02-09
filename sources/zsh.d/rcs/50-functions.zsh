@@ -50,5 +50,6 @@ function g() {
     local repository=$(ghq list -p | fzf -1 $query)
     if [ -n "$repository" ]; then
         cd $repository
+        echo $repository
     fi
 }
