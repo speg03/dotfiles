@@ -21,8 +21,10 @@
 ;; Line number
 (global-linum-mode 1)
 
-;; Transparent frame
-(set-frame-parameter nil 'alpha '(95 . 70))
+;; Default frame configuration
+(add-to-list 'default-frame-alist '(width  . 100))
+(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(alpha  . (95 . 70)))
 
 ;; Ediff
 ; Open ediff control-panel in current frame
