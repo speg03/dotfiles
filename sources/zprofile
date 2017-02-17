@@ -15,9 +15,3 @@ if exists $HOME/.zprofile.local; then
     debug "$HOME/.zprofile.local"
     source $HOME/.zprofile.local
 fi
-
-## Start tmux session
-if [ "$TERM" != "screen-256color" ]; then
-    debug "Starting tmux new session ..."
-    exec tmux new-session -A -s main
-fi
