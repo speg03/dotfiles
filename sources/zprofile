@@ -2,7 +2,7 @@
 
 debug "Loading zprofile ..."
 
-EDITOR='emacsclient -t'
+export EDITOR=emacsclient
 
 HISTFILE=$HOME/.zhistory
 HISTSIZE=10000
