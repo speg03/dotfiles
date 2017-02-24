@@ -10,6 +10,9 @@
   (define-key mozc-mode-map (kbd "<muhenkan>") 'toggle-input-method))
 
 ;; Font size
-(setq default-face-attribute-height 110)
+(setq default-face-attribute-height 130)
 (set-face-attribute 'default nil
                     :height default-face-attribute-height)
+
+;; Font
+(add-to-list 'default-frame-alist '(font . "CicaE"))
