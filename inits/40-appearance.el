@@ -18,6 +18,9 @@
 ;; Disable tool bar
 (tool-bar-mode 0)
 
+;; Scroll bar
+(scroll-bar-mode 0)
+
 ;; Line number
 (global-linum-mode 1)
 
