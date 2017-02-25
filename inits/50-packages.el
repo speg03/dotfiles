@@ -30,6 +30,9 @@
   (eval-after-load 'undo-tree
     '(diminish 'undo-tree-mode)))
 
+;; dockerfile-mode
+(install-package-if-not-exist 'dockerfile-mode)
+
 ;; expand-region
 (when (install-package-if-not-exist 'expand-region)
   ;; http://emacs.rubikitch.com/expand-region/
