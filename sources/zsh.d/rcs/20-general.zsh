@@ -4,4 +4,3 @@ autoload -Uz compinit
 autoload -Uz vcs_info
 
 colors
-compinit -u

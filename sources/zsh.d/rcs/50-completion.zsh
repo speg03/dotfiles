@@ -16,3 +16,5 @@ if exists $HOME/.fzf/shell/completion.zsh; then
     debug "$HOME/.fzf/shell/completion.zsh"
     source $HOME/.fzf/shell/completion.zsh
 fi
+
+compinit -iu
