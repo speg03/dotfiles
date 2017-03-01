@@ -99,7 +99,10 @@
 
 ;; py-yapf
 (when (install-package-if-not-exist 'py-yapf)
-  (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+  ;; (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+  (add-hook 'python-mode-hook
+            '(lambda ()
+               (define-key python-mode-map (kbd "C-M-f") 'py-yapf-buffer))))
 
 ;; pyenv-mode
 (when (install-package-if-not-exist 'pyenv-mode)
