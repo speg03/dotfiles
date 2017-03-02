@@ -2,17 +2,10 @@
 
 ;; OS specific Configurations
 
-;; for Mac
-(when (eq system-type 'darwin)
-  (load-file
-   (concat init-loader-directory "/os_specific/for_mac.el")))
+(setq os-type-name
+      (replace-regexp-in-string "/" "-" (symbol-name system-type)))
+(setq os-specific-file
+      (concat init-loader-directory "/os_specific/" os-type-name ".el"))
 
-;; for Linux
-(when (eq system-type 'gnu/linux)
-  (load-file
-   (concat init-loader-directory "/os_specific/for_linux.el")))
-
-;; for Windows
-(when (eq system-type 'windows-nt)
-  (load-file
-   (concat init-loader-directory "/os_specific/for_windows.el")))
+(when (file-exists-p os-specific-file)
+  (load-file os-specific-file))
