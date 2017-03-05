@@ -42,14 +42,6 @@ function kill_emacs() {
 ### Repository
 
 function g() {
-    local query
-    if [ $# -gt 0 ]; then
-        query="-q $*"
-    fi
-
-    local repository=$(ghq list -p | fzf -1 $query)
-    if [ -n "$repository" ]; then
-        cd $repository
-        echo $repository
-    fi
+    local repo=$(ghq list -p | fzf -1 -q "$*")
+    [ "$repo" ] && cd $repo && echo $repo
 }
