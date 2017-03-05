@@ -45,3 +45,15 @@ function g() {
     local repo=$(ghq list -p | fzf -1 -q "$*")
     [ "$repo" ] && cd $repo && echo $repo
 }
+
+
+### Searching file contents
+
+function s() {
+    ag --noheading . |
+        fzf --tac -q "$*" \
+            --bind "enter:execute:
+                echo {} |
+                awk -F : '"'{print "+" $2 " " $1}'"' |
+                xargs less"
+}
