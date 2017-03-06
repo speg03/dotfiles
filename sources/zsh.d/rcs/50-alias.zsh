@@ -26,7 +26,7 @@ alias d-proxy-build="docker build --build-arg http_proxy=$http_proxy --build-arg
 alias gs='git status -s'
 alias gl='git log'
 alias gd='git diff'
-alias gsync='rsync -avzC --delete --exclude=".git/" --filter=":- /.gitignore"'
+alias gsync='rsync -avzC --exclude=".git/" --filter=":- /.gitignore"'
 
 ### Python
 
