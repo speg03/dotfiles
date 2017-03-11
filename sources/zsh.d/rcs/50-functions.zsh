@@ -57,3 +57,18 @@ function s() {
                 awk -F : '"'{print "+" $2 " " $1}'"' |
                 xargs less"
 }
+
+
+### Tmux
+
+function t() {
+    local session=${1:-main}
+    if [[ -z $TMUX ]]; then
+        tmux new-session -A -s $session
+    else
+        if ! tmux has-session -t $session 2>/dev/null; then
+            TMUX= tmux new-session -d -s $session
+        fi
+        tmux switch-client -t $session
+    fi
+}
