@@ -34,8 +34,10 @@ function e() {
     fi
 }
 
-function kill_emacs() {
-    emacsclient -e '(kill-emacs)'
+function ekill() {
+    if ! emacsclient -e '(kill-emacs)' 2>/dev/null; then
+        echo "no emacs server running" >&2
+    fi
 }
 
 
