@@ -39,7 +39,7 @@ function +vi-git-st() {
                  | wc -l | awk '{print $1}')
     (( $behind )) && gitstatus+=( "-${behind}" )
 
-    if [[ ${#gitstatus[@]} > 0 ]]; then
+    if [[ ${#gitstatus[@]} -gt 0 ]]; then
         hook_com[misc]+="%F{magenta}[${(j:/:)gitstatus}]%f"
     fi
 }
