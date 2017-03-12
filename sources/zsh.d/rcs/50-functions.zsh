@@ -51,11 +51,7 @@ function g() {
 
 function s() {
     ag --noheading . |
-        fzf --tac -q "$*" \
-            --bind "enter:execute:
-                echo {} |
-                awk -F : '"'{print "+" $2 " " $1}'"' |
-                xargs less"
+        fzf -d: --tac -q "$*" --bind "enter:execute: less +{2} {1}"
 }
 
 
