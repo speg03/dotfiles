@@ -69,3 +69,10 @@ function t() {
         tmux switch-client -t $session
     fi
 }
+
+function tkill() {
+    tmux list-sessions 2>/dev/null |
+        fzf-tmux -m -0 |
+        cut -d: -f1 |
+        xargs -n 1 tmux kill-session -t
+}
