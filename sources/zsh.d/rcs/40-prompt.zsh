@@ -74,7 +74,7 @@ function _update_prompt() {
     RPROMPT="${vcs_info_msg_0_}"
 }
 
-if [ -n "$TMUX" ]; then
+if [[ $TERM == 'screen-256color' ]]; then
     add-zsh-hook chpwd _update_term_title
     _update_term_title
 fi
