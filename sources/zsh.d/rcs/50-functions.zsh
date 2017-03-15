@@ -54,7 +54,8 @@ function g() {
 function s() {
     ag --noheading . |
         fzf -d: --tac -q "$*" \
-            --bind "enter:execute: pygmentize {1} | less +{2}"
+            --bind "enter:execute: less +{2} {1}" \
+            --bind "ctrl-v:execute: pygmentize {1} | less +{2}"
 }
 
 
