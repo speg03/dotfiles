@@ -3,7 +3,7 @@ function _set_tmux_status() {
     local sync_enable="#[fg=brightred]"${sync_symbol}"#[default]"
     local sync_disable="#[fg=brightblack]"${sync_symbol}"#[default]"
     tmux set -g status-left "#{?pane_synchronized,$sync_enable,$sync_disable}"
-    tmux set -ag status-left "#[fg=cyan](#S)#[default] "
+    tmux set -ag status-left "#[fg=brightblue](#S)#[default] "
 }
 
 if [[ $TMUX ]]; then
