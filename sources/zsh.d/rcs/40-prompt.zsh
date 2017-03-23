@@ -52,17 +52,9 @@ function +vi-vcs-green() {
 }
 
 function _update_term_title() {
-    local current_path=$(print -Pn '%~')
-
-    # 現在のパスを後ろから58文字以内に収める
-    if [[ ${#current_path} -gt 58 ]]; then
-        # ドット3つ分を引いて55文字に縮める
-        local start=$(( ${#current_path} - 55 + 1 ))
-        current_path=...${current_path[$start,-1]}
-    fi
-
     # xtermのタイトルに現在のディレクトリパスを設定
-    print -Pn "\e]0;$current_path\a"
+    # ただし、58文字に収める（tmux.confの設定による）
+    print -Pn "\e]0;%58<...<%~%<<\007"
 }
 
 function _update_prompt() {
