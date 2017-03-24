@@ -3,9 +3,9 @@
 zstyle ':vcs_info:*' enable git
 
 zstyle ':vcs_info:git:*' formats \
-       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m '
+       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m'
 zstyle ':vcs_info:git:*' actionformats \
-       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f '
+       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 
 zstyle ':vcs_info:git*+set-message:*' hooks \
@@ -51,24 +51,18 @@ function +vi-vcs-green() {
     fi
 }
 
-function _update_term_title() {
-    # xtermのタイトルに現在のディレクトリパスを設定
-    # ただし、58文字に収める（tmux.confの設定による）
-    print -Pn "\e]0;%58<...<%~%<<\007"
-}
-
 function _update_prompt() {
     local color=${HOSTNAME_COLOR:-$(hostname_color)}
     local symbol=${PROMPT_SYMBOL:-$'%F{11}\U26A1%f  '}
 
-    LANG=en_US.UTF-8 vcs_info
     PROMPT="[%F{$color}%n@%m%f]$symbol"
-    RPROMPT="${vcs_info_msg_0_}"
-}
 
-if [[ $TERM == 'screen-256color' ]]; then
-    add-zsh-hook chpwd _update_term_title
-    _update_term_title
-fi
+    LANG=en_US.UTF-8 vcs_info
+    if [[ ${vcs_info_msg_0_} ]]; then
+        RPROMPT="%F{13}[%40<...<%~%<<]%f ${vcs_info_msg_0_}"
+    else
+        RPROMPT="%F{13}[%40<...<%~%<<]%f"
+    fi
+}
 
 add-zsh-hook precmd _update_prompt
