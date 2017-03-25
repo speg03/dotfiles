@@ -35,6 +35,7 @@ manpath=($HOME/.fzf/man(N-/) $manpath)
 export GOPATH=$HOME/.go
 path=($GOPATH/bin(N-/) $path)
 
+path=($HOME/.local/bin(N-/) $path)
 
 ## Host specific
 if exists $HOME/.zshenv.local; then

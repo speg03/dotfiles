@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if ! installed tmux-mem-cpu-load; then
+    echo "tmux-mem-cpu-load is not installed"
+    exit 0
+fi
+
+tmux-mem-cpu-load --colors --powerline-right --interval=5 --averages-count=0
