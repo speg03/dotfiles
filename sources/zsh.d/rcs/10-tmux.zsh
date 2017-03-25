@@ -5,7 +5,7 @@ function _set_tmux_status() {
     sync_status="${sync_status}${sync_symbol}#[fg=default]"
 
     local status_line
-    status_line="#[bg=black]$sync_status"
+    status_line="#[bg=black]${sync_status}"
     status_line="${status_line}#[fg=black,bg=blue]"$'\UE0B0'
     status_line="${status_line} #[fg=default,bold]#S#[nobold]"
     status_line="${status_line} #[fg=blue,bg=default]"$'\UE0B0'"#[default] "
