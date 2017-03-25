@@ -5,4 +5,4 @@ if ! installed tmux-mem-cpu-load; then
     exit 0
 fi
 
-tmux-mem-cpu-load --colors --powerline-right --interval=5 --averages-count=0
+tmux-mem-cpu-load -cq -i5 -t1 -a0
