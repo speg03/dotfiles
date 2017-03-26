@@ -137,11 +137,11 @@ if [[ ! -e $fzf_path ]]; then
 fi
 
 # tpm
-tmux_plugin_path=${TMUX_PLUGIN_MANAGER_PATH:-"$HOME/.tmux/plugins"}
-if [[ ! -e $tmux_plugin_path/tpm ]]; then
+export TMUX_PLUGIN_MANAGER_PATH=${TMUX_PLUGIN_MANAGER_PATH:-"$HOME/.tmux/plugins"}
+if [[ ! -e $TMUX_PLUGIN_MANAGER_PATH/tpm ]]; then
     echo -n "Installing tpm ... "
-    git clone -q https://github.com/tmux-plugins/tpm "$tmux_plugin_path/tpm"
-    "$tmux_plugin_path/tpm/bin/install_plugins"
+    git clone -q https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_MANAGER_PATH/tpm"
+    "$TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
     echo "Done."
 fi
 
