@@ -61,20 +61,20 @@ done
 
 ### Download completions
 
-export ZSH_COMPLETIONS_PATH=${ZSH_COMPLETIONS_PATH:-"$HOME/.zsh.d/completion"}
+zsh_completions_path="$HOME/.zsh.d/completion"
 
 # git completion
-if [[ ! -e "$ZSH_COMPLETIONS_PATH/_git" ]]; then
+if [[ ! -e $zsh_completions_path/_git ]]; then
     echo -n "Downloading completions for git ... "
-    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$ZSH_COMPLETIONS_PATH/_git"
-    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$ZSH_COMPLETIONS_PATH/git-completion.bash"
+    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$zsh_completions_path/_git"
+    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$zsh_completions_path/git-completion.bash"
     echo "Done."
 fi
 
 # docker completion
-if [[ ! -e "$ZSH_COMPLETIONS_PATH/_docker" ]]; then
+if [[ ! -e $zsh_completions_path/_docker ]]; then
     echo -n "Downloading completion for docker ... "
-    curl -s https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o "$ZSH_COMPLETIONS_PATH/_docker"
+    curl -s https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o "$zsh_completions_path/_docker"
     echo "Done."
 fi
 
@@ -82,22 +82,24 @@ fi
 ### Create templates
 
 # git config
-if [[ ! -e "$HOME/.gitconfig.local" ]]; then
+git_config_path="$HOME/.gitconfig.local"
+if [[ ! -e $git_config_path ]]; then
     echo -n "Creating git configuration for local ... "
-    git config -f "$HOME/.gitconfig.local" user.name 'Takahiro Yano'
-    git config -f "$HOME/.gitconfig.local" user.email 'speg03@gmail.com'
+    git config -f "$git_config_path" user.name 'Takahiro Yano'
+    git config -f "$git_config_path" user.email 'speg03@gmail.com'
     echo "Done."
 fi
 
 # netrc template
-if [[ ! -e "$HOME/.netrc" ]]; then
+netrc_path="$HOME/.netrc"
+if [[ ! -e $netrc_path ]]; then
     echo -n "Creating netrc template ... "
     {
         echo "#machine github.com"
         echo "#  login speg03"
         echo "#  password ACCESS_TOKEN"
-    } >"$HOME/.netrc"
-    chmod 0600 "$HOME/.netrc"
+    } >"$netrc_path"
+    chmod 0600 "$netrc_path"
     echo "Done."
 fi
 
@@ -106,7 +108,7 @@ fi
 
 # anyenv
 export ANYENV_ROOT=${ANYENV_ROOT:-"$HOME/.anyenv"}
-if [[ ! -e "$ANYENV_ROOT" ]]; then
+if [[ ! -e $ANYENV_ROOT ]]; then
     echo -n "Installing anyenv ... "
     git clone -q https://github.com/riywo/anyenv "$ANYENV_ROOT"
     git clone -q https://github.com/znz/anyenv-update "$ANYENV_ROOT/plugins/anyenv-update"
@@ -114,7 +116,7 @@ if [[ ! -e "$ANYENV_ROOT" ]]; then
 fi
 
 # pyenv
-if [[ ! -e "$ANYENV_ROOT/envs/pyenv" ]]; then
+if [[ ! -e $ANYENV_ROOT/envs/pyenv ]]; then
     echo -n "Loading anyenv ... "
     eval "$("$ANYENV_ROOT/bin/anyenv" init -)"
     echo "Done."
@@ -126,20 +128,20 @@ if [[ ! -e "$ANYENV_ROOT/envs/pyenv" ]]; then
 fi
 
 # fzf
-export FZF_ROOT=${FZF_ROOT:-"$HOME/.fzf"}
-if [[ ! -e "$FZF_ROOT" ]]; then
+fzf_path="$HOME/.fzf"
+if [[ ! -e $fzf_path ]]; then
     echo -n "Installing fzf ... "
-    git clone -q https://github.com/junegunn/fzf "$FZF_ROOT"
-    "$FZF_ROOT/install" --bin
+    git clone -q https://github.com/junegunn/fzf "$fzf_path"
+    "$fzf_path/install" --bin
     echo "Done."
 fi
 
 # tpm
-export TMUX_PLUGIN_MANAGER_PATH=${TMUX_PLUGIN_MANAGER_PATH:-"$HOME/.tmux/plugins"}
-if [[ ! -e "$TMUX_PLUGIN_MANAGER_PATH/tpm" ]]; then
+tmux_plugin_path=${TMUX_PLUGIN_MANAGER_PATH:-"$HOME/.tmux/plugins"}
+if [[ ! -e $tmux_plugin_path/tpm ]]; then
     echo -n "Installing tpm ... "
-    git clone -q https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_MANAGER_PATH/tpm"
-    "$TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
+    git clone -q https://github.com/tmux-plugins/tpm "$tmux_plugin_path/tpm"
+    "$tmux_plugin_path/tpm/bin/install_plugins"
     echo "Done."
 fi
 
@@ -147,7 +149,7 @@ fi
 export GOPATH=${GOPATH:-"$HOME/.go"}
 
 # ghq
-if [[ ! -e "$GOPATH/bin/ghq" ]]; then
+if [[ ! -e $GOPATH/bin/ghq ]]; then
     echo -n "Installing ghq ... "
     go get github.com/motemen/ghq
     echo "Done."
