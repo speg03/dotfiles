@@ -3,145 +3,152 @@
 # Install my custom dotfiles
 
 
-function msg() {
-    echo "$@" >&2
+### Checking require packages are installed
+
+require_packages=""
+for package in curl git go tmux zsh; do
+    if ! type $package &>/dev/null; then
+        require_packages="$require_packages $package"
+    fi
+done
+
+if [[ $require_packages ]]; then
+    echo "!!! Require packages:$require_packages"
+    exit 1
+fi
+
+
+### Download dotfiles
+
+dotfiles_path="$HOME/.ghq/github.com/speg03/dotfiles"
+if [[ ! -e $dotfiles_path ]]; then
+    echo -n "Downloading dotfiles ... "
+    git clone -q https://github.com/speg03/dotfiles "$dotfiles_path"
+    echo "Done."
+fi
+
+
+### Create symlinks
+
+symlink() {
+    local src_path=$1
+    local dst_path=$2
+
+    if [[ ! -h $dst_path && -e $dst_path ]]; then
+        # 宛先がシンボリックリンク以外で存在する場合
+        echo "$(basename "$dst_path") already exists."
+    elif [[ ! -e $dst_path ]]; then
+        # 宛先が存在しない場合
+        # またはシンボリックリンクでそのリンク先が存在しない場合
+        echo -n "Creating link $(basename "$dst_path") ... "
+        ln -s "$src_path" "$dst_path"
+        echo "Done."
+    fi
+    # 宛先がシンボリックリンクとして存在した場合は何もしない
 }
 
-function not_exists() {
-    test ! -e "$1"
-}
+# symlinks for sources
+for src in $dotfiles_path/sources/*; do
+    symlink "$src" "$HOME/.$(basename "$src")"
+done
 
-function not_installed() {
-    ! type "$1" &>/dev/null
-}
-
-function check_packages_installed() {
-    local packages="curl git go"
-    local require_packages
-
-    local pkg
-    for pkg in $packages; do
-        if not_installed "$pkg"; then
-            require_packages="$require_packages $pkg"
-        fi
-    done
-
-    if [ -n "$require_packages" ]; then
-        msg "!!! You need to install packages:$require_packages"
-        exit 1
-    fi
-}
-
-function install_configurations() {
-    # dotfiles repository
-    local dotfiles_path="$HOME"/.ghq/github.com/speg03/dotfiles
-    if not_exists "$dotfiles_path"; then
-        msg "# Downloading dotfiles ..."
-        git clone https://github.com/speg03/dotfiles "$dotfiles_path"
-    fi
-
-    # symlinks for bin
-    mkdir -p "$HOME"/.local/bin
-    if not_exists "$HOME"/.local/bin/mem-cpu-load; then
-        msg "# Creating links to mem-cpu-load ..."
-        ln -s "$dotfiles_path"/bin/mem-cpu-load "$HOME"/.local/bin/
-    fi
-
-    # symlinks for sources
-    local source
-    local source_path
-    for source_path in $dotfiles_path/sources/*; do
-        source=$(basename "$source_path")
-        if not_exists "$HOME"/."$source"; then
-            msg "# Creating links to $source ..."
-            ln -s "$source_path" "$HOME"/."$source"
-        fi
-    done
-
-    # git completion
-    if not_exists "$HOME"/.zsh.d/completion/_git; then
-        msg "# Downloading completions for git ..."
-        curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$HOME"/.zsh.d/completion/_git
-        curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$HOME"/.zsh.d/completion/git-completion.bash
-    fi
-
-    # docker completion
-    if not_exists "$HOME"/.zsh.d/completion/_docker; then
-        msg "# Downloading completions for docker ..."
-        curl https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o "$HOME"/.zsh.d/completion/_docker
-    fi
-
-    # git config
-    if not_exists "$HOME"/.gitconfig.local; then
-        msg "# Creating git configuration for local ..."
-        git config -f "$HOME"/.gitconfig.local user.name 'Takahiro Yano'
-        git config -f "$HOME"/.gitconfig.local user.email 'speg03@gmail.com'
-    fi
-
-    # netrc template
-    if not_exists "$HOME"/.netrc; then
-        msg "# Creating netrc template ..."
-        {
-            echo "#machine github.com"
-            echo "#  login speg03"
-            echo "#  password ACCESS_TOKEN"
-        } >"$HOME"/.netrc
-        chmod 0600 "$HOME"/.netrc
-    fi
-}
-
-function install_tools() {
-    # anyenv
-    if not_exists "$HOME"/.anyenv; then
-        msg "# Installing anyenv ..."
-        git clone https://github.com/riywo/anyenv "$HOME"/.anyenv
-        mkdir -p "$HOME"/.anyenv/plugins
-        git clone https://github.com/znz/anyenv-update \
-            "$HOME"/.anyenv/plugins/anyenv-update
-    fi
-
-    # load anyenv
-    if not_installed pyenv; then
-        msg "# Loading anyenv ..."
-        export PATH="$HOME"/.anyenv/bin:"$PATH"
-        eval "$(anyenv init -)"
-
-        # pyenv
-        msg "# Installing pyenv ..."
-        anyenv install pyenv
-        git clone https://github.com/yyuu/pyenv-virtualenv.git \
-            "$HOME"/.anyenv/envs/pyenv/plugins/pyenv-virtualenv
-    fi
-
-    # fzf
-    if not_exists "$HOME"/.fzf; then
-        msg "# Installing fzf ..."
-        git clone https://github.com/junegunn/fzf "$HOME"/.fzf
-        "$HOME"/.fzf/install --bin
-    fi
-
-    # tpm
-    if not_exists "$HOME"/.tmux/plugins/tpm; then
-        msg "# Installing tpm ..."
-        git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
-        "$HOME"/.tmux/plugins/tpm/bin/install_plugins
-    fi
-
-    # Go packages
-    export GOPATH="$HOME"/.go
-    export PATH="$GOPATH"/bin:"$PATH"
-    if not_installed ghq; then
-        msg "# Installing ghq ..."
-        go get github.com/motemen/ghq
-    fi
-}
+# symlinks for bin
+mkdir -p "$HOME/.local/bin"
+for src in $dotfiles_path/bin/*; do
+    symlink "$src" "$HOME/.local/bin/$(basename "$src")"
+done
 
 
-function main() {
-    check_packages_installed
+### Download completions
 
-    install_configurations
-    install_tools
-}
+export ZSH_COMPLETIONS_PATH=${ZSH_COMPLETIONS_PATH:-"$HOME/.zsh.d/completion"}
 
-main
+# git completion
+if [[ ! -e "$ZSH_COMPLETIONS_PATH/_git" ]]; then
+    echo -n "Downloading completions for git ... "
+    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$ZSH_COMPLETIONS_PATH/_git"
+    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$ZSH_COMPLETIONS_PATH/git-completion.bash"
+    echo "Done."
+fi
+
+# docker completion
+if [[ ! -e "$ZSH_COMPLETIONS_PATH/_docker" ]]; then
+    echo -n "Downloading completion for docker ... "
+    curl -s https://raw.githubusercontent.com/docker/docker/master/contrib/completion/zsh/_docker -o "$ZSH_COMPLETIONS_PATH/_docker"
+    echo "Done."
+fi
+
+
+### Create templates
+
+# git config
+if [[ ! -e "$HOME/.gitconfig.local" ]]; then
+    echo -n "Creating git configuration for local ... "
+    git config -f "$HOME/.gitconfig.local" user.name 'Takahiro Yano'
+    git config -f "$HOME/.gitconfig.local" user.email 'speg03@gmail.com'
+    echo "Done."
+fi
+
+# netrc template
+if [[ ! -e "$HOME/.netrc" ]]; then
+    echo -n "Creating netrc template ... "
+    {
+        echo "#machine github.com"
+        echo "#  login speg03"
+        echo "#  password ACCESS_TOKEN"
+    } >"$HOME/.netrc"
+    chmod 0600 "$HOME/.netrc"
+    echo "Done."
+fi
+
+
+### Install useful tools
+
+# anyenv
+export ANYENV_ROOT=${ANYENV_ROOT:-"$HOME/.anyenv"}
+if [[ ! -e "$ANYENV_ROOT" ]]; then
+    echo -n "Installing anyenv ... "
+    git clone -q https://github.com/riywo/anyenv "$ANYENV_ROOT"
+    git clone -q https://github.com/znz/anyenv-update "$ANYENV_ROOT/plugins/anyenv-update"
+    echo "Done."
+fi
+
+# pyenv
+if [[ ! -e "$ANYENV_ROOT/envs/pyenv" ]]; then
+    echo -n "Loading anyenv ... "
+    eval "$("$ANYENV_ROOT/bin/anyenv" init -)"
+    echo "Done."
+
+    echo -n "Installing pyenv ... "
+    anyenv install pyenv &>/dev/null
+    git clone -q https://github.com/yyuu/pyenv-virtualenv.git "$ANYENV_ROOT/envs/pyenv/plugins/pyenv-virtualenv"
+    echo "Done."
+fi
+
+# fzf
+export FZF_ROOT=${FZF_ROOT:-"$HOME/.fzf"}
+if [[ ! -e "$FZF_ROOT" ]]; then
+    echo -n "Installing fzf ... "
+    git clone -q https://github.com/junegunn/fzf "$FZF_ROOT"
+    "$FZF_ROOT/install" --bin
+    echo "Done."
+fi
+
+# tpm
+export TMUX_PLUGIN_MANAGER_PATH=${TMUX_PLUGIN_MANAGER_PATH:-"$HOME/.tmux/plugins"}
+if [[ ! -e "$TMUX_PLUGIN_MANAGER_PATH/tpm" ]]; then
+    echo -n "Installing tpm ... "
+    git clone -q https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_MANAGER_PATH/tpm"
+    "$TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
+    echo "Done."
+fi
+
+# Go packages
+export GOPATH=${GOPATH:-"$HOME/.go"}
+
+# ghq
+if [[ ! -e "$GOPATH/bin/ghq" ]]; then
+    echo -n "Installing ghq ... "
+    go get github.com/motemen/ghq
+    echo "Done."
+fi
