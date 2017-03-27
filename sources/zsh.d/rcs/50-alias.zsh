@@ -2,8 +2,6 @@
 
 ### General
 
-alias reload='exec zsh -l'
-
 alias ll='ls -alF'
 alias lv='LANG=ja_JP.UTF-8 lv'
 alias grep='grep --color=auto'
@@ -12,6 +10,13 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+reload() {
+    if [[ $TMUX ]]; then
+        tmux source-file "$HOME/.tmux.conf"
+    fi
+    exec "$SHELL" -l
+}
 
 ### Docker
 
