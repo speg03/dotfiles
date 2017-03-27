@@ -23,7 +23,7 @@ path=($basepath)
 
 # anyenv
 path=($HOME/.anyenv/bin(N-/) $path)
-if installed anyenv; then
+if type anyenv &>/dev/null; then
     eval "$(anyenv init -)"
 fi
 
@@ -38,7 +38,7 @@ path=($GOPATH/bin(N-/) $path)
 path=($HOME/.local/bin(N-/) $path)
 
 ## Host specific
-if exists $HOME/.zshenv.local; then
+if [[ -e $HOME/.zshenv.local ]]; then
     debug "$HOME/.zshenv.local"
     source $HOME/.zshenv.local
 fi
