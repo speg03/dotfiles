@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
-if ! installed tmux-mem-cpu-load; then
+### Display Memory/CPU usage for tmux
+
+if ! type tmux-mem-cpu-load &>/dev/null; then
     echo "tmux-mem-cpu-load is not installed"
     exit 0
 fi
