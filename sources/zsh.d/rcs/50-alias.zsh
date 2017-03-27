@@ -28,6 +28,11 @@ alias gl='git log'
 alias gd='git diff'
 alias gsync='rsync -avzC --exclude=".git/" --filter=":- /.gitignore"'
 
+g() {
+    local repo=$(ghq list -p | fzf -1 -q "$*")
+    [[ "$repo" ]] && cd "$repo" && echo "$repo"
+}
+
 ### Python
 
 alias jc='jupyter-console'

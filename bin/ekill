@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+### Kill emacs daemon
+
+if ! emacsclient -e '(kill-emacs)' 2>/dev/null; then
+    echo "no emacs server running" >&2
+fi

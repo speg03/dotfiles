@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+### Start/Attach emacs daemon
+
+# Count available emacs frames
+# If emacs daemon is not running, start it firstly
+frame_count=$(emacsclient -a '' -e '(length (visible-frame-list))')
+
+# Emacs daemon have invisible frame
+if [[ $frame_count -lt 2 ]]; then
+    # Open a new frame
+    emacsclient -nc "$@"
+else
+    # Attach existing frame
+    emacsclient -n "$@"
+fi
