@@ -1,19 +1,19 @@
 # -*- mode: shell-script; -*-
 
-function debug() {
+debug() {
     if [[ -e $HOME/.dotfiles_debug ]]; then
         echo "$(date +'%b %d %T') debug: $@" >&2
     fi
 }
 
-function enable_debug() {
+enable_debug() {
     if [[ ! -e $HOME/.dotfiles_debug ]]; then
         echo "Enable dotfiles debug" >&2
         touch $HOME/.dotfiles_debug
     fi
 }
 
-function disable_debug() {
+disable_debug() {
     if [[ -e $HOME/.dotfiles_debug ]]; then
         echo "Disable dotfiles debug" >&2
         rm $HOME/.dotfiles_debug

@@ -11,7 +11,7 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git*+set-message:*' hooks \
        vcs-init git-untracked git-st vcs-green
 
-function +vi-vcs-init() {
++vi-vcs-init() {
     local in_git
     in_git=$(git rev-parse --is-inside-work-tree 2>/dev/null)
     if [[ $in_git != 'true' ]]; then
@@ -21,13 +21,13 @@ function +vi-vcs-init() {
     hook_com[misc]=''
 }
 
-function +vi-git-untracked() {
++vi-git-untracked() {
     if git status --porcelain | grep '^??' &>/dev/null; then
         hook_com[misc]+="%F{yellow}?%f"
     fi
 }
 
-function +vi-git-st() {
++vi-git-st() {
     local ahead behind
     local -a gitstatus
 
@@ -44,14 +44,14 @@ function +vi-git-st() {
     fi
 }
 
-function +vi-vcs-green() {
++vi-vcs-green() {
     if [[ -z ${hook_com[staged]} && -z ${hook_com[unstaged]} &&
               -z ${hook_com[misc]} && -z ${hook_com[action]} ]]; then
         hook_com[misc]=$'%F{green}\U2714%f'
     fi
 }
 
-function _update_prompt() {
+_update_prompt() {
     local color=${HOSTNAME_COLOR:-$(hostname_color)}
     local symbol=${PROMPT_SYMBOL:-$'%F{11}\U26A1%f  '}
 

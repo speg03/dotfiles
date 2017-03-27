@@ -2,7 +2,7 @@
 
 debug "Loading zshrc ..."
 
-function _load_configurations() {
+_load_configurations() {
     local config
     for config in $HOME/.zsh.d/rcs/*.zsh; do
         debug "$config"
