@@ -8,3 +8,5 @@
 	path = ~/.config/git/gitconfig.local
 [commit]
 	template = ~/.config/git/commit_template
+[ghq]
+	root = ~/.local/src

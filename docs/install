@@ -20,7 +20,7 @@ fi
 
 ### Download dotfiles
 
-dotfiles_path="$HOME/.ghq/github.com/speg03/dotfiles"
+dotfiles_path="$HOME/.local/src/github.com/speg03/dotfiles"
 if [[ ! -e $dotfiles_path ]]; then
     echo -n "Downloading dotfiles ... "
     git clone -q https://github.com/speg03/dotfiles "$dotfiles_path"
