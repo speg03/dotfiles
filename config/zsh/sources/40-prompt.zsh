@@ -59,9 +59,9 @@ _update_prompt() {
 
     LANG=en_US.UTF-8 vcs_info
     if [[ ${vcs_info_msg_0_} ]]; then
-        RPROMPT="%F{13}[%40<...<%~%<<]%f ${vcs_info_msg_0_}"
+        RPROMPT="%F{13}[%30<...<%~%<<]%f ${vcs_info_msg_0_}"
     else
-        RPROMPT="%F{13}[%40<...<%~%<<]%f"
+        RPROMPT="%F{13}[%30<...<%~%<<]%f"
     fi
 }
 
