@@ -152,7 +152,7 @@ if [[ ! -e $tmux_plugins_path/tpm ]]; then
 fi
 
 # Go packages
-export GOPATH=${GOPATH:-"$HOME/.go"}
+export GOPATH="$HOME/.local/lib/go"
 
 # ghq
 if [[ ! -e $GOPATH/bin/ghq ]]; then
