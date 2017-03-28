@@ -15,7 +15,7 @@ unset SSH_ASKPASS
 
 
 ## PATH
-typeset -U path fpath manpath
+typeset -U path fpath
 
 typeset -aUT BASEPATH basepath
 basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))
@@ -31,10 +31,7 @@ if [[ -e $ANYENV_ROOT/bin/anyenv ]]; then
     eval "$($ANYENV_ROOT/bin/anyenv init -)"
 fi
 
-# fzf
-path=($HOME/.fzf/bin(N-/) $path)
-manpath=($HOME/.fzf/man(N-/) $manpath)
-
+# local
 path=($HOME/.local/bin(N-/) $path)
 
 ## Host specific

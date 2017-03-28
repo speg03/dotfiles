@@ -41,6 +41,7 @@ symlink() {
         # 宛先が存在しない場合
         # またはシンボリックリンクでそのリンク先が存在しない場合
         echo -n "Creating link $(basename "$dst_path") ... "
+        mkdir -p "$(dirname "$dst_path")"
         ln -snf "$src_path" "$dst_path"
         echo "Done."
     fi
@@ -58,7 +59,6 @@ for src in $dotfiles_path/rcs/*; do
 done
 
 # symlinks for bin
-mkdir -p "$HOME/.local/bin"
 for src in $dotfiles_path/bin/*; do
     symlink "$src" "$HOME/.local/bin/$(basename "$src")"
 done
@@ -135,11 +135,15 @@ if [[ ! -e $ANYENV_ROOT/envs/pyenv ]]; then
 fi
 
 # fzf
-fzf_path="$HOME/.fzf"
+fzf_path="$HOME/.local/src/github.com/junegunn/fzf"
 if [[ ! -e $fzf_path ]]; then
-    echo -n "Installing fzf ... "
+    echo "Installing fzf ..."
     git clone -q https://github.com/junegunn/fzf "$fzf_path"
     "$fzf_path/install" --bin
+    symlink "$fzf_path/bin/fzf" "$HOME/.local/bin/fzf"
+    symlink "$fzf_path/bin/fzf-tmux" "$HOME/.local/bin/fzf-tmux"
+    symlink "$fzf_path/man/man1/fzf.1" "$HOME/.local/share/man/man1/fzf.1"
+    symlink "$fzf_path/man/man1/fzf-tmux.1" "$HOME/.local/share/man/man1/fzf-tmux.1"
     echo "Done."
 fi
 
