@@ -1,6 +1,6 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-source $HOME/.zsh.d/functions
+source $HOME/.config/zsh/functions
 
 export LANG=en_US.UTF-8
 debug "Loading zshenv ..."
@@ -38,9 +38,9 @@ path=($GOPATH/bin(N-/) $path)
 path=($HOME/.local/bin(N-/) $path)
 
 ## Host specific
-if [[ -e $HOME/.zshenv.local ]]; then
-    debug "$HOME/.zshenv.local"
-    source $HOME/.zshenv.local
+if [[ -e $HOME/.config/zsh/zshenv.local ]]; then
+    debug "$HOME/.config/zsh/zshenv.local"
+    source $HOME/.config/zsh/zshenv.local
 fi
 
 ## Disable loading rc files in /etc

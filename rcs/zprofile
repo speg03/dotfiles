@@ -10,7 +10,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 ## Host specific
-if [[ -e $HOME/.zprofile.local ]]; then
-    debug "$HOME/.zprofile.local"
-    source $HOME/.zprofile.local
+if [[ -e $HOME/.config/zsh/zprofile.local ]]; then
+    debug "$HOME/.config/zsh/zprofile.local"
+    source $HOME/.config/zsh/zprofile.local
 fi

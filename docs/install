@@ -41,7 +41,7 @@ symlink() {
         # 宛先が存在しない場合
         # またはシンボリックリンクでそのリンク先が存在しない場合
         echo -n "Creating link $(basename "$dst_path") ... "
-        ln -s "$src_path" "$dst_path"
+        ln -snf "$src_path" "$dst_path"
         echo "Done."
     fi
     # 宛先がシンボリックリンクとして存在した場合は何もしない
@@ -52,8 +52,8 @@ for src in $dotfiles_path/config/*; do
     symlink "$src" "$HOME/.config/$(basename "$src")"
 done
 
-# symlinks for sources
-for src in $dotfiles_path/sources/*; do
+# symlinks for rcs
+for src in $dotfiles_path/rcs/*; do
     symlink "$src" "$HOME/.$(basename "$src")"
 done
 
@@ -66,7 +66,8 @@ done
 
 ### Download completions
 
-zsh_completions_path="$HOME/.zsh.d/completion"
+zsh_completions_path="$HOME/.local/share/zsh/completions"
+mkdir -p "$zsh_completions_path"
 
 # git completion
 if [[ ! -e $zsh_completions_path/_git ]]; then

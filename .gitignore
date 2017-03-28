@@ -1,4 +1,4 @@
 config/git/gitconfig.local
-sources/zsh.d/completion/*
-
-!.gitkeep
+config/zsh/zprofile.local
+config/zsh/zshenv.local
+config/zsh/zshrc.local
