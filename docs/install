@@ -87,7 +87,7 @@ fi
 ### Create templates
 
 # git config
-git_config_path="$HOME/.gitconfig.local"
+git_config_path="$HOME/.config/git/gitconfig.local"
 if [[ ! -e $git_config_path ]]; then
     echo -n "Creating git configuration for local ... "
     git config -f "$git_config_path" user.name 'Takahiro Yano'

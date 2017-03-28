@@ -1,3 +1,4 @@
+config/git/gitconfig.local
 sources/zsh.d/completion/*
 
 !.gitkeep
