@@ -113,11 +113,12 @@ fi
 ### Install useful tools
 
 # anyenv
-export ANYENV_ROOT=${ANYENV_ROOT:-"$HOME/.anyenv"}
+export ANYENV_ROOT="$HOME/.local/src/github.com/riywo/anyenv"
 if [[ ! -e $ANYENV_ROOT ]]; then
     echo -n "Installing anyenv ... "
     git clone -q https://github.com/riywo/anyenv "$ANYENV_ROOT"
     git clone -q https://github.com/znz/anyenv-update "$ANYENV_ROOT/plugins/anyenv-update"
+    symlink "$ANYENV_ROOT/bin/anyenv" "$HOME/.local/bin/anyenv"
     echo "Done."
 fi
 

@@ -21,19 +21,19 @@ typeset -aUT BASEPATH basepath
 basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))
 path=($basepath)
 
+# go
+export GOPATH=$HOME/.local/lib/go
+path=($GOPATH/bin(N-/) $path)
+
 # anyenv
-path=($HOME/.anyenv/bin(N-/) $path)
-if type anyenv &>/dev/null; then
-    eval "$(anyenv init -)"
+export ANYENV_ROOT="$(ghq root)/github.com/riywo/anyenv"
+if [[ -e $ANYENV_ROOT/bin/anyenv ]]; then
+    eval "$($ANYENV_ROOT/bin/anyenv init -)"
 fi
 
 # fzf
 path=($HOME/.fzf/bin(N-/) $path)
 manpath=($HOME/.fzf/man(N-/) $manpath)
-
-# go
-export GOPATH=$HOME/.local/lib/go
-path=($GOPATH/bin(N-/) $path)
 
 path=($HOME/.local/bin(N-/) $path)
 
