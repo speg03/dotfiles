@@ -47,6 +47,11 @@ symlink() {
     # 宛先がシンボリックリンクとして存在した場合は何もしない
 }
 
+# symlinks for config
+for src in $dotfiles_path/config/*; do
+    symlink "$src" "$HOME/.config/$(basename "$src")"
+done
+
 # symlinks for sources
 for src in $dotfiles_path/sources/*; do
     symlink "$src" "$HOME/.$(basename "$src")"
@@ -137,11 +142,11 @@ if [[ ! -e $fzf_path ]]; then
 fi
 
 # tpm
-export TMUX_PLUGIN_MANAGER_PATH=${TMUX_PLUGIN_MANAGER_PATH:-"$HOME/.tmux/plugins"}
-if [[ ! -e $TMUX_PLUGIN_MANAGER_PATH/tpm ]]; then
-    echo -n "Installing tpm ... "
-    git clone -q https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_MANAGER_PATH/tpm"
-    "$TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
+tmux_plugins_path="$HOME/.local/share/tmux/plugins"
+if [[ ! -e $tmux_plugins_path/tpm ]]; then
+    echo "Installing tpm ..."
+    git clone -q https://github.com/tmux-plugins/tpm "$tmux_plugins_path/tpm"
+    "$tmux_plugins_path/tpm/bin/install_plugins"
     echo "Done."
 fi
 

@@ -1,4 +1,3 @@
-sources/tmux/plugins/*
 sources/zsh.d/completion/*
 
 !.gitkeep
