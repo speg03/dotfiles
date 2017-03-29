@@ -2,7 +2,7 @@
 
 debug "Loading zprofile ..."
 
-export EDITOR=emacsclient
+export EDITOR=e
 export LESS='-giMR'
 
 HISTFILE=$HOME/.zhistory
