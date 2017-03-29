@@ -170,5 +170,6 @@ fi
 if [[ ! -e $GOPATH/bin/memo ]]; then
     echo -n "Installing memo ... "
     go get github.com/mattn/memo
+    mkdir -p "$HOME/.memo"
     echo "Done."
 fi
