@@ -165,3 +165,10 @@ if [[ ! -e $GOPATH/bin/ghq ]]; then
     go get github.com/motemen/ghq
     echo "Done."
 fi
+
+# memo
+if [[ ! -e $GOPATH/bin/memo ]]; then
+    echo -n "Installing memo ... "
+    go get github.com/mattn/memo
+    echo "Done."
+fi
