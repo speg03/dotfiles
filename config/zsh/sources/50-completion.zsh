@@ -3,7 +3,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## zsh
 fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
-fpath=($HOME/.zsh.d/completion(N-/) $fpath)
+fpath=($HOME/.local/share/zsh/completions(N-/) $fpath)
+
+compinit -iu
+
 
 ## AWS
 if [[ -e /usr/local/share/zsh/site-functions/_aws ]]; then
@@ -12,9 +15,13 @@ if [[ -e /usr/local/share/zsh/site-functions/_aws ]]; then
 fi
 
 ## fzf
-if [[ -e $HOME/.fzf/shell/completion.zsh ]]; then
-    debug "$HOME/.fzf/shell/completion.zsh"
-    source $HOME/.fzf/shell/completion.zsh
+if [[ -e $(ghq root)/github.com/junegunn/fzf/shell/completion.zsh ]]; then
+    debug "$(ghq root)/github.com/junegunn/fzf/shell/completion.zsh"
+    source $(ghq root)/github.com/junegunn/fzf/shell/completion.zsh
 fi
 
-compinit -iu
+## memo
+if [[ -e $GOPATH/src/github.com/mattn/memo/misc/completion.zsh ]]; then
+    debug "$GOPATH/src/github.com/mattn/memo/misc/completion.zsh"
+    source $GOPATH/src/github.com/mattn/memo/misc/completion.zsh
+fi

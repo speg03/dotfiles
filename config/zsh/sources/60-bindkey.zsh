@@ -3,7 +3,7 @@ bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
 ## fzf
-if [[ -e $HOME/.fzf/shell/key-bindings.zsh ]]; then
-    debug "$HOME/.fzf/shell/key-bindings.zsh"
-    source $HOME/.fzf/shell/key-bindings.zsh
+if [[ -e $(ghq root)/github.com/junegunn/fzf/shell/key-bindings.zsh ]]; then
+    debug "$(ghq root)/github.com/junegunn/fzf/shell/key-bindings.zsh"
+    source $(ghq root)/github.com/junegunn/fzf/shell/key-bindings.zsh
 fi
