@@ -1,0 +1,6 @@
+epc
+jedi
+jupyter
+jupyter_contrib_nbextensions
+pyflakes
+yapf
