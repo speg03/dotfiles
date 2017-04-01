@@ -9,7 +9,10 @@ if [ "$TERM" != "screen-256color" ]; then
     export TERM=xterm-256color
 fi
 
-## Suppress password dialogs
+
+## Environment variables
+
+# Suppress password dialogs
 # default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 unset SSH_ASKPASS
 
@@ -34,11 +37,13 @@ fi
 # local
 path=($HOME/.local/bin(N-/) $path)
 
+
 ## Host specific
 if [[ -e $HOME/.config/zsh/zshenv.local ]]; then
     debug "$HOME/.config/zsh/zshenv.local"
     source $HOME/.config/zsh/zshenv.local
 fi
+
 
 ## Disable loading rc files in /etc
 # /etc/zprofile will reset PATH variable by path_helper
