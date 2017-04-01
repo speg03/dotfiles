@@ -11,6 +11,7 @@ fi
 
 
 ## Environment variables
+export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
 
 # Suppress password dialogs
 # default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
