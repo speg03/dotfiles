@@ -6,6 +6,7 @@
 (when (install-package-if-not-exist 'mozc)
   (require 'mozc)
   (setq default-input-method "japanese-mozc")
+  (setq mozc-candidate-style 'echo-area)
   (define-key global-map (kbd "<henkan>") 'toggle-input-method)
   (define-key mozc-mode-map (kbd "<muhenkan>") 'toggle-input-method))
 
