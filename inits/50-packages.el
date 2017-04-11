@@ -42,8 +42,6 @@
 
 ;; flycheck
 (when (install-package-if-not-exist 'flycheck)
-  (when (install-package-if-not-exist 'flycheck-pyflakes)
-    (require 'flycheck-pyflakes))
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'sh-mode-hook 'flycheck-mode))
 
