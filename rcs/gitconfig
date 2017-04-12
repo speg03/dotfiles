@@ -1,3 +1,5 @@
+[core]
+	quotepath = false
 [color]
 	ui = auto
 [push]
