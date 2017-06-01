@@ -52,7 +52,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
 }
 
 _update_prompt() {
-    local color=${HOSTNAME_COLOR:-$(hostname_color)}
+    local color=${HOSTNAME_COLOR:-$(hostname-color)}
     local symbol=${PROMPT_SYMBOL:-$'%F{11}\U26A1%f  '}
 
     PROMPT="[%F{$color}%n@%m%f]$symbol"
