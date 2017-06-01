@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if curl -sLI google.com | grep '200 OK' &>/dev/null; then
+    print -P "[%F{green}OK%f] Network is online"
+else
+    print -P "[%F{red}NG%f] Network is offline"
+fi
