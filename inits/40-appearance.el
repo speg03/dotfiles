@@ -40,9 +40,9 @@
                       'split-window-horizontally
                     'split-window-vertically))))
 
-;; zenburn-theme
-(when (install-package-if-not-exist 'zenburn-theme)
-  (load-theme 'zenburn t))
+;; monokai-theme
+(when (install-package-if-not-exist 'monokai-theme)
+  (load-theme 'monokai t))
 
 ;; Font size
 (defun increment-font-height ()
