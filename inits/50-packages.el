@@ -95,12 +95,18 @@
   (define-key global-map (kbd "C-M-l") 'mc/edit-lines)
   (define-key global-map (kbd "C-M-a") 'mc/mark-all-dwim))
 
-;; py-yapf
-(when (install-package-if-not-exist 'py-yapf)
-  ;; (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+;; py-isort, py-yapf
+(when (and (install-package-if-not-exist 'py-isort)
+           (install-package-if-not-exist 'py-yapf))
+  (defun python-reformat-buffer ()
+    "Reformat python codes in the current buffer."
+    (interactive)
+    (py-isort-buffer)
+    (py-yapf-buffer))
+
   (add-hook 'python-mode-hook
             '(lambda ()
-               (define-key python-mode-map (kbd "C-M-f") 'py-yapf-buffer))))
+               (define-key python-mode-map (kbd "C-M-f") 'python-reformat-buffer))))
 
 ;; pyenv-mode
 (when (install-package-if-not-exist 'pyenv-mode)
