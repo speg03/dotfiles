@@ -1,5 +1,6 @@
 epc
 flake8
+isort
 jedi
 jupyter
 jupyter_contrib_nbextensions
