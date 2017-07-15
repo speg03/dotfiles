@@ -1,5 +1,7 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
+(setq user-emacs-directory "~/.local/share/emacs/")
+
 (setq emacs-version-short
       (replace-regexp-in-string
        "\\([0-9]+\\)\\.\\([0-9]+\\).*" "\\1_\\2" emacs-version))
@@ -28,4 +30,5 @@
 
 (when (install-package-if-not-exist 'init-loader)
   (require 'init-loader)
-  (init-loader-load (locate-user-emacs-file "inits/")))
+  (setq init-loader-directory "~/.config/emacs/")
+  (init-loader-load))
