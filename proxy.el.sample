@@ -1,5 +1,0 @@
-;;; -*- coding: utf-8; mode: emacs-lisp; -*-
-
-;; (setenv "http_proxy" "http://proxyhost:proxyport")
-;; (setenv "https_proxy" (getenv "http_proxy"))
-;; (setenv "no_proxy" "localhost,127.0.0.1")
