@@ -1,7 +1,3 @@
-;;; -*- coding: utf-8; mode: emacs-lisp; -*-
-
-;; Configurations for Mac
-
 ;; Remap Command to Meta
 (setq ns-command-modifier (quote meta))
 

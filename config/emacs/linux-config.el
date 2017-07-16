@@ -1,7 +1,3 @@
-;;; -*- coding: utf-8; mode: emacs-lisp; -*-
-
-;; Configurations for Linux
-
 ;; Mozc
 (when (install-package-if-not-exist 'mozc)
   (require 'mozc)

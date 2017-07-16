@@ -1,7 +1,3 @@
-;;; -*- coding: utf-8; mode: emacs-lisp; -*-
-
-;; Configurations for Windows
-
 ;; File encoding
 (set-file-name-coding-system 'cp932)
 

@@ -1,8 +1,3 @@
-;;; -*- coding: utf-8; mode: emacs-lisp; -*-
-
-;; Don't display startup-message
-(setq-default inhibit-startup-message t)
-
 ;; Color
 (global-font-lock-mode 1)
 
@@ -29,17 +24,6 @@
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(alpha  . (95 . 70)))
 
-;; Ediff
-; Open ediff control-panel in current frame
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-; Split window horizontally or vertically depending its width
-(add-hook 'ediff-before-setup-hook
-          (lambda ()
-            (setq ediff-split-window-function
-                  (if (> (frame-width) 150)
-                      'split-window-horizontally
-                    'split-window-vertically))))
-
 ;; monokai-theme
 (when (install-package-if-not-exist 'monokai-theme)
   (load-theme 'monokai t))
@@ -62,3 +46,18 @@
   (interactive)
   (set-face-attribute 'default nil
                       :height default-face-attribute-height))
+
+(define-key global-map (kbd "C-+") 'increment-font-height)
+(define-key global-map (kbd "C--") 'decrement-font-height)
+(define-key global-map (kbd "C-0") 'reset-font-height)
+
+;; diminish
+(when (install-package-if-not-exist 'diminish)
+  (eval-after-load 'company
+    '(diminish 'company-mode))
+  (eval-after-load 'git-gutter
+    '(diminish 'git-gutter-mode))
+  (eval-after-load 'helm-mode
+    '(diminish 'helm-mode))
+  (eval-after-load 'undo-tree
+    '(diminish 'undo-tree-mode)))

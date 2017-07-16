@@ -1,5 +1,3 @@
-;;; -*- coding: utf-8; mode: emacs-lisp; -*-
-
 ;; company
 (when (install-package-if-not-exist 'company)
   (global-company-mode 1)
@@ -19,65 +17,16 @@
   (add-hook 'python-mode-hook 'jedi:setup)
   (add-to-list 'company-backends 'company-jedi))
 
-;; diminish
-(when (install-package-if-not-exist 'diminish)
-  (eval-after-load 'company
-    '(diminish 'company-mode))
-  (eval-after-load 'git-gutter
-    '(diminish 'git-gutter-mode))
-  (eval-after-load 'helm-mode
-    '(diminish 'helm-mode))
-  (eval-after-load 'undo-tree
-    '(diminish 'undo-tree-mode)))
-
 ;; dockerfile-mode
 (install-package-if-not-exist 'dockerfile-mode)
-
-;; expand-region
-(when (install-package-if-not-exist 'expand-region)
-  ;; http://emacs.rubikitch.com/expand-region/
-  (require 'expand-region)
-  (push 'er/mark-outside-pairs er/try-expand-list)
-  (define-key global-map (kbd "C-M-SPC") 'er/expand-region))
 
 ;; flycheck
 (when (install-package-if-not-exist 'flycheck)
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'sh-mode-hook 'flycheck-mode))
 
-;; git-gutter
-(when (install-package-if-not-exist 'git-gutter)
-  ;; git-gutter-fringe
-  (when (install-package-if-not-exist 'git-gutter-fringe)
-    (require 'git-gutter-fringe))
-  (global-git-gutter-mode 1))
-
 ;; go-mode
 (install-package-if-not-exist 'go-mode)
-
-;; helm
-(when (install-package-if-not-exist 'helm)
-  (require 'helm-config)
-  (helm-mode 1)
-  (setq anything-enable-shortcuts 'prefix)
-  (define-key global-map (kbd "M-x") 'helm-M-x)
-  (define-key global-map (kbd "C-x C-f") 'helm-find-files)
-  (define-key global-map (kbd "C-x b") 'helm-mini)
-
-  ;; helm-git-grep
-  (when (install-package-if-not-exist 'helm-git-grep)
-    (global-set-key (kbd "C-c g") 'helm-git-grep)
-    ;; Invoke `helm-git-grep' from isearch.
-    (define-key isearch-mode-map (kbd "C-c g") 'helm-git-grep-from-isearch)
-    ;; Invoke `helm-git-grep' from other helm.
-    (eval-after-load 'helm
-      '(define-key helm-map (kbd "C-c g") 'helm-git-grep-from-helm))))
-
-;; magit
-(when (install-package-if-not-exist 'magit)
-  (setq magit-auto-revert-mode nil)
-  (setq magit-push-always-verify nil)
-  (define-key global-map (kbd "C-x g") 'magit-status))
 
 ;; markdown-mode
 (when (install-package-if-not-exist 'markdown-mode)
@@ -89,11 +38,6 @@
 
 ;; matlab-mode
 (install-package-if-not-exist 'matlab-mode)
-
-;; multiple-cursors
-(when (install-package-if-not-exist 'multiple-cursors)
-  (define-key global-map (kbd "C-M-l") 'mc/edit-lines)
-  (define-key global-map (kbd "C-M-a") 'mc/mark-all-dwim))
 
 ;; py-isort, py-yapf
 (when (and (install-package-if-not-exist 'py-isort)
@@ -119,16 +63,9 @@
 ;; terraform-mode
 (install-package-if-not-exist 'terraform-mode)
 
-;; undo-tree
-(when (install-package-if-not-exist 'undo-tree)
-  (global-undo-tree-mode 1))
-
 ;; yaml-mode
 (when (install-package-if-not-exist 'yaml-mode)
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
-
-;; wc-mode
-(install-package-if-not-exist 'wc-mode)
 
 ;; web-mode
 (when (install-package-if-not-exist 'web-mode)
