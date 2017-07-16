@@ -28,16 +28,7 @@
 (setq-default tab-width 4)
 
 ;; Buffer list
-(setq-default bs-configurations
-      '(;; name
-        ;; regex of display buffer
-        ;; function of display buffer (display the buffer if this function return t)
-        ;; regex of never display buffer
-        ;; function of never display buffer (never display the buffer if this function return t)
-        ;; sort function (args are B1 and B2)
-        ("all" nil nil nil nil nil)
-        ("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
-(setq-default bs-default-configuration "files")
+(setq-default bs-default-configuration "files-and-scratch")
 
 ;; Make scripts executable
 (add-hook 'after-save-hook
