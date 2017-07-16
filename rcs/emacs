@@ -1,24 +1,22 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
 (setq user-emacs-directory "~/.local/share/emacs/")
-(setq custom-file
-      (locate-user-emacs-file "custom.el"))
-
-(defun install-package-if-not-exist (pkg)
-  "Install the package if it does not exist."
-  (unless (package-installed-p pkg)
-    (message "INFO: Installing %s ..." pkg)
-    (package-install pkg))
-  (when (package-installed-p pkg)
-    (message "INFO: Loaded %s." pkg)))
+(setq custom-file (locate-user-emacs-file "custom.el"))
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (package-refresh-contents)
 
-(when (install-package-if-not-exist 'init-loader)
-  (require 'init-loader)
-  (setq init-loader-directory "~/.config/emacs/")
+(defun install-package-if-not-exist (pkg) 
+  "Install the package if it does not exist."
+  (unless (package-installed-p pkg) 
+    (message "INFO: Installing %s ..." pkg) 
+    (package-install pkg)) 
+  (when (package-installed-p pkg) 
+    (message "INFO: Loaded %s." pkg)))
+
+(when (install-package-if-not-exist 'init-loader) 
+  (require 'init-loader) 
+  (setq init-loader-directory "~/.config/emacs/") 
   (init-loader-load))
