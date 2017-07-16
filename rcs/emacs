@@ -13,8 +13,6 @@
     (message "INFO: Loaded %s." pkg)))
 
 (require 'package)
-(setq package-user-dir
-      (locate-user-emacs-file "packages/"))
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
