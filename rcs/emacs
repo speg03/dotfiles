@@ -1,13 +1,8 @@
 ;;; -*- coding: utf-8; mode: emacs-lisp; -*-
 
 (setq user-emacs-directory "~/.local/share/emacs/")
-
-(setq emacs-version-short
-      (replace-regexp-in-string
-       "\\([0-9]+\\)\\.\\([0-9]+\\).*" "\\1_\\2" emacs-version))
 (setq custom-file
-      (locate-user-emacs-file
-       (concat "custom/custom_" emacs-version-short ".el")))
+      (locate-user-emacs-file "custom.el"))
 
 (defun install-package-if-not-exist (pkg)
   "Install the package if it does not exist."
