@@ -17,9 +17,6 @@
   (when (package-installed-p pkg)
     (message "INFO: Loaded %s." pkg)))
 
-(when (file-exists-p (locate-user-emacs-file "proxy.el"))
-  (load-file (locate-user-emacs-file "proxy.el")))
-
 (require 'package)
 (setq package-user-dir
       (locate-user-emacs-file "packages/"))
