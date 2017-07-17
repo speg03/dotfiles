@@ -36,9 +36,6 @@
 
 (use-package markdown-mode
   :mode "\\.md\\'"
-  :bind (:map markdown-mode-map
-              ("M-n" . nil)
-              ("M-p" . nil))
   :config
   (setq markdown-command "pandoc"))
 
