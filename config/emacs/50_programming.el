@@ -1,3 +1,7 @@
+;; Make scripts executable
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
 ;; company
 (when (install-package-if-not-exist 'company)
   (global-company-mode 1)
