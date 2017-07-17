@@ -11,21 +11,18 @@
 ;; Don't insert final newline
 (setq mode-require-final-newline nil)
 
-;; expand-region
-(when (install-package-if-not-exist 'expand-region)
-  ;; http://emacs.rubikitch.com/expand-region/
-  (require 'expand-region)
-  (push 'er/mark-outside-pairs er/try-expand-list)
-  (define-key global-map (kbd "C-M-SPC") 'er/expand-region))
+(use-package expand-region
+  :bind ("C-M-SPC" . er/expand-region)
+  :config
+  (push 'er/mark-outside-pairs er/try-expand-list))
 
-;; multiple-cursors
-(when (install-package-if-not-exist 'multiple-cursors)
-  (define-key global-map (kbd "C-M-l") 'mc/edit-lines)
-  (define-key global-map (kbd "C-M-a") 'mc/mark-all-dwim))
+(use-package multiple-cursors
+  :bind (("C-M-l" . mc/edit-lines)
+         ("C-M-a" . mc/mark-all-dwim)))
 
-;; undo-tree
-(when (install-package-if-not-exist 'undo-tree)
+(use-package undo-tree
+  :diminish undo-tree-mode
+  :config
   (global-undo-tree-mode 1))
 
-;; wc-mode
-(install-package-if-not-exist 'wc-mode)
+(use-package wc-mode)

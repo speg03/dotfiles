@@ -24,8 +24,8 @@
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(alpha  . (95 . 70)))
 
-;; monokai-theme
-(when (install-package-if-not-exist 'monokai-theme)
+(use-package monokai-theme
+  :config
   (load-theme 'monokai t))
 
 ;; Font size
@@ -50,14 +50,3 @@
 (define-key global-map (kbd "C-+") 'increment-font-height)
 (define-key global-map (kbd "C--") 'decrement-font-height)
 (define-key global-map (kbd "C-0") 'reset-font-height)
-
-;; diminish
-(when (install-package-if-not-exist 'diminish)
-  (eval-after-load 'company
-    '(diminish 'company-mode))
-  (eval-after-load 'git-gutter
-    '(diminish 'git-gutter-mode))
-  (eval-after-load 'helm-mode
-    '(diminish 'helm-mode))
-  (eval-after-load 'undo-tree
-    '(diminish 'undo-tree-mode)))

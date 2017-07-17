@@ -2,80 +2,76 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;; company
-(when (install-package-if-not-exist 'company)
-  (global-company-mode 1)
-  (define-key global-map (kbd "M-/") 'company-complete)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (define-key company-search-map (kbd "C-n") 'company-select-next)
-  (define-key company-search-map (kbd "C-p") 'company-select-previous)
-  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
-  (define-key company-active-map (kbd "C-i") 'company-complete-selection)
-  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer))
+(use-package company
+  :diminish company-mode
+  :bind (("M-/" . company-complete)
+         :map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous)
+         ("C-s" . company-filter-candidates)
+         ("C-i" . company-complete-selection)
+         ("M-h" . company-show-doc-buffer)
+         :map company-search-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
+  :config
+  (global-company-mode 1))
 
-;; company-jedi
-(when (install-package-if-not-exist 'company-jedi)
+(use-package company-jedi
+  :after company
+  :config
   (setq jedi:complete-on-dot t)
   (setq jedi:use-shortcuts t)
   (add-hook 'python-mode-hook 'jedi:setup)
   (add-to-list 'company-backends 'company-jedi))
 
-;; dockerfile-mode
-(install-package-if-not-exist 'dockerfile-mode)
+(use-package dockerfile-mode)
 
-;; flycheck
-(when (install-package-if-not-exist 'flycheck)
+(use-package flycheck
+  :config
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'sh-mode-hook 'flycheck-mode))
 
-;; go-mode
-(install-package-if-not-exist 'go-mode)
+(use-package go-mode)
 
-;; markdown-mode
-(when (install-package-if-not-exist 'markdown-mode)
-  (require 'markdown-mode)
-  (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-  (define-key markdown-mode-map (kbd "M-n") nil)
-  (define-key markdown-mode-map (kbd "M-p") nil)
+(use-package markdown-mode
+  :mode "\\.md\\'"
+  :bind (:map markdown-mode-map
+              ("M-n" . nil)
+              ("M-p" . nil))
+  :config
   (setq markdown-command "pandoc"))
 
-;; matlab-mode
-(install-package-if-not-exist 'matlab-mode)
+(use-package matlab
+  :ensure matlab-mode)
 
-;; py-isort, py-yapf
-(when (and (install-package-if-not-exist 'py-isort)
-           (install-package-if-not-exist 'py-yapf))
+(use-package py-isort)
+(use-package py-yapf
+  :after (python py-isort)
+  :commands python-reformat-buffer
+  :bind (:map python-mode-map
+              ("C-M-f" . python-reformat-buffer))
+  :config
   (defun python-reformat-buffer ()
     "Reformat python codes in the current buffer."
     (interactive)
     (py-isort-buffer)
-    (py-yapf-buffer))
+    (py-yapf-buffer)))
 
-  (add-hook 'python-mode-hook
-            '(lambda ()
-               (define-key python-mode-map (kbd "C-M-f") 'python-reformat-buffer))))
-
-;; pyenv-mode
-(when (install-package-if-not-exist 'pyenv-mode)
+(use-package pyenv-mode
+  :config
   (add-hook 'python-mode-hook 'pyenv-mode))
 
-;; pyenv-mode-auto
-(when (install-package-if-not-exist 'pyenv-mode-auto)
-  (require 'pyenv-mode-auto))
+(use-package pyenv-mode-auto)
 
-;; terraform-mode
-(install-package-if-not-exist 'terraform-mode)
+(use-package terraform-mode)
 
-;; yaml-mode
-(when (install-package-if-not-exist 'yaml-mode)
-  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
+(use-package yaml-mode
+  :mode ("\\.yml\\'" "\\.yaml\\'"))
 
-;; web-mode
-(when (install-package-if-not-exist 'web-mode)
+(use-package web-mode
+  :mode ("\\.js\\'" "\\.erb\\'" "\\.html?\\'")
+  :config
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)))
+  (setq web-mode-code-indent-offset 2))
