@@ -6,7 +6,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
-(package-refresh-contents)
+(unless package-archive-contents (package-refresh-contents))
 
 (defun install-package-if-not-exist (pkg) 
   "Install the package if it does not exist."

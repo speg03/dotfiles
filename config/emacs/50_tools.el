@@ -1,16 +1,18 @@
 ;; Ediff
-; Open ediff control-panel in current frame
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-; Split window horizontally or vertically depending its width
-(add-hook 'ediff-before-setup-hook
-          (lambda ()
-            (setq ediff-split-window-function
-                  (if (> (frame-width) 150)
-                      'split-window-horizontally
-                    'split-window-vertically))))
+(with-eval-after-load 'ediff
+  ;; Open ediff control-panel in current frame
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  ;; Split window horizontally or vertically depending its width
+  (add-hook 'ediff-before-setup-hook
+            (lambda ()
+              (setq ediff-split-window-function
+                    (if (> (frame-width) 150)
+                        'split-window-horizontally
+                      'split-window-vertically)))))
 
 ;; wdired
-(define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "r") 'wdired-change-to-wdired-mode))
 
 ;; git-gutter
 (when (install-package-if-not-exist 'git-gutter)
