@@ -3,9 +3,10 @@
 (setq user-emacs-directory "~/.local/share/emacs/")
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
-;; No backup files
+;; Backup
 (setq make-backup-files nil)
-(setq auto-save-default nil)
+(setq auto-save-list-file-prefix
+      (locate-user-emacs-file "auto-save-list/.saves-"))
 
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
