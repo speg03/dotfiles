@@ -3,14 +3,14 @@
 (prefer-coding-system 'utf-8)
 
 ;; Don't display startup-message
-(setq-default inhibit-startup-message t)
+(setq inhibit-startup-message t)
 
 ;; Avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
-(setq-default vc-follow-symlinks t)
+(setq vc-follow-symlinks t)
 
 ;; No backup files
-(setq-default make-backup-files nil)
-(setq-default auto-save-default nil)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; Make scripts executable
 (add-hook 'after-save-hook

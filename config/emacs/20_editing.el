@@ -9,7 +9,7 @@
 (setq-default tab-width 4)
 
 ;; Don't insert final newline
-(setq-default mode-require-final-newline nil)
+(setq mode-require-final-newline nil)
 
 ;; expand-region
 (when (install-package-if-not-exist 'expand-region)
