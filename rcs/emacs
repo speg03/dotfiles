@@ -16,10 +16,11 @@
   (package-install 'use-package))
 
 (use-package use-package
-  :config
+  :init
   (setq use-package-always-ensure t))
 
 (use-package init-loader
-  :config
+  :init
   (setq init-loader-directory "~/.config/emacs/")
+  :config
   (init-loader-load))
