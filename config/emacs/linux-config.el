@@ -1,11 +1,10 @@
 (use-package mozc
-  :commands (enable-input-method disable-input-method)
   :bind (("<henkan>" . enable-input-method)
          ("<muhenkan>" . disable-input-method)
          :map mozc-mode-map
          ("<henkan>" . enable-input-method)
          ("<muhenkan>" . disable-input-method))
-  :config
+  :init
   (setq default-input-method "japanese-mozc")
   (setq mozc-candidate-style 'echo-area)
 

@@ -1,5 +1,5 @@
 (use-package ediff
-  :config
+  :init
   ;; Open ediff control-panel in current frame
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   ;; Split window horizontally or vertically depending its width
@@ -28,7 +28,7 @@
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
          ("C-x b" . helm-mini))
-  :config
+  :init
   (require 'helm-config)
   (helm-mode 1)
   (setq anything-enable-shortcuts 'prefix))
@@ -43,6 +43,6 @@
 
 (use-package magit
   :bind ("C-x g" . magit-status)
-  :config
+  :init
   (setq magit-auto-revert-mode nil)
   (setq magit-push-always-verify nil))
