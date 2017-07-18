@@ -17,6 +17,9 @@
     (interactive)
     (deactivate-input-method)))
 
+;; Key translation
+(define-key key-translation-map (kbd "C-S-<iso-lefttab>") (kbd "C-S-<tab>"))
+
 ;; Font size
 (setq default-face-attribute-height 130)
 (set-face-attribute 'default nil
