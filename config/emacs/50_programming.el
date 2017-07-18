@@ -14,7 +14,7 @@
          :map company-search-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
-  :config
+  :init
   (global-company-mode 1))
 
 (use-package company-jedi
@@ -23,7 +23,6 @@
   (setq jedi:complete-on-dot t)
   (setq jedi:use-shortcuts t)
   (add-hook 'python-mode-hook 'jedi:setup)
-  :config
   (add-to-list 'company-backends 'company-jedi))
 
 (use-package dockerfile-mode)
