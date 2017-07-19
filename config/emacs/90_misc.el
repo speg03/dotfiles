@@ -1,3 +1,6 @@
+;; Disable startup-message
+(setq inhibit-startup-message t)
+
 ;; Avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
 (setq vc-follow-symlinks t)
 

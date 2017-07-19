@@ -2,9 +2,6 @@
 
 ;;; Minimum configurations
 
-;; Disable startup-message
-(setq inhibit-startup-message t)
-
 ;; Encoding
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
