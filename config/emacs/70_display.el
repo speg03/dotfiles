@@ -13,11 +13,12 @@
 ;; Disable tool bar
 (tool-bar-mode 0)
 
-;; Scroll bar
+;; Disable scroll bar
 (scroll-bar-mode 0)
 
-;; Line number
+;; Line and column  number
 (global-linum-mode 1)
+(column-number-mode 1)
 
 ;; Default frame configuration
 (add-to-list 'default-frame-alist '(width  . 100))
