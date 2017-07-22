@@ -7,8 +7,7 @@
   :bind (("C-<tab>" . tabbar-forward-tab)
          ("C-S-<tab>" . tabbar-backward-tab))
   :init
-  ;; Disable the mouse wheel to navigate
-  (tabbar-mwheel-mode 0)
+  (tabbar-mode 1)
 
   ;; Disable buffer groups
   (setq tabbar-buffer-groups-function nil)
@@ -44,7 +43,4 @@
    '(tabbar-modified ((t (:inherit tabbar-unselected))))
    '(tabbar-selected ((t (:inherit tabbar-default :foreground "dark slate gray" :background "light gray"))))
    '(tabbar-selected-modified ((t (:inherit tabbar-selected))))
-   '(tabbar-unselected ((t (:inherit tabbar-default :background "dim gray")))))
-
-  :config
-  (tabbar-mode 1))
+   '(tabbar-unselected ((t (:inherit tabbar-default :background "dim gray"))))))
