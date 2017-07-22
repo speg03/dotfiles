@@ -19,9 +19,10 @@
   (setq tabbar-scroll-right-button '(("") ""))
 
   ;; Separator used between tabs
-  (setq tabbar-separator '(1.0))
+  (setq tabbar-separator '(0.5))
 
-  (defun my-tabbar-buffer-list ()
+  ;; Override
+  (defun tabbar-buffer-list ()
     (delq nil
           (mapcar #'(lambda (b)
                       (cond
@@ -29,16 +30,21 @@
                        ((eq (current-buffer) b) b)
                        ((buffer-file-name b) b)
                        ((char-equal ?\  (aref (buffer-name b) 0)) nil)
+                       ;; Exclude buffers that start with "*".
                        ((char-equal ?* (aref (buffer-name b) 0)) nil)
                        ((buffer-live-p b) b)))
                   (buffer-list))))
-  (setq tabbar-buffer-list-function 'my-tabbar-buffer-list)
+
+  ;; Override
+  (defun tabbar-buffer-tab-label (tab)
+    ;; Add padding
+    (format " %s " (tabbar-tab-value tab)))
 
   (custom-set-faces
    '(tabbar-modified ((t (:inherit tabbar-unselected))))
-   '(tabbar-selected ((t (:inherit tabbar-default :foreground "green yellow"))))
+   '(tabbar-selected ((t (:inherit tabbar-default :foreground "dark slate gray" :background "light gray"))))
    '(tabbar-selected-modified ((t (:inherit tabbar-selected))))
-   '(tabbar-unselected ((t (:inherit tabbar-default)))))
+   '(tabbar-unselected ((t (:inherit tabbar-default :background "dim gray")))))
 
   :config
   (tabbar-mode 1))
