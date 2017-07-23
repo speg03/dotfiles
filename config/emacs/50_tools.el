@@ -46,3 +46,25 @@
   :init
   (setq magit-auto-revert-mode nil)
   (setq magit-push-always-verify nil))
+
+(use-package neotree
+  :bind (("C-c o" . neotree-toggle)
+         :map neotree-mode-map
+         ("e" . neotree-enter-hide))
+  :init
+  (setq neo-show-hidden-files t)
+  (setq neo-create-file-auto-open t)
+  (setq neo-keymap-style 'concise)
+  (setq neo-smart-open t)
+  (setq neo-vc-integration '(face))
+
+  (defun neo-open-file-hide (full-path &optional arg)
+    "Open a file node and hides tree."
+    (neo-global--select-mru-window arg)
+    (find-file full-path)
+    (neotree-hide))
+
+  (defun neotree-enter-hide (&optional arg)
+    "Enters file and hides neotree directly"
+    (interactive "P")
+    (neo-buffer--execute arg 'neo-open-file-hide 'neo-open-dir)))
