@@ -25,7 +25,7 @@
   :ensure nil
   :init
   (setq recentf-max-saved-items 2000)
-  (run-with-idle-timer 30 t 'recentf-save-list)
+  (run-with-idle-timer 300 t 'recentf-save-list)
   :config
   (recentf-mode 1))
 
