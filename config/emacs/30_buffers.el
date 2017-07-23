@@ -37,10 +37,11 @@
   ;; Override
   (defun tabbar-buffer-tab-label (tab)
     ;; Add padding
-    (format " %s " (tabbar-tab-value tab)))
+    (format "  %s  " (tabbar-tab-value tab)))
 
   (custom-set-faces
+   '(tabbar-selected
+     ((t (:inherit tabbar-default :foreground "dark slate gray" :background "light gray"))))
+   '(tabbar-unselected ((t (:inherit tabbar-selected :inverse-video t))))
    '(tabbar-modified ((t (:inherit tabbar-unselected))))
-   '(tabbar-selected ((t (:inherit tabbar-default :foreground "dark slate gray" :background "light gray"))))
-   '(tabbar-selected-modified ((t (:inherit tabbar-selected))))
-   '(tabbar-unselected ((t (:inherit tabbar-default :background "dim gray"))))))
+   '(tabbar-selected-modified ((t (:inherit tabbar-selected))))))
