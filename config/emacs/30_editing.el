@@ -21,6 +21,14 @@
   :bind (("C-M-l" . mc/edit-lines)
          ("C-M-a" . mc/mark-all-dwim)))
 
+(use-package recentf
+  :ensure nil
+  :init
+  (setq recentf-max-saved-items 2000)
+  (run-with-idle-timer 30 t 'recentf-save-list)
+  :config
+  (recentf-mode 1))
+
 (use-package undo-tree
   :diminish undo-tree-mode
   :config
