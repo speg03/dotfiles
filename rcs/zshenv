@@ -1,6 +1,11 @@
 # -*- coding: utf-8; mode: shell-script; -*-
 
-source $HOME/.config/zsh/functions
+export DOTFILES_DEBUG=${DOTFILES_DEBUG:-0}
+debug() {
+    if [[ $DOTFILES_DEBUG -ne 0 ]]; then
+        echo "$(date +'%b %d %T') debug: $@" >&2
+    fi
+}
 
 export LANG=en_US.UTF-8
 debug "Loading zshenv ..."
