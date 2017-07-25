@@ -2,15 +2,23 @@
 
 debug "Loading zshrc ..."
 
-_load_configurations() {
+load_files() {
     local config
-    for config in $HOME/.config/zsh/*.zsh; do
+    local dist
+
+    for config in $1/[0-9][0-9]*.zsh(N); do
+        debug "$config"
+        source $config
+    done
+
+    dist=$(uname -s | tr '[:upper:]' '[:lower:]')
+    for config in $1/$dist-*.zsh(N); do
         debug "$config"
         source $config
     done
 }
 
-_load_configurations
+load_files $HOME/.config/zsh
 
 ## Host specific
 if [[ -e $HOME/.config/zsh/zshrc.local ]]; then
