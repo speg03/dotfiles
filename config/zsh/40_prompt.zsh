@@ -1,5 +1,7 @@
 # -*- coding: utf-8; -*-
 
+autoload -Uz vcs_info
+
 zstyle ':vcs_info:*' enable git
 
 zstyle ':vcs_info:git:*' formats \
@@ -64,5 +66,3 @@ _update_prompt() {
         RPROMPT="%F{13}[%30<...<%~%<<]%f"
     fi
 }
-
-add-zsh-hook precmd _update_prompt
