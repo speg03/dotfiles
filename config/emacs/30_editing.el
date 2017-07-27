@@ -24,6 +24,8 @@
 (use-package recentf
   :ensure nil
   :init
+  (setq recentf-save-file
+        (concat cache-directory "recentf"))
   (setq recentf-max-saved-items 2000)
   (run-with-idle-timer 300 t 'recentf-save-list)
   :config
