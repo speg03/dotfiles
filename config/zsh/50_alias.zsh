@@ -1,5 +1,3 @@
-# -*- coding: utf-8; -*-
-
 ### General
 
 alias ll='ls -alF'
@@ -41,7 +39,7 @@ save-proxy() {
         echo "export http_proxy=${http_proxy}"
         echo "export https_proxy=${https_proxy}"
         echo "export no_proxy=${no_proxy}"
-    } >>$HOME/.config/zsh/zprofile.local
+    } >>"$CONFIG_HOME/zsh/zprofile.local"
 }
 
 ### Docker

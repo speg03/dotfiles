@@ -1,5 +1,3 @@
-# -*- coding: utf-8; -*-
-
 ## Expansion and Globbing
 # グロブを展開するときにディレクトリに/を付ける
 setopt MARK_DIRS

@@ -1,56 +1,37 @@
-# -*- coding: utf-8; mode: shell-script; -*-
+# -*- mode: shell-script; -*-
 
+export LANG="en_US.UTF-8"
 export DOTFILES_DEBUG=${DOTFILES_DEBUG:-0}
+
+
 debug() {
     if [[ $DOTFILES_DEBUG -ne 0 ]]; then
         echo "$(date +'%b %d %T') debug: $@" >&2
     fi
 }
 
-export LANG=en_US.UTF-8
+source_if_exists() {
+    local source_file_path=$1
+    if [[ -e $source_file_path ]]; then
+        debug "$source_file_path"
+        source "$source_file_path"
+    fi
+}
+
+
 debug "Loading zshenv ..."
 
-if [ "$TERM" != "screen-256color" ]; then
-    export TERM=xterm-256color
-fi
+
+# similar to XDG Base Directory Specification
+export CONFIG_HOME="$HOME/.config"
+export CACHE_HOME="$HOME/.cache"
+export BIN_HOME="$HOME/.local/bin"
+export LIB_HOME="$HOME/.local/lib"
+export DATA_HOME="$HOME/.local/share"
+export SRC_HOME="$HOME/.local/src"
+
+export GOPATH="$LIB_HOME/go"
+export ANYENV_ROOT="$SRC_HOME/github.com/riywo/anyenv"
 
 
-## Environment variables
-export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
-
-# Suppress password dialogs
-# default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
-unset SSH_ASKPASS
-
-
-## PATH
-typeset -U path fpath
-
-typeset -aUT BASEPATH basepath
-basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))
-path=($basepath)
-
-# go
-export GOPATH=$HOME/.local/lib/go
-path=($GOPATH/bin(N-/) $path)
-
-# anyenv
-export ANYENV_ROOT="$(ghq root)/github.com/riywo/anyenv"
-if [[ -e $ANYENV_ROOT/bin/anyenv ]]; then
-    eval "$($ANYENV_ROOT/bin/anyenv init -)"
-fi
-
-# local
-path=($HOME/.local/bin(N-/) $path)
-
-
-## Host specific
-if [[ -e $HOME/.config/zsh/zshenv.local ]]; then
-    debug "$HOME/.config/zsh/zshenv.local"
-    source $HOME/.config/zsh/zshenv.local
-fi
-
-
-## Disable loading rc files in /etc
-# /etc/zprofile will reset PATH variable by path_helper
-setopt NO_GLOBAL_RCS
+source_if_exists "$CONFIG_HOME/zsh/zshenv.local"

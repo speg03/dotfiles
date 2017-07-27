@@ -1,29 +1,23 @@
-# -*- coding: utf-8; mode: shell-script; -*-
+# -*- mode: shell-script; -*-
 
 debug "Loading zshrc ..."
 
+
 load_files() {
+    local dist=$(uname -s | tr '[:upper:]' '[:lower:]')
     local config
-    local dist
 
     for config in $1/[0-9][0-9]*.zsh(N); do
-        debug "$config"
-        source $config
+        source_if_exists "$config"
     done
 
-    dist=$(uname -s | tr '[:upper:]' '[:lower:]')
     for config in $1/$dist-*.zsh(N); do
-        debug "$config"
-        source $config
+        source_if_exists "$config"
     done
 }
 
-load_files $HOME/.config/zsh
+load_files "$CONFIG_HOME/zsh"
 
-## Host specific
-if [[ -e $HOME/.config/zsh/zshrc.local ]]; then
-    debug "$HOME/.config/zsh/zshrc.local"
-    source $HOME/.config/zsh/zshrc.local
-fi
 
+source_if_exists "$CONFIG_HOME/zsh/zshrc.local"
 debug "Done."
