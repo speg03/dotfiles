@@ -7,7 +7,7 @@ typeset -xU fpath
 fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 fpath=($DATA_HOME/zsh/completions(N-/) $fpath)
 
-compinit -iu
+compinit -i -u -d "$CACHE_HOME/zsh/zcompdump"
 
 
 source_if_exists "/usr/local/share/zsh/site-functions/_aws"
