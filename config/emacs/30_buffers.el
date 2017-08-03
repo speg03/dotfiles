@@ -40,8 +40,8 @@
     (format "  %s  " (tabbar-tab-value tab)))
 
   (custom-set-faces
-   '(tabbar-selected
-     ((t (:inherit tabbar-default :foreground "dark slate gray" :background "light gray"))))
-   '(tabbar-unselected ((t (:inherit tabbar-selected :inverse-video t))))
-   '(tabbar-modified ((t (:inherit tabbar-unselected))))
+   '(tabbar-unselected
+     ((t (:inherit tabbar-default :foreground "light gray" :background "dark slate gray"))))
+   '(tabbar-selected ((t (:inherit tabbar-unselected :inverse-video t))))
+   '(tabbar-modified ((t (:inherit tabbar-unselected :background "indian red"))))
    '(tabbar-selected-modified ((t (:inherit tabbar-selected))))))
