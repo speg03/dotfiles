@@ -17,9 +17,6 @@
   (setq tabbar-scroll-left-button '(("") ""))
   (setq tabbar-scroll-right-button '(("") ""))
 
-  ;; Separator used between tabs
-  (setq tabbar-separator '(0.5))
-
   ;; Override
   (defun tabbar-buffer-list ()
     (delq nil
