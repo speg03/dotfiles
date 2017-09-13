@@ -1,5 +1,9 @@
 ### General
 
+alias e='run-emacs -n'
+alias t='run-tmux'
+alias s='search-files'
+
 alias ll='ls -alF'
 alias lv='LANG=ja_JP.UTF-8 lv'
 alias grep='grep --color=auto'
@@ -41,10 +45,6 @@ save-proxy() {
         echo "export no_proxy=${no_proxy}"
     } >>"$CONFIG_HOME/zsh/zprofile.local"
 }
-
-### Editors
-
-alias e='run-emacs -n'
 
 ### Docker
 
