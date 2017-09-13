@@ -42,6 +42,10 @@ save-proxy() {
     } >>"$CONFIG_HOME/zsh/zprofile.local"
 }
 
+### Editors
+
+alias e='run-emacs -n'
+
 ### Docker
 
 alias d='docker'

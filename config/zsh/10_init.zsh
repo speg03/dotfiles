@@ -4,7 +4,7 @@ if [[ $TERM != "screen-256color" ]]; then
     export TERM="xterm-256color"
 fi
 
-export EDITOR="e"
+export EDITOR="run-emacs"
 export LESS="-giMR"
 export PIP_CONFIG_FILE="$CONFIG_HOME/pip/pip.conf"
 

@@ -6,4 +6,4 @@ ag --noheading . |
     fzf -d: --tac -q "$*" \
         --bind "enter:execute: less +{2} {1}" \
         --bind "ctrl-l:execute: pygmentize {1} | less +{2}" \
-        --bind "ctrl-o:execute: $EDITOR +{2} {1}"
+        --bind "ctrl-o:execute: run-emacs -n +{2} {1}"
