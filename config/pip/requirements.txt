@@ -4,4 +4,6 @@ isort
 jedi
 jupyter
 jupyter_contrib_nbextensions
+pip
+setuptools
 yapf
