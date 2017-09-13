@@ -59,7 +59,7 @@ alias d-proxy-build='docker build --build-arg http_proxy=${http_proxy} --build-a
 alias gs='git status -s'
 alias gl='git log'
 alias gd='git diff'
-alias gsync='rsync -avzC --exclude=".git/" --filter=":- /.gitignore"'
+alias gsync='rsync -acvzCP --no-g --no-o --exclude=".git/" --filter=":- /.gitignore"'
 
 g() {
     local repo=$(ghq list -p | fzf -1 -q "$*")
