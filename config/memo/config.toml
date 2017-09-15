@@ -1,5 +1,5 @@
 memodir = "~/.memo"
-editor = "e"
+editor = "run-emacs -n"
 column = 30
 selectcmd = "fzf"
 grepcmd = "grep -inH ${PATTERN} ${FILES}"
