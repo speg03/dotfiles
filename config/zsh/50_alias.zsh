@@ -61,6 +61,11 @@ alias gl='git log'
 alias gd='git diff'
 alias gsync='rsync -rltDcvzCP --exclude=".git/" --filter=":- /.gitignore"'
 
+gmerged() {
+    local branch=${1:-master}
+    git branch --merged "$branch" | grep -v "^\*" | grep -v "$branch\$"
+}
+
 g() {
     local repo=$(ghq list -p | fzf -1 -q "$*")
     [[ "$repo" ]] && cd "$repo" && echo "$repo"
