@@ -63,7 +63,7 @@ alias gsync='rsync -rltDcvzCP --exclude=".git/" --filter=":- /.gitignore"'
 
 gmerged() {
     local branch=${1:-master}
-    git branch --merged "$branch" | grep -v "^\*" | grep -v "$branch\$"
+    git branch --merged "$branch" | grep -v "^\*" | grep -v "^  $branch\$"
 }
 
 g() {
