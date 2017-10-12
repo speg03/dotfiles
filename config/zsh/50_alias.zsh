@@ -56,6 +56,7 @@ alias d-proxy-build='docker build --build-arg http_proxy=${http_proxy} --build-a
 
 ### Git
 
+alias gb='git branch -a'
 alias gs='git status -s'
 alias gl='git log'
 alias gd='git diff'
