@@ -3,20 +3,20 @@
 debug "Loading zshrc ..."
 
 
-load_files() {
-    local dist=$(uname -s | tr '[:upper:]' '[:lower:]')
+load-files() {
     local config
 
     for config in $1/[0-9][0-9]*.zsh(N); do
         source-if-exists "$config"
     done
 
+    local dist=$(uname -s | tr '[:upper:]' '[:lower:]')
     for config in $1/$dist-*.zsh(N); do
         source-if-exists "$config"
     done
 }
 
-load_files "$CONFIG_HOME/zsh"
+load-files "$CONFIG_HOME/zsh"
 
 
 source-if-exists "$CONFIG_HOME/zsh/zshrc.local"
