@@ -25,12 +25,10 @@ unset-proxy() {
     unset no_proxy
 }
 
-save-proxy() {
-    {
-        echo "export http_proxy=${http_proxy}"
-        echo "export https_proxy=${https_proxy}"
-        echo "export no_proxy=${no_proxy}"
-    } >>"$CONFIG_HOME/zsh/zprofile.local"
+print-proxy() {
+    echo "export http_proxy=${http_proxy}"
+    echo "export https_proxy=${https_proxy}"
+    echo "export no_proxy=${no_proxy}"
 }
 
 ### Git
