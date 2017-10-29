@@ -33,11 +33,6 @@ print-proxy() {
 
 ### Git
 
-gmerged() {
-    local branch=${1:-master}
-    git branch --merged "$branch" | grep -vE "^\*|^  $branch\$"
-}
-
 g() {
     local repo=$(ghq list -p | fzf -1 -q "$*")
     [[ "$repo" ]] && cd "$repo" && echo "$repo"
