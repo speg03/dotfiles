@@ -31,9 +31,14 @@ print-proxy() {
     echo "export no_proxy=${no_proxy}"
 }
 
-### Git
+### ZLE
 
-g() {
-    local repo=$(ghq list -p | fzf -1 -q "$*")
-    [[ "$repo" ]] && cd "$repo" && echo "$repo"
+change-repository() {
+    local repo=$(ghq list --full-path | fzf --select-1 --query="$LBUFFER")
+    if [[ $repo ]]; then
+        BUFFER="cd $repo"
+        zle accept-line
+    fi
+    zle -R -c
 }
+zle -N change-repository
