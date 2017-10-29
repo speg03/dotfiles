@@ -10,7 +10,7 @@ debug() {
     fi
 }
 
-source_if_exists() {
+source-if-exists() {
     local source_file_path=$1
     if [[ -e $source_file_path ]]; then
         debug "$source_file_path"
@@ -34,4 +34,4 @@ export GOPATH="$LIB_HOME/go"
 export ANYENV_ROOT="$SRC_HOME/github.com/riywo/anyenv"
 
 
-source_if_exists "$CONFIG_HOME/zsh/zshenv.local"
+source-if-exists "$CONFIG_HOME/zsh/zshenv.local"

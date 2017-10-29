@@ -8,16 +8,16 @@ load_files() {
     local config
 
     for config in $1/[0-9][0-9]*.zsh(N); do
-        source_if_exists "$config"
+        source-if-exists "$config"
     done
 
     for config in $1/$dist-*.zsh(N); do
-        source_if_exists "$config"
+        source-if-exists "$config"
     done
 }
 
 load_files "$CONFIG_HOME/zsh"
 
 
-source_if_exists "$CONFIG_HOME/zsh/zshrc.local"
+source-if-exists "$CONFIG_HOME/zsh/zshrc.local"
 debug "Done."
