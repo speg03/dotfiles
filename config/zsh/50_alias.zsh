@@ -2,7 +2,7 @@
 
 alias e='run-emacs -n'
 alias t='run-tmux'
-alias s='search-files'
+alias s='search-file-by-contents'
 
 alias ll='ls -alF'
 alias lv='LANG=ja_JP.UTF-8 lv'
