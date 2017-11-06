@@ -5,7 +5,6 @@ if [[ $TERM != "screen-256color" ]]; then
 fi
 
 export EDITOR="run-emacs"
-export GREP_OPTIONS="--color=auto"
 export LESS="-giMR"
 export PIP_CONFIG_FILE="$CONFIG_HOME/pip/pip.conf"
 
