@@ -1,5 +1,5 @@
 _set_tmux_status() {
-    local sync_symbol=${TMUX_SYNC_SYMBOL:-$'\U1F503 '}
+    local sync_symbol=${TMUX_SYNC_SYMBOL:-$'\U1F503'}
     local sync_status
     sync_status="#{?pane_synchronized,#[fg=brightred],#[fg=white]}"
     sync_status="${sync_status}${sync_symbol}#[fg=default]"

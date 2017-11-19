@@ -53,9 +53,9 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
 
 _update_prompt() {
     local color=${HOSTNAME_COLOR:-$(hostname-color)}
-    local symbol=${PROMPT_SYMBOL:-$'%F{11}\U26A1%f  '}
+    local symbol=${PROMPT_SYMBOL:-$'%F{11}\U26A1%f'}
 
-    PROMPT="[%F{$color}%n@%m%f]$symbol"
+    PROMPT="[%F{$color}%n@%m%f]$symbol"$'\n$ '
 
     LANG=en_US.UTF-8 vcs_info
     if [[ ${vcs_info_msg_0_} ]]; then
