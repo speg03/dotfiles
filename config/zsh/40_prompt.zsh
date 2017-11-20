@@ -54,7 +54,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
 _update_prompt() {
     local prompt1=$'\U256D'
     local user_host="%F{$(print -P '%n@%m' | hash-number 6 9)}%n@%m%f"
-    local symbol=$'%F{11}\U26A1%f'
     local prompt2=$'\n\U2570\U1F3B2 '
 
     PROMPT="${prompt1}[${user_host}]%f${prompt2}"
