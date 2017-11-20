@@ -52,11 +52,12 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
 }
 
 _update_prompt() {
-    local color=${HOSTNAME_COLOR:-$(hostname-color)}
-    local symbol=${PROMPT_SYMBOL:-$'%F{11}\U26A1%f'}
+    local prompt1=$'\U256D'
+    local user_host="%F{$(print -P '%n@%m' | hash-number 6 9)}%n@%m%f"
+    local symbol=$'%F{11}\U26A1%f'
+    local prompt2=$'\n\U2570\U1F3B2 '
 
-    PROMPT="[%F{$color}%n@%m%f]$symbol"$'\n$ '
-
+    PROMPT="${prompt1}[${user_host}]%f${prompt2}"
     LANG=en_US.UTF-8 vcs_info
     if [[ ${vcs_info_msg_0_} ]]; then
         RPROMPT="%F{13}[%30<...<%~%<<]%f ${vcs_info_msg_0_}"
