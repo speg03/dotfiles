@@ -3,9 +3,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 
 zstyle ':vcs_info:git:*' formats \
-       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m'
+       '%F{cyan}git:%b%f %F{green}%c%f%F{red}%u%f%m'
 zstyle ':vcs_info:git:*' actionformats \
-       '%F{cyan}(%b)%f %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f'
+       '%F{cyan}git:%b%f %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 
 zstyle ':vcs_info:git*+set-message:*' hooks \
@@ -51,16 +51,28 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
     fi
 }
 
-_update_prompt() {
-    local prompt1=$'\U256D'
-    local user_host="%F{$(print -P '%n@%m' | hash-number 6 9)}%n@%m%f"
-    local prompt2=$'\n\U2570\U1F3B2 '
+_pyenv_version() {
+    local version=$PYENV_VERSION
+    if [[ ! $version ]]; then
+        version=$(pyenv local 2>/dev/null)
+    fi
+    echo -n $version
+}
 
-    PROMPT="${prompt1}[${user_host}]%f${prompt2}"
+_update_prompt() {
+    local prompt_info="%F{$(print -P %n@%m | hash-number 6 1)}%n@%m%f"
+    local sep=$'%F{248}\UE0B1%f'
+
+    local pyenv_version=$(_pyenv_version)
+    if [[ ${pyenv_version} ]]; then
+        prompt_info="${prompt_info} ${sep} %F{3}pyenv:${pyenv_version}%f"
+    fi
+
     LANG=en_US.UTF-8 vcs_info
     if [[ ${vcs_info_msg_0_} ]]; then
-        RPROMPT="%F{13}[%30<...<%~%<<]%f ${vcs_info_msg_0_}"
-    else
-        RPROMPT="%F{13}[%30<...<%~%<<]%f"
+        prompt_info="${prompt_info} ${sep} ${vcs_info_msg_0_}"
     fi
+
+    PROMPT="%K{238} ${prompt_info} %k"$'%F{238}\UE0B0%f\n$ '
+    RPROMPT="%F{13}[%50<...<%~%<<]%f"
 }
