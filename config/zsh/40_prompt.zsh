@@ -3,9 +3,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 
 zstyle ':vcs_info:git:*' formats \
-       '%F{cyan}git:%b%f %F{green}%c%f%F{red}%u%f%m'
+       '%b %F{green}%c%f%F{red}%u%f%m'
 zstyle ':vcs_info:git:*' actionformats \
-       '%F{cyan}git:%b%f %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f'
+       '%b %F{green}%c%f%F{red}%u%f%m%F{red}!%a%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 
 zstyle ':vcs_info:git*+set-message:*' hooks \
@@ -64,13 +64,16 @@ _update_prompt() {
     local sep=$'%F{248}\UE0B1%f'
 
     local pyenv_version=$(_pyenv_version)
-    if [[ ${pyenv_version} ]]; then
-        prompt_info="${prompt_info} ${sep} %F{3}pyenv:${pyenv_version}%f"
+    if [[ $pyenv_version ]]; then
+        pyenv_version="%F{yellow}pyenv:${pyenv_version}%f"
+        prompt_info="${prompt_info} ${sep} ${pyenv_version}"
     fi
 
     LANG=en_US.UTF-8 vcs_info
-    if [[ ${vcs_info_msg_0_} ]]; then
-        prompt_info="${prompt_info} ${sep} ${vcs_info_msg_0_}"
+    local git_info=$vcs_info_msg_0_
+    if [[ $git_info ]]; then
+        git_info="%F{cyan}git:${git_info}%f"
+        prompt_info="${prompt_info} ${sep} ${git_info}"
     fi
 
     PROMPT="%K{238} ${prompt_info} %k"$'%F{238}\UE0B0%f\n$ '
