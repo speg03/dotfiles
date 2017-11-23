@@ -2,21 +2,15 @@
 
 ### Start/Attach emacs daemon
 
-if [[ $(uname -s) == "Darwin" ]]; then
-    EMACSCLIENT="reattach-to-user-namespace emacsclient"
-else
-    EMACSCLIENT="emacsclient"
-fi
-
 # Count available emacs frames
 # If emacs daemon is not running, start it firstly
-frame_count=$($EMACSCLIENT -a '' -e '(length (visible-frame-list))')
+frame_count=$(emacsclient -a '' -e '(length (visible-frame-list))')
 
 # Emacs daemon has an invisible frame
 if [[ $frame_count -lt 2 ]]; then
     # Open a new frame
-    $EMACSCLIENT -c "$@"
+    emacsclient -c "$@"
 else
     # Attach existing frame
-    $EMACSCLIENT "$@"
+    emacsclient "$@"
 fi
