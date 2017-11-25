@@ -2,3 +2,4 @@ config/git/gitconfig.local
 config/zsh/zprofile.local
 config/zsh/zshenv.local
 config/zsh/zshrc.local
+rcs/bundle/cache
