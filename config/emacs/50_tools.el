@@ -27,7 +27,10 @@
   :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-mini))
+         ("C-x b" . helm-mini)
+         :map helm-map
+         ("C-i" . helm-execute-persistent-action)
+         ("C-z" . helm-select-action))
   :init
   (require 'helm-config)
   (helm-mode 1)
