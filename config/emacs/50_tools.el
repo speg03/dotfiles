@@ -44,6 +44,13 @@
          :map helm-map
          ("C-c g" . helm-git-grep-from-helm)))
 
+(use-package helm-c-yasnippet
+  :diminish yas-minor-mode
+  :after helm
+  :bind (("C-c y" . helm-yas-complete))
+  :init
+  (yas-global-mode 1))
+
 (use-package magit
   :bind ("C-x g" . magit-status)
   :init
