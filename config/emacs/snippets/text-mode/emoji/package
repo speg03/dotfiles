@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: :package: - Updating compiled files or packages.
+# key: 
+# --
+:package: 
