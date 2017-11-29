@@ -49,6 +49,9 @@
   :after helm
   :bind (("C-c y" . helm-yas-complete))
   :init
+  (require 'yasnippet)
+  :config
+  (push "~/.config/emacs/snippets" yas-snippet-dirs)
   (yas-global-mode 1))
 
 (use-package magit
