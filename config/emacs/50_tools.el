@@ -36,6 +36,10 @@
   (helm-mode 1)
   (setq anything-enable-shortcuts 'prefix))
 
+(use-package helm-c-yasnippet
+  :after (helm yasnippet)
+  :bind (("C-c y" . helm-yas-complete)))
+
 (use-package helm-git-grep
   :after helm
   :bind (("C-c g" . helm-git-grep)
@@ -43,16 +47,6 @@
          ("C-c g" . helm-git-grep-from-isearch)
          :map helm-map
          ("C-c g" . helm-git-grep-from-helm)))
-
-(use-package helm-c-yasnippet
-  :diminish yas-minor-mode
-  :after helm
-  :bind (("C-c y" . helm-yas-complete))
-  :init
-  (require 'yasnippet)
-  :config
-  (push "~/.config/emacs/snippets" yas-snippet-dirs)
-  (yas-global-mode 1))
 
 (use-package magit
   :bind ("C-x g" . magit-status)
@@ -81,3 +75,9 @@
     "Enters file and hides neotree directly"
     (interactive "P")
     (neo-buffer--execute arg 'neo-open-file-hide 'neo-open-dir)))
+
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :config
+  (push "~/.config/emacs/snippets" yas-snippet-dirs)
+  (yas-global-mode 1))
