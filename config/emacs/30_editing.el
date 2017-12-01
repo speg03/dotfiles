@@ -3,7 +3,6 @@
 
 ;; Revert file automatically if changed
 (global-auto-revert-mode 1)
-(diminish 'auto-revert-mode)
 
 ;; Don't use tabs for indentation as default
 (setq-default indent-tabs-mode nil)
