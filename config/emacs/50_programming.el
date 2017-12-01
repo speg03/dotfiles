@@ -18,11 +18,8 @@
   (global-company-mode 1))
 
 (use-package company-jedi
-  :after company
+  :after (company jedi-core)
   :init
-  (setq jedi:complete-on-dot t)
-  (setq jedi:use-shortcuts t)
-  (add-hook 'python-mode-hook 'jedi:setup)
   (add-to-list 'company-backends 'company-jedi))
 
 (use-package dockerfile-mode)
@@ -33,6 +30,12 @@
   (add-hook 'sh-mode-hook 'flycheck-mode))
 
 (use-package go-mode)
+
+(use-package jedi-core
+  :init
+  (setq jedi:complete-on-dot t)
+  (setq jedi:use-shortcuts t)
+  (add-hook 'python-mode-hook 'jedi:setup))
 
 (use-package markdown-mode
   :mode "\\.md\\'"
