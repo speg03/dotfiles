@@ -25,17 +25,15 @@
 (use-package dockerfile-mode)
 
 (use-package flycheck
-  :init
-  (add-hook 'python-mode-hook 'flycheck-mode)
-  (add-hook 'sh-mode-hook 'flycheck-mode))
+  :hook ((python-mode sh-mode) . flycheck-mode))
 
 (use-package go-mode)
 
 (use-package jedi-core
+  :hook (python-mode . jedi:setup)
   :init
   (setq jedi:complete-on-dot t)
-  (setq jedi:use-shortcuts t)
-  (add-hook 'python-mode-hook 'jedi:setup))
+  (setq jedi:use-shortcuts t))
 
 (use-package markdown-mode
   :mode "\\.md\\'"
@@ -58,8 +56,7 @@
     (py-yapf-buffer)))
 
 (use-package pyenv-mode
-  :init
-  (add-hook 'python-mode-hook 'pyenv-mode))
+  :hook python-mode)
 
 (use-package pyenv-mode-auto)
 
