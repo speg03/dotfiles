@@ -1,8 +1,3 @@
-(use-package bs
-  :bind ("C-x C-b" . bs-show)
-  :init
-  (setq bs-default-configuration "files"))
-
 (use-package tabbar
   :bind (("C-<tab>" . tabbar-forward-tab)
          ("C-S-<tab>" . tabbar-backward-tab))
