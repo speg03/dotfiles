@@ -15,7 +15,7 @@ def emoji_snippet(emoji, desc):
     snippet = ''
     snippet += '# -*- mode: snippet -*-\n'
     snippet += '# name: :{}: - {}\n'.format(emoji, desc)
-    snippet += '# key: \n'
+    snippet += '# key: emoji\n'
     snippet += '# --\n'
     snippet += ':{}: '.format(emoji)
 
