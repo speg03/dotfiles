@@ -32,7 +32,7 @@
   (recentf-mode 1))
 
 (use-package undo-tree
-  :diminish undo-tree-mode
+  :diminish
   :config
   (global-undo-tree-mode 1))
 

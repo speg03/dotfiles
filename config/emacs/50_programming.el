@@ -3,7 +3,7 @@
           'executable-make-buffer-file-executable-if-script-p)
 
 (use-package company
-  :diminish company-mode
+  :diminish
   :bind (("M-/" . company-complete)
          :map company-active-map
          ("C-n" . company-select-next)

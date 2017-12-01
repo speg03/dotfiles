@@ -16,7 +16,7 @@
               ("r" . wdired-change-to-wdired-mode)))
 
 (use-package git-gutter
-  :diminish git-gutter-mode
+  :diminish
   :config
   (global-git-gutter-mode 1))
 
@@ -24,7 +24,7 @@
   :after git-gutter)
 
 (use-package helm
-  :diminish helm-mode
+  :diminish
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
          ("C-x b" . helm-mini)
