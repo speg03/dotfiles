@@ -96,19 +96,6 @@ if [[ ! -e $git_config_path ]]; then
     echo "Done."
 fi
 
-# netrc template
-netrc_path="$HOME/.netrc"
-if [[ ! -e $netrc_path ]]; then
-    echo -n "Creating netrc template ... "
-    {
-        echo "#machine github.com"
-        echo "#  login speg03"
-        echo "#  password ACCESS_TOKEN"
-    } >"$netrc_path"
-    chmod 0600 "$netrc_path"
-    echo "Done."
-fi
-
 
 ### Install useful tools
 
