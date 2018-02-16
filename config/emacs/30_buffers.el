@@ -19,11 +19,8 @@
                       (cond
                        ;; Always include the current buffer.
                        ((eq (current-buffer) b) b)
-                       ((buffer-file-name b) b)
-                       ((char-equal ?\  (aref (buffer-name b) 0)) nil)
-                       ;; Exclude buffers that start with "*".
-                       ((char-equal ?* (aref (buffer-name b) 0)) nil)
-                       ((buffer-live-p b) b)))
+                       ;; Include file buffers.
+                       ((buffer-file-name b) b)))
                   (buffer-list))))
 
   ;; Override
