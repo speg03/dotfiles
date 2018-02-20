@@ -28,7 +28,7 @@ alias gs='git status -s'
 alias gl='git log'
 alias gd='git diff'
 alias gmerged='git branch --merged master | grep -vE "^\*|^  master\$"'
-alias gsync='rsync -rltDcvzCP --exclude=".git/" --filter=":- /.gitignore"'
+alias gsync='rsync -rltDcvzCP --executability --exclude=".git/" --filter=":- /.gitignore"'
 
 ### Python
 
