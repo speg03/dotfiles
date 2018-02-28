@@ -18,6 +18,7 @@ alias .....='cd ../../../..'
 alias d='docker'
 alias dc='docker container'
 alias di='docker image'
+alias dcom='docker-compose'
 
 alias d-proxy-build='docker build --build-arg http_proxy=${http_proxy} --build-arg https_proxy=${https_proxy} --build-arg no_proxy=${no_proxy}'
 
