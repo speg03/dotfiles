@@ -33,8 +33,8 @@ alias gsync='rsync -rltDcvzCP --executability --exclude=".git/" --filter=":- /.g
 
 ### Python
 
-alias jc='jupyter-console'
-alias jnb='jupyter-notebook --ip=0.0.0.0 --no-browser --NotebookApp.token=""'
+alias jc='jupyter console'
+alias jlab='jupyter lab --ip=0.0.0.0 --no-browser --NotebookApp.token=""'
 
 ### Ruby
 
