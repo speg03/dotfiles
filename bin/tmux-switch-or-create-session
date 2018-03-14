@@ -2,7 +2,8 @@
 
 # Switch or Create tmux session
 
-results=$(tmux list-sessions | fzf-tmux --print-query --exit-0)
+results=$(tmux list-sessions |
+              fzf-tmux --delimiter=: --nth=1 --exact --print-query --exit-0)
 
 # 1st line: input search query
 query=$(echo "$results" | head -n1)
