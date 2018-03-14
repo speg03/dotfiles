@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+results=$(tmux list-sessions | fzf-tmux --print-query --exit-0)
+query=$(echo "$results" | head -n1)
+session=$(echo "$results" | tail -n+2 | head -n1 | cut -d: -f1)
+
+if [[ -n $session ]]; then
+    tmux switch-client -t "$session"
+elif [[ -n $query ]]; then
+    tmux new-session -d -s "$query" && tmux switch-client -t "$query"
+fi
