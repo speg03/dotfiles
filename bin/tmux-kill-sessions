@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Kill tmux sessions
+
+tmux list-sessions |
+    fzf-tmux --multi --exit-0 |
+    cut -d: -f1 |
+    xargs -n1 tmux kill-session -t
