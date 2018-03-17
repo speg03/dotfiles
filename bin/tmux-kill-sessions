@@ -2,7 +2,11 @@
 
 # Kill tmux sessions
 
+if [[ $(uname -s) == 'Linux' ]]; then
+    NO_RUN_IF_EMPTY='--no-run-if-empty'
+fi
+
 tmux list-sessions |
     fzf-tmux --multi --exit-0 |
     cut -d: -f1 |
-    xargs -n1 tmux kill-session -t
+    xargs $NO_RUN_IF_EMPTY -n1 tmux kill-session -t
