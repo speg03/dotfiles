@@ -23,6 +23,13 @@
 (use-package git-gutter-fringe
   :after git-gutter)
 
+(use-package google-translate
+  :bind (("C-c t" . google-translate-smooth-translate))
+  :init
+  (require 'google-translate-smooth-ui)
+  (setq google-translate-translation-directions-alist
+        '(("en" . "ja") ("ja" . "en"))))
+
 (use-package helm
   :diminish
   :bind (("M-x" . helm-M-x)
