@@ -1,3 +1,10 @@
 autoload -Uz add-zsh-hook
 
-add-zsh-hook precmd _update_prompt
+_precmd() {
+    if [[ -n $TMUX ]]; then
+        tmux refresh-client -S
+    fi
+    _update_prompt
+}
+
+add-zsh-hook precmd _precmd
