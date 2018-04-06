@@ -58,7 +58,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
 }
 
 
-pane_status="%50<...<%~%<<"
+pane_status="%40<...<%~%<<"
 
 LANG=en_US.UTF-8 vcs_info
 if [[ -n $vcs_info_msg_0_ ]]; then
