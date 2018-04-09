@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-fg=black
-bg=brightwhite
-
-print -P "#[fg=$bg]"$'\UE0B2'"#[fg=$fg,bg=$bg] %D{%m/%d(%a)} %T #[default]"
