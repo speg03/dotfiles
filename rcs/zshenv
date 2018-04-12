@@ -32,6 +32,6 @@ export SRC_HOME="$HOME/.local/src"
 
 export GOPATH="$LIB_HOME/go"
 export ANYENV_ROOT="$SRC_HOME/github.com/riywo/anyenv"
-
+export TMUX_PLUGIN_MANAGER_PATH="$DATA_HOME/tmux/plugins"
 
 source-if-exists "$CONFIG_HOME/zsh/zshenv.local"
