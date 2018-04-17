@@ -2,7 +2,7 @@ epc
 flake8
 isort
 jedi
-jupyterlab
+jupyter-console
 pip
 setuptools
 yapf
