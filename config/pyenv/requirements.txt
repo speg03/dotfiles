@@ -3,6 +3,4 @@ flake8
 isort
 jedi
 jupyter-console
-pip
-setuptools
 yapf
