@@ -15,4 +15,4 @@ c.EnvironmentKernelSpecManager.virtualenv_env_dirs = [
 ]
 c.EnvironmentKernelSpecManager.find_conda_envs = False
 
-c.EnvironmentKernelSpecManager.blacklist_envs = ['jupyterlab']
+c.EnvironmentKernelSpecManager.blacklist_envs = ['jupyter']
