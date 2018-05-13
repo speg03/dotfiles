@@ -35,6 +35,7 @@ alias gsync='rsync -rltDcvzCP --executability --exclude=".git/" --filter=":- /.g
 
 alias jc='jupyter console'
 alias jlab='PYENV_VERSION=jupyter jupyter lab --config=$CONFIG_HOME/jupyter/config.py'
+alias pr='pipenv run'
 
 ### Ruby
 

@@ -7,6 +7,7 @@ fi
 export EDITOR="run-emacs"
 export LESS="-giMR"
 export PIP_CONFIG_FILE="$CONFIG_HOME/pip/pip.conf"
+export PIPENV_VENV_IN_PROJECT=true
 
 # Suppress password dialogs
 # default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass

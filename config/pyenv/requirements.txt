@@ -1,6 +1,0 @@
-epc
-flake8
-isort
-jedi
-jupyter-console
-yapf
