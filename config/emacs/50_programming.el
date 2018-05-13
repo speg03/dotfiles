@@ -17,23 +17,16 @@
   :init
   (global-company-mode 1))
 
-(use-package company-jedi
-  :after (company jedi-core)
-  :init
-  (add-to-list 'company-backends 'company-jedi))
-
 (use-package dockerfile-mode)
+
+(use-package elpy
+  :init
+  (elpy-enable))
 
 (use-package flycheck
   :hook ((python-mode sh-mode) . flycheck-mode))
 
 (use-package go-mode)
-
-(use-package jedi-core
-  :hook (python-mode . jedi:setup)
-  :init
-  (setq jedi:complete-on-dot t)
-  (setq jedi:use-shortcuts t))
 
 (use-package markdown-mode
   :mode "\\.md\\'"
@@ -55,10 +48,9 @@
     (py-isort-buffer)
     (py-yapf-buffer)))
 
-(use-package pyenv-mode
-  :hook python-mode)
-
-(use-package pyenv-mode-auto)
+(use-package virtualenvwrapper)
+(use-package auto-virtualenvwrapper
+  :hook (python-mode . auto-virtualenvwrapper-activate))
 
 (use-package terraform-mode)
 
