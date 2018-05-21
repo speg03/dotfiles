@@ -1,4 +1,5 @@
 [core]
+	excludesFile = ~/.config/git/gitignore.local
 	quotepath = false
 [color]
 	ui = auto

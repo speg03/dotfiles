@@ -1,4 +1,5 @@
 config/git/gitconfig.local
+config/git/gitignore.local
 config/zsh/zprofile.local
 config/zsh/zshenv.local
 config/zsh/zshrc.local
