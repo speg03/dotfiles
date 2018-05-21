@@ -35,13 +35,6 @@ status_right() {
 }
 
 
-status_pane() {
-    tmux set-option -g pane-border-status bottom
-    tmux set-option -g pane-border-fg brightblack
-    tmux set-option -g pane-border-format " #(vcs-status #{pane_current_path}) "
-}
-
-
 main() {
     tmux set-option -g status-fg white
     tmux set-option -g status-bg default
@@ -51,7 +44,6 @@ main() {
 
     status_left
     status_right
-    status_pane
 }
 
 main
