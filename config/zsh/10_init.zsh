@@ -8,6 +8,7 @@ export EDITOR="run-emacs"
 
 export ANYENV_ROOT="$SRC_HOME/github.com/riywo/anyenv"
 export GOPATH="$LIB_HOME/go"
+export JUPYTER_CONFIG_DIR="$CONFIG_HOME/jupyter"
 export LESS="-giMR"
 export PIP_CONFIG_FILE="$CONFIG_HOME/pip/pip.conf"
 export PIPENV_VENV_IN_PROJECT=true
