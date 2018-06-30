@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: :pushpin: - Pinning dependencies to specific versions.
+# key: emoji
+# --
+:pushpin: 
