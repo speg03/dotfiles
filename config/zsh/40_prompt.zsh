@@ -53,7 +53,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks \
 
 _update_prompt() {
     local sep=$'%F{248}\UE0B1%f'
-    local user_host="%F{$(print -P %n@%m | hash-number 6 1)}%n@%m%f"
+    local user_host="%F{green}%n@%m%f"
     local current_path="%F{yellow}%30<...<%~%<<%f"
     local prompt_info git_status
 
