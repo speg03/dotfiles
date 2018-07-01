@@ -1,7 +1,7 @@
 ### General
 
 alias e='run-emacs -n'
-alias t='tmux new-session -A -s main'
+alias t='run-tmux'
 alias s='search-file-by-contents'
 
 alias ll='ls -alF'
