@@ -33,7 +33,7 @@ print-proxy() {
 
 ### ZLE
 
-change-repository() {
+_change-repository() {
     local repo=$(ghq list --full-path | fzf --select-1 --query="$LBUFFER")
     if [[ $repo ]]; then
         BUFFER="cd $repo"
@@ -41,9 +41,9 @@ change-repository() {
     fi
     zle -R -c
 }
-zle -N change-repository
+zle -N _change-repository
 
-change-worktree() {
+_change-worktree() {
     local worktree=$(git-worktree-path)
     if [[ $worktree ]]; then
         BUFFER="cd $worktree"
@@ -51,4 +51,4 @@ change-worktree() {
     fi
     zle -R -c
 }
-zle -N change-worktree
+zle -N _change-worktree
