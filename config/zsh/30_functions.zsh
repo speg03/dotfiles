@@ -42,3 +42,29 @@ change-repository() {
     zle -R -c
 }
 zle -N change-repository
+
+change-worktree() {
+    local in_git=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+    if [[ $in_git != 'true' ]]; then
+        return
+    fi
+
+    local results=$(git worktree list |
+                        fzf-tmux --nth=3 --exact --print-query --exit-0)
+    # 1st line: input search query
+    local query=$(echo "$results" | head -n1)
+    # 2nd line: selected worktree path
+    local worktree=$(echo "$results" | tail -n+2 | head -n1 | cut -d' ' -f1)
+
+    if [[ -n $worktree ]]; then
+        BUFFER="cd $worktree"
+        zle accept-line
+    elif [[ -n $query ]]; then
+        local new_worktree="$(git rev-parse --show-cdup).worktrees/$(date +%s)"
+        git worktree add "$new_worktree" "$query"
+        BUFFER="cd $new_worktree"
+        zle accept-line
+    fi
+    zle -R -c
+}
+zle -N change-worktree
