@@ -28,6 +28,7 @@ alias gb='git branch -a'
 alias gs='git status -s'
 alias gl='git log'
 alias gd='git diff'
+alias gw='git worktree'
 alias gmerged='git branch --merged master | grep -vE "^\*|^  master\$"'
 alias gsync='rsync -rltDcvzCP --executability --exclude=".git/" --filter=":- /.gitignore"'
 
