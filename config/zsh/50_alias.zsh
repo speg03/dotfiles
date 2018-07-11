@@ -30,7 +30,7 @@ alias gl='git log'
 alias gd='git diff'
 alias gw='git worktree'
 alias gmerged='git branch --merged master | grep -vE "^\*|^  master\$"'
-alias gsync='rsync -rltDcvzCP --executability --exclude=".git/" --filter=":- /.gitignore"'
+alias gsync='rsync -rltDcvzCFP --executability --filter=":- /.gitignore"'
 
 ### Python
 
