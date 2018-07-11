@@ -1,0 +1,7 @@
+[core]
+	quotepath = false
+[ghq]
+	root = ~/.local/src
+	root = ~/.local/lib/go/src
+[include]
+	path = config.local

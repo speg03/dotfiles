@@ -1,8 +1,6 @@
-/.venv/
-config/git/gitconfig.local
-config/git/gitignore.local
-config/jupyter/migrated
-config/zsh/zprofile.local
-config/zsh/zshenv.local
-config/zsh/zshrc.local
-rcs/bundle/cache
+/config/git/config.local
+/config/jupyter/migrated
+/config/zsh/zprofile.local
+/config/zsh/zshenv.local
+/config/zsh/zshrc.local
+/rcs/bundle/cache
