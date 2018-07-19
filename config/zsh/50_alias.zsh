@@ -34,7 +34,7 @@ alias gsync='rsync -rltDcvzCFP --executability --filter=":- /.gitignore"'
 
 ### Python
 
-alias pr='pipenv run'
+alias pr='pipenv --venv >/dev/null && pipenv run'
 
 ### Ruby
 
