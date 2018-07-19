@@ -13,6 +13,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+### Homebrew/Linuxbrew
+alias brew='PATH=$BASEPATH brew'
+
 ### Docker
 
 alias d='docker'

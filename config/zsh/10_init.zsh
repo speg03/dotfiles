@@ -31,7 +31,11 @@ export SAVEHIST=10000
 typeset -xU path
 typeset -axUT BASEPATH basepath
 
-basepath=({/usr/local,/usr,}/bin(N-/) {/usr/local,/usr,}/sbin(N-/))
+basepath=(
+    /home/{linuxbrew,$USER}/.linuxbrew/bin(N-/)
+    {/usr/local,/usr,}/bin(N-/)
+    {/usr/local,/usr,}/sbin(N-/)
+)
 path=($GOPATH/bin(N-/) $basepath)
 
 if [[ -e $ANYENV_ROOT/bin/anyenv ]]; then
