@@ -1,17 +1,8 @@
 #!/usr/bin/env zsh
 
 status_left() {
-    local sync
-    local status_line
-
-    sync="#{?pane_synchronized,#[fg=brightred],#[fg=white]}"$'\U1F503'"#[fg=default]"
-
-    status_line="#[bg=brightblack]${sync}"
-    status_line="${status_line}#[fg=brightblack,bg=blue]"$'\UE0B0'
-    status_line="${status_line} #[fg=default,bold]#S#[nobold]"
-    status_line="${status_line} #[fg=blue,bg=default]"$'\UE0B0'"#[default] "
-
-    status_line=$(print -P "${status_line}")
+    local sync="#{?pane_synchronized,#[fg=brightred]*, }#[default]"
+    local status_line="${sync}#[fg=blue,bold]#S#[default] "
 
     tmux set-option -g status-left-length 20
     tmux set-option -g status-left "${status_line}"
@@ -19,19 +10,12 @@ status_left() {
 
 
 status_right() {
-    local mem_cpu
-    local status_line
+    local time="%m/%d(%a) %H:%M"
+    local mem_cpu="#(tmux-mem-cpu-load -i5 -t1 -a0)"
+    local status_line="${mem_cpu} | ${time}"
 
-    local fg=black
-    local bg=brightwhite
-    local time="%%m/%%d(%%a) %%H:%%M"
-
-    mem_cpu="#(tmux-mem-cpu-load -cq -i5 -t1 -a0)"
-    status_line=$(print -P "#[fg=${bg}]"$'\UE0B2'"#[fg=${fg},bg=${bg}] ${time} #[default]")
-
-    tmux set-option -g status-right-fg brightblack
     tmux set-option -g status-right-length 60
-    tmux set-option -g status-right "${mem_cpu} ${status_line}"
+    tmux set-option -g status-right "${status_line}"
 }
 
 
