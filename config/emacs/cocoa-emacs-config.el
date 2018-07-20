@@ -7,4 +7,4 @@
                     :height default-face-attribute-height)
 
 ;; Font
-(add-to-list 'default-frame-alist '(font . "CicaE"))
+(add-to-list 'default-frame-alist '(font . "Cica"))
