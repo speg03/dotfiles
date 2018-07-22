@@ -9,4 +9,4 @@ fpath=($DATA_HOME/zsh/completions(N-/) $fpath)
 
 compinit -i -u -d "$CACHE_HOME/zsh/zcompdump"
 
-source-if-exists "$SRC_HOME/github.com/junegunn/fzf/shell/completion.zsh"
+source-if-exists "/usr/local/opt/fzf/shell/completion.zsh"

@@ -5,4 +5,4 @@ bindkey '^N' history-beginning-search-forward
 bindkey '^]' _change-repository
 bindkey '^@' _change-worktree
 
-source-if-exists "$SRC_HOME/github.com/junegunn/fzf/shell/key-bindings.zsh"
+source-if-exists "/usr/local/opt/fzf/shell/key-bindings.zsh"
