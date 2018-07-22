@@ -55,8 +55,9 @@ _update_prompt() {
     local sep=$'%F{248}\UE0B1%f'
     local user_host="%F{green}%n@%m%f"
     local current_path="%F{yellow}%30<...<%~%<<%f"
-    local prompt_info="${current_path}"
-    local git_status
+    local prompt_info git_status
+
+    prompt_info="${user_host} ${sep} ${current_path}"
 
     LANG=en_US.UTF-8 vcs_info
     if [[ -n $vcs_info_msg_0_ ]]; then
@@ -64,6 +65,5 @@ _update_prompt() {
         prompt_info="${prompt_info} ${sep} ${git_status}"
     fi
 
-    PROMPT="${user_host}"$'\n$ '
-    RPROMPT="${prompt_info}"
+    PROMPT="${prompt_info}"$'\n$ '
 }
