@@ -12,13 +12,26 @@
 (setq mode-require-final-newline nil)
 
 (use-package expand-region
-  :bind ("C-M-SPC" . er/expand-region)
   :config
   (push 'er/mark-outside-pairs er/try-expand-list))
 
+(use-package phi-search)
+
 (use-package multiple-cursors
-  :bind (("C-M-l" . mc/edit-lines)
-         ("C-M-a" . mc/mark-all-dwim)))
+  :after expand-region
+  :bind (("C-M-SPC" . mc/mark-all-dwim-or-mark-sexp)
+         ("C-," . mc/mark-previous-like-this)
+         ("C-." . mc/mark-next-like-this)
+         ("C-<" . mc/skip-to-previous-like-this)
+         ("C->" . mc/skip-to-next-like-this))
+  :config
+  (defun mc/mark-all-dwim-or-mark-sexp (arg)
+    "C-u C-M-SPCでmc/mark-all-dwim, C-u C-u C-M-SPCでmc/edit-lines"
+    (interactive "p")
+    (cl-case arg
+      (16 (mc/mark-all-dwim t))
+      (4 (mc/mark-all-dwim nil))
+      (1 (er/expand-region 1)))))
 
 (use-package recentf
   :ensure nil
