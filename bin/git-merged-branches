@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+base_branch=${1:-$(git symbolic-ref --short HEAD)}
+git branch --merged "${base_branch}" | grep -vE "^\\*|^  ${base_branch}\$"
