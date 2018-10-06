@@ -49,7 +49,6 @@
     (py-isort-buffer)
     (py-yapf-buffer)))
 
-(use-package virtualenvwrapper)
 (use-package auto-virtualenvwrapper
   :hook (python-mode . auto-virtualenvwrapper-activate))
 
