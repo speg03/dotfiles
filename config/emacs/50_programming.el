@@ -20,8 +20,17 @@
 (use-package dockerfile-mode)
 
 (use-package elpy
+  :after py-isort
+  :bind (:map python-mode-map
+              ("C-M-f" . python-reformat-buffer))
   :hook (elpy-mode . (lambda () (highlight-indentation-mode -1)))
   :init
+  (defun python-reformat-buffer ()
+    "Reformat python codes in the current buffer."
+    (interactive)
+    (py-isort-buffer)
+    (elpy-format-code))
+
   (elpy-enable))
 
 (use-package flycheck
@@ -38,16 +47,6 @@
   :ensure matlab-mode)
 
 (use-package py-isort)
-(use-package py-yapf
-  :after (python py-isort)
-  :bind (:map python-mode-map
-              ("C-M-f" . python-reformat-buffer))
-  :init
-  (defun python-reformat-buffer ()
-    "Reformat python codes in the current buffer."
-    (interactive)
-    (py-isort-buffer)
-    (py-yapf-buffer)))
 
 (use-package auto-virtualenvwrapper
   :hook (python-mode . auto-virtualenvwrapper-activate))
