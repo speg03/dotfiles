@@ -20,6 +20,7 @@
 (use-package dockerfile-mode)
 
 (use-package elpy
+  :diminish
   :after py-isort
   :bind (:map python-mode-map
               ("C-M-f" . python-reformat-buffer))
@@ -34,6 +35,7 @@
   (elpy-enable))
 
 (use-package flycheck
+  :diminish
   :hook ((python-mode sh-mode) . flycheck-mode))
 
 (use-package go-mode)
