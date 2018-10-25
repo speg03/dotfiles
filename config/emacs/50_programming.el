@@ -46,10 +46,11 @@
 (use-package matlab
   :ensure matlab-mode)
 
-(use-package py-isort)
+(use-package pipenv
+  :diminish
+  :hook (python-mode . pipenv-activate))
 
-(use-package auto-virtualenvwrapper
-  :hook (python-mode . auto-virtualenvwrapper-activate))
+(use-package py-isort)
 
 (use-package terraform-mode)
 
