@@ -2,6 +2,9 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
+(use-package auto-virtualenvwrapper
+  :hook (python-mode . auto-virtualenvwrapper-activate))
+
 (use-package company
   :diminish
   :bind (("M-/" . company-complete)
@@ -47,10 +50,6 @@
 
 (use-package matlab
   :ensure matlab-mode)
-
-(use-package pipenv
-  :diminish
-  :hook (python-mode . pipenv-activate))
 
 (use-package py-isort)
 
