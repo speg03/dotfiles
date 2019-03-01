@@ -11,3 +11,4 @@ compinit -i -u -d "$CACHE_HOME/zsh/zcompdump"
 
 source-if-exists "/usr/share/zsh/site-functions/fzf"
 source-if-exists "/usr/local/opt/fzf/shell/completion.zsh"
+source-if-exists "$LIB_HOME/google-cloud-sdk/completion.zsh.inc"

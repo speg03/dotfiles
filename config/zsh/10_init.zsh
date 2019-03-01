@@ -37,7 +37,11 @@ basepath=(
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
 )
-path=($GOPATH/bin(N-/) $basepath)
+path=(
+    $LIB_HOME/google-cloud-sdk/bin(N-/)
+    $GOPATH/bin(N-/)
+    $basepath
+)
 
 if [[ -e $ANYENV_ROOT/bin/anyenv ]]; then
     eval "$($ANYENV_ROOT/bin/anyenv init -)"
