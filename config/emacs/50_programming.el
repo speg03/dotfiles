@@ -19,17 +19,24 @@
 
 (use-package dockerfile-mode)
 
+(use-package elpy
+  :diminish
+  :after py-isort
+  :bind (:map python-mode-map
+              ("C-M-f" . python-reformat-buffer))
+  :hook (elpy-mode . (lambda () (highlight-indentation-mode -1)))
+  :init
+  (defun python-reformat-buffer ()
+    "Reformat python codes in the current buffer."
+    (interactive)
+    (py-isort-buffer)
+    (elpy-format-code))
+
+  (elpy-enable))
+
 (use-package flycheck
   :diminish
-  :hook (sh-mode . flycheck-mode))
-
-(use-package lsp-mode
-  :hook (python-mode . lsp)
-  :bind ("C-M-f" . lsp-format-buffer)
-  :config
-  (use-package lsp-ui
-    :hook (lsp-mode . lsp-ui-mode))
-  (use-package company-lsp))
+  :hook ((python-mode sh-mode) . flycheck-mode))
 
 (use-package go-mode)
 
@@ -40,6 +47,8 @@
 
 (use-package matlab
   :ensure matlab-mode)
+
+(use-package py-isort)
 
 (use-package pipenv
   :diminish
