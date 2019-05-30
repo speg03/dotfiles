@@ -20,9 +20,6 @@
   :config
   (global-git-gutter-mode 1))
 
-(use-package git-gutter-fringe
-  :after git-gutter)
-
 (use-package google-translate
   :bind (("C-c t" . google-translate-smooth-translate))
   :init
