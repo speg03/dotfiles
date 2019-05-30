@@ -16,8 +16,8 @@
 ;; Disable scroll bar
 (scroll-bar-mode 0)
 
-;; Line and column  number
-(global-linum-mode 1)
+;; Line and column number
+(global-display-line-numbers-mode)
 (column-number-mode 1)
 
 ;; Default frame configuration
