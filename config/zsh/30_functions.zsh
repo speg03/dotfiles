@@ -31,6 +31,15 @@ print-proxy() {
     echo "export no_proxy=${no_proxy}"
 }
 
+### Python
+
+poetry-activate() {
+    local poetry_info=$(poetry debug:info | grep Path)
+    if [[ -n $poetry_info ]]; then
+        source $(echo "$poetry_info" | awk '{print $3}')/bin/activate
+    fi
+}
+
 ### ZLE
 
 _change-repository() {

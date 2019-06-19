@@ -55,7 +55,7 @@ _update_prompt() {
     local sep=$'%F{248}\UE0B1%f'
     local user_host="%F{green}%n@%m%f"
     local current_path="%F{yellow}%30<...<%~%<<%f"
-    local prompt_info git_status
+    local prompt_info git_status venv_info
 
     prompt_info="${user_host} ${sep} ${current_path}"
 
@@ -65,5 +65,9 @@ _update_prompt() {
         prompt_info="${prompt_info} ${sep} ${git_status}"
     fi
 
-    PROMPT="${prompt_info}"$'\n$ '
+    if [[ -n $VIRTUAL_ENV ]]; then
+        venv_info="%F{248}(${VIRTUAL_ENV:t})%f "
+    fi
+
+    PROMPT="${prompt_info}"$'\n'"${venv_info}$ "
 }
