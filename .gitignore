@@ -1,7 +1,7 @@
 .venv
 /config/git/config.local
 /config/git/ignore
-/config/jupyter/lab/workspaces/
+/config/jupyter/lab
 /config/jupyter/migrated
 /config/zsh/zprofile.local
 /config/zsh/zshenv.local
