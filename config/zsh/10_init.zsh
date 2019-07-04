@@ -6,7 +6,7 @@ fi
 
 export EDITOR="run-emacs"
 
-export ANYENV_ROOT="$SRC_HOME/github.com/riywo/anyenv"
+export ANYENV_ROOT="$DATA_HOME/anyenv"
 export GOPATH="$LIB_HOME/go"
 export JUPYTER_CONFIG_DIR="$CONFIG_HOME/jupyter"
 export LESS="-giMR"
@@ -42,8 +42,8 @@ path=(
     $basepath
 )
 
-if [[ -e $ANYENV_ROOT/bin/anyenv ]]; then
-    eval "$($ANYENV_ROOT/bin/anyenv init -)"
+if type anyenv &>/dev/null; then
+    eval "$(anyenv init -)"
 fi
 
 path=($BIN_HOME(N-/) $path)

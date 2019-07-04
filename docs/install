@@ -78,27 +78,6 @@ fi
 
 ### Install useful tools
 
-# anyenv
-export ANYENV_ROOT="$HOME/.local/src/github.com/riywo/anyenv"
-if [[ ! -e $ANYENV_ROOT ]]; then
-    echo "Installing anyenv ..."
-    git clone -q https://github.com/riywo/anyenv "$ANYENV_ROOT"
-    git clone -q https://github.com/znz/anyenv-update "$ANYENV_ROOT/plugins/anyenv-update"
-    symlink "$ANYENV_ROOT/bin/anyenv" "$HOME/.local/bin/anyenv"
-    echo "Done."
-fi
-
-# pyenv
-if [[ ! -e $ANYENV_ROOT/envs/pyenv ]]; then
-    echo -n "Loading anyenv ... "
-    eval "$("$ANYENV_ROOT/bin/anyenv" init -)"
-    echo "Done."
-
-    echo -n "Installing pyenv ... "
-    anyenv install pyenv &>/dev/null
-    echo "Done."
-fi
-
 # tpm
 tmux_plugins_path="$HOME/.local/share/tmux/plugins"
 if [[ ! -e $tmux_plugins_path/tpm ]]; then
