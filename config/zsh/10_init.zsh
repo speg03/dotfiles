@@ -11,9 +11,6 @@ export GOPATH="$LIB_HOME/go"
 export JUPYTER_CONFIG_DIR="$CONFIG_HOME/jupyter"
 export LESS="-giMR"
 export PIP_CONFIG_FILE="$CONFIG_HOME/pip/pip.conf"
-export PIPENV_MAX_DEPTH=10
-export PIPENV_VENV_IN_PROJECT=true
-export POETRY_HOME="$HOME/.poetry"
 export TMUX_PLUGIN_MANAGER_PATH="$DATA_HOME/tmux/plugins"
 
 # Suppress password dialogs
@@ -39,7 +36,7 @@ basepath=(
     {/usr/local,/usr,}/sbin(N-/)
 )
 path=(
-    $POETRY_HOME/bin(N-/)
+    $HOME/.poetry/bin(N-/)
     $LIB_HOME/google-cloud-sdk/bin(N-/)
     $GOPATH/bin(N-/)
     $basepath
