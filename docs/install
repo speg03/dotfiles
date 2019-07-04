@@ -79,13 +79,10 @@ fi
 ### Install useful tools
 
 # tpm
-tmux_plugins_path="$HOME/.local/share/tmux/plugins"
-if [[ ! -e $tmux_plugins_path/tpm ]]; then
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.local/share/tmux/plugins"
+if [[ ! -e $TMUX_PLUGIN_MANAGER_PATH/tpm ]]; then
     echo "Installing tpm ..."
-    git clone -q https://github.com/tmux-plugins/tpm "$tmux_plugins_path/tpm"
-    "$tmux_plugins_path/tpm/bin/install_plugins"
+    git clone -q https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_MANAGER_PATH/tpm"
+    "$TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
     echo "Done."
 fi
-
-# Go packages
-export GOPATH="$HOME/.local/lib/go"
