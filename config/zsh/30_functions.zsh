@@ -61,3 +61,15 @@ _change-worktree() {
     zle -R -c
 }
 zle -N _change-worktree
+
+_activate-python-venv() {
+    local venv_dir=$(find-up $PWD -type d -name .venv \
+                         | xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d \
+                         | fzf --select-1 --query="$LBUFFER")
+    if [[ $venv_dir ]]; then
+        BUFFER=". $venv_dir/bin/activate"
+        zle accept-line
+    fi
+    zle -R -c
+}
+zle -N _activate-python-venv
