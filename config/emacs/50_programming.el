@@ -26,6 +26,7 @@
               ("C-M-f" . python-reformat-buffer))
   :hook (elpy-mode . (lambda () (highlight-indentation-mode -1)))
   :init
+  (setq elpy-rpc-virtualenv-path 'current)
   (defun python-reformat-buffer ()
     "Reformat python codes in the current buffer."
     (interactive)
