@@ -5,6 +5,7 @@
 /config/git/ignore
 /config/jupyter/lab
 /config/jupyter/migrated
+/config/karabiner/automatic_backups
 /config/zsh/zprofile.local
 /config/zsh/zshenv.local
 /config/zsh/zshrc.local
