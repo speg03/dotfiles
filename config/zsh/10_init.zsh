@@ -6,12 +6,12 @@ fi
 
 export EDITOR="run-emacs"
 
-export ANYENV_ROOT="$DATA_HOME/anyenv"
-export GOPATH="$LIB_HOME/go"
-export JUPYTER_CONFIG_DIR="$CONFIG_HOME/jupyter"
+export ANYENV_ROOT="$HOME/.local/share/anyenv"
+export GOPATH="$HOME/.local/lib/go"
+export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
 export LESS="-giMR"
-export PIP_CONFIG_FILE="$CONFIG_HOME/pip/pip.conf"
-export TMUX_PLUGIN_MANAGER_PATH="$DATA_HOME/tmux/plugins"
+export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.local/share/tmux/plugins"
 
 # Suppress password dialogs
 # default: SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
@@ -20,7 +20,7 @@ unset SSH_ASKPASS
 
 ### History
 
-export HISTFILE="$CACHE_HOME/zsh/zhistory"
+export HISTFILE="$HOME/.cache/zsh/zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
@@ -37,7 +37,7 @@ basepath=(
 )
 path=(
     $HOME/.poetry/bin(N-/)
-    $LIB_HOME/google-cloud-sdk/bin(N-/)
+    $HOME/.local/lib/google-cloud-sdk/bin(N-/)
     $GOPATH/bin(N-/)
     $basepath
 )
@@ -46,4 +46,4 @@ if type anyenv &>/dev/null; then
     eval "$(anyenv init -)"
 fi
 
-path=($BIN_HOME(N-/) $path)
+path=($HOME/.local/bin(N-/) $path)

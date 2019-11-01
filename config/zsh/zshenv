@@ -21,13 +21,4 @@ source-if-exists() {
 
 debug "Loading zshenv ..."
 
-
-# similar to XDG Base Directory Specification
-export CONFIG_HOME="$HOME/.config"
-export CACHE_HOME="$HOME/.cache"
-export BIN_HOME="$HOME/.local/bin"
-export LIB_HOME="$HOME/.local/lib"
-export DATA_HOME="$HOME/.local/share"
-export SRC_HOME="$HOME/.local/src"
-
-source-if-exists "$CONFIG_HOME/zsh/zshenv.local"
+source-if-exists "$HOME/.config/zsh/zshenv.local"

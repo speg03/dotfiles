@@ -16,8 +16,8 @@ load-files() {
     done
 }
 
-load-files "$CONFIG_HOME/zsh"
+load-files "$HOME/.config/zsh"
 
 
-source-if-exists "$CONFIG_HOME/zsh/zshrc.local"
+source-if-exists "$HOME/.config/zsh/zshrc.local"
 debug "Done."
