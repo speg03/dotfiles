@@ -1,88 +1,33 @@
 #!/usr/bin/env bash
-#
-# Install my custom dotfiles
 
+set -eu
+current_dir=$(cd "$(dirname "$0")"; pwd)
 
-### Checking require packages are installed
-
-require_packages=""
-for package in curl git go tmux zsh; do
-    if ! type $package &>/dev/null; then
-        require_packages="$require_packages $package"
-    fi
-done
-
-if [[ $require_packages ]]; then
-    echo "!!! Require packages:$require_packages"
-    exit 1
-fi
-
-
-### Download dotfiles
-
-dotfiles_path="$HOME/.local/src/github.com/speg03/dotfiles"
-if [[ ! -e $dotfiles_path ]]; then
-    echo -n "Downloading dotfiles ... "
-    git clone -q https://github.com/speg03/dotfiles "$dotfiles_path"
-    echo "Done."
-fi
-
-
-### Create symlinks
 
 symlink() {
     local src_path=$1
     local dst_path=$2
 
-    if [[ ! -h $dst_path && -e $dst_path ]]; then
+    if [[ ! -L $dst_path && -e $dst_path ]]; then
         # 宛先がシンボリックリンク以外で存在する場合
         echo "$(basename "$dst_path") already exists."
-    elif [[ ! -e $dst_path ]]; then
-        # 宛先が存在しない場合
-        # またはシンボリックリンクでそのリンク先が存在しない場合
-        echo -n "Creating link $(basename "$dst_path") ... "
+    else
         mkdir -p "$(dirname "$dst_path")"
         ln -snf "$src_path" "$dst_path"
-        echo "Done."
     fi
-    # 宛先がシンボリックリンクとして存在した場合は何もしない
 }
 
-# symlinks for config
-for src in $dotfiles_path/config/*; do
+
+for src in "$current_dir"/config/*; do
     symlink "$src" "$HOME/.config/$(basename "$src")"
 done
 
-# symlinks for rcs
-for src in $dotfiles_path/rcs/*; do
-    symlink "$src" "$HOME/.$(basename "$src")"
-done
-
-# symlinks for bin
-for src in $dotfiles_path/bin/*; do
+for src in "$current_dir"/bin/*; do
     symlink "$src" "$HOME/.local/bin/$(basename "$src")"
 done
 
-
-### Create templates
-
-# git config
-git_config_path="$HOME/.config/git/config.local"
-if [[ ! -e $git_config_path ]]; then
-    echo -n "Creating git configuration for local ... "
-    git config -f "$git_config_path" user.name 'Takahiro Yano'
-    git config -f "$git_config_path" user.email 'speg03@gmail.com'
-    echo "Done."
-fi
-
-
-### Install useful tools
-
-# tpm
-export TMUX_PLUGIN_MANAGER_PATH="$HOME/.local/share/tmux/plugins"
-if [[ ! -e $TMUX_PLUGIN_MANAGER_PATH/tpm ]]; then
-    echo "Installing tpm ..."
-    git clone -q https://github.com/tmux-plugins/tpm "$TMUX_PLUGIN_MANAGER_PATH/tpm"
-    "$TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
-    echo "Done."
-fi
+symlink .config/emacs/init.el "$HOME/.emacs"
+symlink .config/rsync/rsync-filter "$HOME/.rsync-filter"
+symlink .config/tmux/tmux.conf "$HOME/.tmux.conf"
+symlink .config/zsh/zshenv "$HOME/.zshenv"
+symlink .config/zsh/zshrc "$HOME/.zshrc"

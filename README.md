@@ -1,7 +1,9 @@
 # dotfiles
 
-## Install
+## setup
 
 ```text
-$ curl -s https://speg03.github.io/dotfiles/install | bash
+git clone https://github.com/speg03/dotfiles ~/.local/src/github.com/dotfiles
+cd ~/.local/src/github.com/dotfiles
+./setup.sh
 ```
