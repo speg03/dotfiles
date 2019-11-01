@@ -1,9 +1,0 @@
-memodir = "~/.memo"
-editor = "run-emacs -n"
-column = 30
-selectcmd = "fzf"
-grepcmd = "grep -inH ${PATTERN} ${FILES}"
-assetsdir = "~/.local/share/memo/assets"
-pluginsdir = "~/.local/share/memo/plugins"
-templatedirfile = ""
-templatebodyfile = ""
