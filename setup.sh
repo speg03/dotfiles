@@ -10,7 +10,7 @@ symlink() {
 
     if [[ ! -L $dst_path && -e $dst_path ]]; then
         # 宛先がシンボリックリンク以外で存在する場合
-        echo "$(basename "$dst_path") already exists."
+        echo "$dst_path already exists."
     else
         mkdir -p "$(dirname "$dst_path")"
         ln -snf "$src_path" "$dst_path"
