@@ -6,6 +6,7 @@
 /config/jupyter/lab
 /config/jupyter/migrated
 /config/karabiner/automatic_backups
+/config/pypoetry/auth.toml
 /config/zsh/zprofile.local
 /config/zsh/zshenv.local
 /config/zsh/zshrc.local

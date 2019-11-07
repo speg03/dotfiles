@@ -31,3 +31,7 @@ symlink .config/rsync/rsync-filter "$HOME/.rsync-filter"
 symlink .config/tmux/tmux.conf "$HOME/.tmux.conf"
 symlink .config/zsh/zshenv "$HOME/.zshenv"
 symlink .config/zsh/zshrc "$HOME/.zshrc"
+
+if [[ $(uname -s) == Darwin ]]; then
+    symlink "$HOME/.config/pypoetry" "$HOME/Library/Application Support/pypoetry"
+fi
