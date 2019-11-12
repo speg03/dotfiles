@@ -4,6 +4,7 @@
 	root = ~/.local/src
 	root = ~/.local/lib/go/src
 [include]
+	path = config_platform
 	path = config.local
 [pager]
 	branch = cat

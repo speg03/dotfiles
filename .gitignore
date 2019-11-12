@@ -1,6 +1,7 @@
 .python-version
 .venv
 
+/config/git/config_platform
 /config/git/config.local
 /config/git/ignore
 /config/jupyter/lab

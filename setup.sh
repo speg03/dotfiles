@@ -33,5 +33,8 @@ symlink .config/zsh/zshenv "$HOME/.zshenv"
 symlink .config/zsh/zshrc "$HOME/.zshrc"
 
 if [[ $(uname -s) == Darwin ]]; then
+    symlink config_darwin "$HOME/.config/git/config_platform"
     symlink "$HOME/.config/pypoetry" "$HOME/Library/Application Support/pypoetry"
+elif [[ $(uname -s) == Linux ]]; then
+    symlink config_linux "$HOME/.config/git/config_platform"
 fi
