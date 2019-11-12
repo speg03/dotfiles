@@ -4,6 +4,7 @@
 /config/git/config_platform
 /config/git/config.local
 /config/git/ignore
+/config/gnupg/*
 /config/jupyter/lab
 /config/jupyter/migrated
 /config/karabiner/automatic_backups
@@ -11,3 +12,6 @@
 /config/zsh/zprofile.local
 /config/zsh/zshenv.local
 /config/zsh/zshrc.local
+
+!/config/gnupg/gpg-agent_darwin.conf
+!/config/gnupg/gpg-agent_linux.conf
