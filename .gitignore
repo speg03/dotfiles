@@ -3,6 +3,7 @@
 
 /config/git/config_platform
 /config/git/config.local
+/config/git/credentials
 /config/git/ignore
 /config/gnupg/*
 /config/jupyter/lab
