@@ -1,14 +1,28 @@
 # -*- mode: shell-script; -*-
 
 export LANG="en_US.UTF-8"
+export EDITOR="run-emacs"
+
+export ANYENV_ROOT="$HOME/.local/share/anyenv"
+export GOPATH="$HOME/.local/lib/go"
+export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
+export LESS="-giMR"
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.local/share/tmux/plugins"
+
+export HISTFILE="$HOME/.cache/zsh/zhistory"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+
+### Functions
+
 export DOTFILES_DEBUG=${DOTFILES_DEBUG:-0}
-
-
 debug() {
     if [[ $DOTFILES_DEBUG -ne 0 ]]; then
         echo "$(date +'%b %d %T') debug: $@" >&2
     fi
 }
+debug "Loading zshenv ..."
 
 source-if-exists() {
     local source_file_path=$1
@@ -19,6 +33,30 @@ source-if-exists() {
 }
 
 
-debug "Loading zshenv ..."
+### PATH
+
+typeset -xU path
+typeset -axUT BASEPATH basepath
+
+basepath=(
+    /home/{linuxbrew,$USER}/.linuxbrew/bin(N-/)
+    {/usr/local,/usr,}/bin(N-/)
+    {/usr/local,/usr,}/sbin(N-/)
+)
+path=(
+    $HOME/.poetry/bin(N-/)
+    $HOME/.local/lib/google-cloud-sdk/bin(N-/)
+    $GOPATH/bin(N-/)
+    $basepath
+)
+
+if type anyenv &>/dev/null; then
+    eval "$(anyenv init -)"
+fi
+
+path=($HOME/.local/bin(N-/) $path)
+
+
+### Local configurations
 
 source-if-exists "$HOME/.config/zsh/zshenv.local"
