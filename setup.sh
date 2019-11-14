@@ -45,6 +45,6 @@ elif [[ $(uname -s) == Linux ]]; then
 fi
 
 
-## Misc
+### Misc
 
 chmod 0700 "$current_dir/config/gnupg"
