@@ -1,7 +1,6 @@
 # -*- mode: shell-script; -*-
 
 export LANG="en_US.UTF-8"
-export EDITOR="run-emacs"
 
 export ANYENV_ROOT="$HOME/.local/share/anyenv"
 export GOPATH="$HOME/.local/lib/go"
