@@ -19,7 +19,6 @@
                         "description": "control-m to enter",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
@@ -32,7 +31,8 @@
                                     {
                                         "key_code": "return_or_enter"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
