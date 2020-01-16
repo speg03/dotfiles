@@ -1,6 +1,0 @@
-[credential]
-	helper = store --file ~/.config/git/credentials
-[commit]
-	gpgsign = true
-[gpg]
-	program = gpg2

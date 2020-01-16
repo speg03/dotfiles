@@ -37,11 +37,11 @@ symlink .config/zsh/zshrc "$HOME/.zshrc"
 
 if [[ $(uname -s) == Darwin ]]; then
     symlink gpg-agent_darwin.conf "$HOME/.config/gnupg/gpg-agent.conf"
-    symlink config_darwin "$HOME/.config/git/config_platform"
     symlink "$HOME/.config/pypoetry" "$HOME/Library/Application Support/pypoetry"
 elif [[ $(uname -s) == Linux ]]; then
     symlink gpg-agent_linux.conf "$HOME/.config/gnupg/gpg-agent.conf"
-    symlink config_linux "$HOME/.config/git/config_platform"
+    git config -f "$HOME/.config/git/config.local" \
+        credential.helper "store --file ~/.config/git/credentials"
 fi
 
 
