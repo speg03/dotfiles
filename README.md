@@ -3,7 +3,7 @@
 ## setup
 
 ```text
-git clone https://github.com/speg03/dotfiles ~/.local/src/github.com/dotfiles
-cd ~/.local/src/github.com/dotfiles
+git clone https://github.com/speg03/dotfiles ~/.local/src/github.com/speg03/dotfiles
+cd ~/.local/src/github.com/speg03/dotfiles
 ./setup.sh
 ```
