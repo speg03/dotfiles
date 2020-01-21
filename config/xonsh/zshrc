@@ -1,5 +1,5 @@
 # -*- mode: shell-script; -*-
 
 if type xonsh &>/dev/null; then
-    xonsh
+    xonsh -l
 fi

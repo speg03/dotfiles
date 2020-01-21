@@ -1,8 +1,9 @@
 $COMPLETIONS_CONFIRM = True
+$FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE = True
 $HISTCONTROL = "ignoredups"
 $XONSH_AUTOPAIR = True
 
-aliases["e"] = "emacs"
+aliases["e"] = "run-emacs -n"
 aliases["t"] = "run-tmux"
 aliases["gsync"] = "rsync -rltDcvzCFP --executability --filter=':- /.gitignore'"
 

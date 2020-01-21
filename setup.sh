@@ -33,7 +33,7 @@ symlink .config/gnupg "$HOME/.gnupg"
 symlink .config/rsync/rsync-filter "$HOME/.rsync-filter"
 symlink .config/tmux/tmux.conf "$HOME/.tmux.conf"
 symlink .config/zsh/zshenv "$HOME/.zshenv"
-symlink .config/zsh/zshrc "$HOME/.zshrc"
+symlink .config/xonsh/zshrc "$HOME/.zshrc"
 
 if [[ $(uname -s) == Darwin ]]; then
     symlink gpg-agent_darwin.conf "$HOME/.config/gnupg/gpg-agent.conf"
