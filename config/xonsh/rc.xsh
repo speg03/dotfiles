@@ -3,6 +3,10 @@ $FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE = True
 $HISTCONTROL = "ignoredups"
 $XONSH_AUTOPAIR = True
 
+$DYNAMIC_CWD_WIDTH = (30, "c")
+$PROMPT = "{BOLD_GREEN}{user}@{hostname} {BOLD_BLUE}{cwd}{NO_COLOR} {gitstatus}\n" \
+          "{env_name}{prompt_end} "
+
 aliases["e"] = "run-emacs -n"
 aliases["t"] = "run-tmux"
 aliases["gsync"] = "rsync -rltDcvzCFP --executability --filter=':- /.gitignore'"
