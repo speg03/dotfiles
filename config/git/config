@@ -1,5 +1,3 @@
-[commit]
-	gpgsign = true
 [core]
 	quotepath = false
 [ghq]
