@@ -38,7 +38,7 @@ def custom_keybindings(bindings, **kw):
 
     @bindings.add("c-v")
     def _activate_venv(event):
-        venvs = [list((d / ".venv").glob("*")) for d in (Path.cwd() / "_").parents]
+        venvs = [list(d.glob(".venv/*")) for d in (Path.cwd() / "_").parents]
         venvs = sum(venvs, [])  # Flatten
 
         if venvs:
