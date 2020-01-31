@@ -1,5 +1,9 @@
 from pathlib import Path
 
+# ------------------------------
+# Environment Variables
+# ------------------------------
+
 $COMPLETIONS_CONFIRM = True
 $FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE = True
 $HISTCONTROL = "ignoredups"
@@ -9,11 +13,18 @@ $DYNAMIC_CWD_WIDTH = (30, "c")
 $PROMPT = "{BOLD_GREEN}{user}@{hostname} {BOLD_BLUE}{cwd}{NO_COLOR} {gitstatus}\n" \
           "{env_name}{prompt_end} "
 
+# ------------------------------
+# Aliases
+# ------------------------------
+
 aliases["e"] = "run-emacs -n"
 aliases["t"] = "run-tmux"
 aliases["deactivate"] = "source-bash ~/.config/xonsh/deactivate"
 aliases["gsync"] = "rsync -rltDcvzCFP --executability --filter=':- /.gitignore'"
 
+# ------------------------------
+# Keybindings
+# ------------------------------
 
 @events.on_ptk_create
 def custom_keybindings(bindings, **kw):
