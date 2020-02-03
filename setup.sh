@@ -48,4 +48,5 @@ fi
 ### Misc
 
 mkdir -p "$HOME/.cache/zsh"
+mkdir -p "$HOME/.local/lib"
 chmod 0700 "$current_dir/config/gnupg"
