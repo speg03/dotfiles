@@ -1,5 +1,7 @@
 # -*- mode: shell-script; -*-
 
+setopt NO_GLOBAL_RCS
+
 export LANG="en_US.UTF-8"
 
 export ANYENV_ROOT="$HOME/.local/share/anyenv"
