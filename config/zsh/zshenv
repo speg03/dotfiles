@@ -9,7 +9,6 @@ export GOPATH="$HOME/.local/lib/go"
 export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
 export LESS="-giMR"
 export POETRY_HOME="$HOME/.local/lib/poetry"
-export TMUX_PLUGIN_MANAGER_PATH="$HOME/.local/share/tmux/plugins"
 
 export HISTFILE="$HOME/.cache/zsh/zhistory"
 export HISTSIZE=10000
