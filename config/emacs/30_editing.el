@@ -25,6 +25,8 @@
          ("C-." . mc/mark-next-like-this)
          ("C-<" . mc/skip-to-previous-like-this)
          ("C->" . mc/skip-to-next-like-this))
+  :init
+  (setq mc/list-file "~/.config/emacs/mc-lists.el")
   :config
   ;; ref: http://emacs.rubikitch.com/multiple-cursors/
   (defun mc/edit-lines-or-string-rectangle (s e)
