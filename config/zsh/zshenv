@@ -2,53 +2,35 @@
 
 setopt NO_GLOBAL_RCS
 
+# ------------------------------
+# Environment Variables
+# ------------------------------
+
 export LANG="en_US.UTF-8"
 
 export ANYENV_ROOT="$HOME/.local/share/anyenv"
 export GOPATH="$HOME/.local/lib/go"
 export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
-export LESS="-giMR"
 export POETRY_HOME="$HOME/.local/lib/poetry"
 
+export LESS="-giMR"
+
 export HISTFILE="$HOME/.cache/zsh/zhistory"
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=2000
+export SAVEHIST=1000
 
-
-### Functions
-
-export DOTFILES_DEBUG=${DOTFILES_DEBUG:-0}
-debug() {
-    if [[ $DOTFILES_DEBUG -ne 0 ]]; then
-        echo "$(date +'%b %d %T') debug: $@" >&2
-    fi
-}
-debug "Loading zshenv ..."
-
-source-if-exists() {
-    local source_file_path=$1
-    if [[ -e $source_file_path ]]; then
-        debug "$source_file_path"
-        source "$source_file_path"
-    fi
-}
-
-
-### PATH
+# ------------------------------
+# PATH
+# ------------------------------
 
 typeset -xU path
-typeset -axUT BASEPATH basepath
-
-basepath=(
-    /home/{linuxbrew,$USER}/.linuxbrew/bin(N-/)
-    {/usr/local,/usr,}/bin(N-/)
-    {/usr/local,/usr,}/sbin(N-/)
-)
 path=(
     $HOME/.local/lib/google-cloud-sdk/bin(N-/)
     $GOPATH/bin(N-/)
     $POETRY_HOME/bin(N-/)
-    $basepath
+    /home/{linuxbrew,$USER}/.linuxbrew/bin(N-/)
+    {/usr/local,/usr,}/bin(N-/)
+    {/usr/local,/usr,}/sbin(N-/)
 )
 
 if type anyenv &>/dev/null; then
@@ -57,7 +39,10 @@ fi
 
 path=($HOME/.local/bin(N-/) $path)
 
+# ------------------------------
+# Local configurations
+# ------------------------------
 
-### Local configurations
-
-source-if-exists "$HOME/.config/zsh/zshenv.local"
+if [[ -e "$HOME/.config/zsh/zshenv.local" ]]; then
+   source "$HOME/.config/zsh/zshenv.local"
+fi

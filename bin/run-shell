@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if type xonsh &>/dev/null; then
+    exec xonsh "$@"
+elif type zsh &>/dev/null; then
+    exec zsh "$@"
+else
+    exec bash "$@"
+fi
