@@ -3,5 +3,5 @@
 speg03 dotfiles
 
 ```sh
-curl -sSL https://dotfiles.sp3.dev | bash
+curl -fsSL https://dotfiles.sp3.dev | bash
 ```
