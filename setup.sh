@@ -3,8 +3,9 @@
 set -eu
 current_dir=$(cd "$(dirname "$0")"; pwd)
 
-
-### Symbolic links
+# ------------------------------
+# Symbolic links
+# ------------------------------
 
 symlink() {
     local src_path=$1
@@ -44,8 +45,9 @@ elif [[ $(uname -s) == Linux ]]; then
         credential.helper "store --file ~/.config/git/credentials"
 fi
 
-
-### Misc
+# ------------------------------
+# Misc
+# ------------------------------
 
 mkdir -p "$HOME/.cache/zsh"
 mkdir -p "$HOME/.local/lib"
