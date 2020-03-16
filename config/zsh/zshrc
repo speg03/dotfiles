@@ -1,5 +1,5 @@
 # -*- mode: shell-script; -*-
 
-if [[ -z $XONSH_VERSION && -z $TMUX ]]; then
+if [[ $TERM_PROGRAM != vscode && -z $XONSH_VERSION && -z $TMUX ]]; then
     run-tmux
 fi
