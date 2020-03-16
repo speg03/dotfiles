@@ -1,6 +1,8 @@
 .python-version
 .venv
 
+/config/Code/User/globalStorage
+/config/Code/User/workspaceStorage
 /config/git/config_platform
 /config/git/config.local
 /config/git/credentials
