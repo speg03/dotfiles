@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "control-m to enter",
+                        "description": "Useful control hotkeys",
                         "manipulators": [
                             {
                                 "from": {
@@ -30,6 +30,22 @@
                                 "to": [
                                     {
                                         "key_code": "return_or_enter"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab"
                                     }
                                 ],
                                 "type": "basic"
