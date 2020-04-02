@@ -10,8 +10,10 @@ $HISTCONTROL = "ignoredups"
 $XONSH_AUTOPAIR = True
 
 $DYNAMIC_CWD_WIDTH = (30, "c")
-$PROMPT = "{BOLD_GREEN}{user}@{hostname} {BOLD_BLUE}{cwd}{NO_COLOR} {gitstatus}\n" \
-          "{env_name}{prompt_end} "
+$PROMPT = (
+    "{BOLD_GREEN}{user}@{hostname} {BOLD_BLUE}{cwd}{NO_COLOR} {gitstatus}\n"
+    "{env_name}{prompt_end} "
+)
 
 # ------------------------------
 # Aliases
