@@ -5,7 +5,6 @@ from pathlib import Path
 # ------------------------------
 
 $COMPLETIONS_CONFIRM = True
-$FOREIGN_ALIASES_SUPPRESS_SKIP_MESSAGE = True
 $HISTCONTROL = "ignoredups"
 $XONSH_AUTOPAIR = True
 
