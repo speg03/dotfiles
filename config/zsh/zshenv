@@ -45,5 +45,5 @@ path=($HOME/.local/bin(N-/) $path)
 # ------------------------------
 
 if [[ -e "$HOME/.config/zsh/zshenv.local" ]]; then
-   source "$HOME/.config/zsh/zshenv.local"
+    source "$HOME/.config/zsh/zshenv.local"
 fi
