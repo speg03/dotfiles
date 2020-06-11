@@ -7,3 +7,7 @@
 	path = config.local
 [pager]
 	branch = cat
+
+[tig "bind"]
+	main = F !git commit --fixup %(commit)
+	main = B !git rebase -i --autosquash %(commit)
