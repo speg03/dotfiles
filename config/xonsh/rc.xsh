@@ -20,8 +20,13 @@ $PROMPT = (
 
 aliases["e"] = "run-emacs -n"
 aliases["t"] = "run-tmux"
-aliases["deactivate"] = "source-bash ~/.config/xonsh/deactivate"
 aliases["gsync"] = "rsync -rltDcvzCFP --executability --filter=':- /.gitignore'"
+
+# ------------------------------
+# Xontribs
+# ------------------------------
+
+xontrib load vox
 
 # ------------------------------
 # Keybindings
@@ -46,7 +51,5 @@ def custom_keybindings(bindings, **kw):
             venvs_str = "\n".join(map(str, venvs))
             selected = $(echo @(venvs_str) | peco --select-1).strip()
             if selected:
-                old_path = ${...}.get("_OLD_VIRTUAL_PATH", $PATH)
-                source-bash @(selected)/bin/activate  # This script unsets _OLD_VIRTUAL_PATH
-                $_OLD_VIRTUAL_PATH = old_path
+                vox activate @(selected)
                 event.current_buffer.validate_and_handle()
