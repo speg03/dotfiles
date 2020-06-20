@@ -8,8 +8,6 @@
 /config/git/credentials
 /config/git/ignore
 /config/gnupg/*
-/config/jupyter/lab
-/config/jupyter/migrated
 /config/karabiner/automatic_backups
 /config/pypoetry/auth.toml
 /config/zsh/zprofile.local
