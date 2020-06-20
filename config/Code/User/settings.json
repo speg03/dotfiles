@@ -1,3 +1,4 @@
 {
-    "python.venvPath": "${workspaceFolder}/.venv"
+    "python.venvPath": "${workspaceFolder}/.venv",
+    "window.restoreWindows": "none"
 }
