@@ -18,8 +18,6 @@ $PROMPT = (
 # Aliases
 # ------------------------------
 
-aliases["e"] = "run-emacs -n"
-aliases["t"] = "run-tmux"
 aliases["gsync"] = "rsync -rltDcvzCFP --executability --filter=':- /.gitignore'"
 
 # ------------------------------
