@@ -1,4 +1,9 @@
 {
     "python.venvPath": "${workspaceFolder}/.venv",
-    "window.restoreWindows": "none"
+
+    "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+
+    "window.restoreWindows": "none",
 }
