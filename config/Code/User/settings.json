@@ -6,4 +6,5 @@
     "python.linting.pylintEnabled": false,
     "python.showStartPage": false,
     "window.restoreWindows": "none",
+    "emacs-mcx.useMetaPrefixMacCmd": true,
 }
