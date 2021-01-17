@@ -1,6 +1,6 @@
 # dotfiles
 
-speg03 dotfiles
+My dotfiles
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/speg03/dotfiles/master/setup.sh | bash

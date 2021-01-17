@@ -2,9 +2,10 @@
 
 set -eu
 
-git clone https://github.com/speg03/dotfiles "$HOME/.local/src/github.com/speg03/dotfiles"
-
 DOTFILES_ROOT="$HOME/.local/src/github.com/speg03/dotfiles"
+if [[ ! -e $DOTFILES_ROOT ]]; then
+    git clone https://github.com/speg03/dotfiles "$DOTFILES_ROOT"
+fi
 cd "$DOTFILES_ROOT"
 
 # ------------------------------
