@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 set -eu
-current_dir=$(cd "$(dirname "$0")"; pwd)
+
+git clone https://github.com/speg03/dotfiles "$HOME/.local/src/github.com/speg03/dotfiles"
+
+DOTFILES_ROOT="$HOME/.local/src/github.com/speg03/dotfiles"
+cd "$DOTFILES_ROOT"
 
 # ------------------------------
 # Symbolic links
@@ -21,11 +25,11 @@ symlink() {
 }
 
 
-for src in "$current_dir"/config/*; do
+for src in "$DOTFILES_ROOT"/config/*; do
     symlink "$src" "$HOME/.config/$(basename "$src")"
 done
 
-for src in "$current_dir"/bin/*; do
+for src in "$DOTFILES_ROOT"/bin/*; do
     symlink "$src" "$HOME/.local/bin/$(basename "$src")"
 done
 
@@ -52,4 +56,4 @@ fi
 
 mkdir -p "$HOME/.cache/zsh"
 mkdir -p "$HOME/.local/lib"
-chmod 0700 "$current_dir/config/gnupg"
+chmod 0700 "$DOTFILES_ROOT/config/gnupg"
