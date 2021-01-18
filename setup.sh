@@ -47,8 +47,6 @@ if [[ $(uname -s) == Darwin ]]; then
     symlink "$HOME/.config/pypoetry" "$HOME/Library/Application Support/pypoetry"
 elif [[ $(uname -s) == Linux ]]; then
     symlink gpg-agent_linux.conf "$HOME/.config/gnupg/gpg-agent.conf"
-    git config -f "$HOME/.config/git/config.local" \
-        credential.helper "store --file ~/.config/git/credentials"
 fi
 
 # ------------------------------
