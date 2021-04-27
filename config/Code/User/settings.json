@@ -7,4 +7,10 @@
     "python.showStartPage": false,
     "window.restoreWindows": "none",
     "emacs-mcx.useMetaPrefixMacCmd": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 }
