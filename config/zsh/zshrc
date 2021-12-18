@@ -2,4 +2,6 @@
 
 if [[ $TERM_PROGRAM != vscode && -z $XONSH_VERSION && -z $TMUX ]]; then
     run-tmux
+else
+    eval "$(starship init zsh)"
 fi
