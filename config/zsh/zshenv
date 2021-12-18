@@ -7,7 +7,6 @@ setopt NO_GLOBAL_RCS
 # ------------------------------
 
 export LANG="en_US.UTF-8"
-export PROMPT="%n@%m %1~ %# "
 
 export ANYENV_ROOT="$HOME/.local/share/anyenv"
 export GOPATH="$HOME/.local/lib/go"
