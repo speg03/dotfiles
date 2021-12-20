@@ -1,13 +1,14 @@
 [core]
 	quotepath = false
+
+[commit]
+	gpgsign = true
+[credential "https://github.com"]
+	helper = !gh auth git-credential
 [ghq]
-	root = ~/.local/lib/go/src
 	root = ~/.local/src
-[include]
-	path = config.local
 [pager]
 	branch = cat
 
-[tig "bind"]
-	main = F !git commit --fixup %(commit)
-	main = B !git rebase -i --autosquash %(commit)
+[include]
+	path = config.local
