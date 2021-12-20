@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-### Search file contents
-
-ag --noheading "${1:-.}" "${2:-.}" |
-    fzf --delimiter=: --tac \
-        --bind "enter:execute: less +{2} {1}" \
-        --bind "ctrl-l:execute: pygmentize {1} | less +{2}" \
-        --bind "ctrl-o:execute: run-emacs -n +{2} {1}"

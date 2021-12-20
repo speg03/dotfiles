@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-if type xonsh &>/dev/null; then
-    xonsh "$@"
-elif type zsh &>/dev/null; then
-    zsh "$@"
-else
-    bash "$@"
-fi
