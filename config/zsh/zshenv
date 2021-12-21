@@ -8,15 +8,10 @@ setopt NO_GLOBAL_RCS
 
 export LANG="en_US.UTF-8"
 
-export ANYENV_ROOT="$HOME/.local/share/anyenv"
-export GOPATH="$HOME/.local/lib/go"
-export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
-export POETRY_HOME="$HOME/.local/lib/poetry"
-
 export GPG_TTY="$(tty)"
 export LESS="-giMR"
 
-export HISTFILE="$HOME/.cache/zsh/zhistory"
+export HISTFILE="$HOME/.cache/zsh/history"
 export HISTSIZE=2000
 export SAVEHIST=1000
 
@@ -26,19 +21,10 @@ export SAVEHIST=1000
 
 typeset -xU path
 path=(
-    $HOME/.local/lib/google-cloud-sdk/bin(N-/)
-    $GOPATH/bin(N-/)
-    $POETRY_HOME/bin(N-/)
-    /home/{linuxbrew,$USER}/.linuxbrew/bin(N-/)
+    $HOME/.local/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
 )
-
-if type anyenv &>/dev/null; then
-    eval "$(anyenv init -)"
-fi
-
-path=($HOME/.local/bin(N-/) $path)
 
 # ------------------------------
 # Local configurations

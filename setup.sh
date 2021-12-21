@@ -34,9 +34,7 @@ for src in "$DOTFILES_ROOT"/bin/*; do
     symlink "$src" "$HOME/.local/bin/$(basename "$src")"
 done
 
-symlink .config/emacs/init.el "$HOME/.emacs"
 symlink .config/gnupg "$HOME/.gnupg"
-symlink .config/rsync/rsync-filter "$HOME/.rsync-filter"
 symlink .config/tmux/tmux.conf "$HOME/.tmux.conf"
 symlink .config/zsh/zshenv "$HOME/.zshenv"
 symlink .config/zsh/zshrc "$HOME/.zshrc"
