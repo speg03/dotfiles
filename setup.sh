@@ -35,7 +35,6 @@ for src in "$DOTFILES_ROOT"/bin/*; do
 done
 
 symlink .config/gnupg "$HOME/.gnupg"
-symlink .config/tmux/tmux.conf "$HOME/.tmux.conf"
 symlink .config/zsh/zshenv "$HOME/.zshenv"
 symlink .config/zsh/zshrc "$HOME/.zshrc"
 

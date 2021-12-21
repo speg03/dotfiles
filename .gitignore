@@ -6,4 +6,5 @@
 /config/gnupg/*
 /config/karabiner/automatic_backups
 /config/pypoetry/auth.toml
+/config/tmux/plugins
 /config/zsh/zshenv.local
