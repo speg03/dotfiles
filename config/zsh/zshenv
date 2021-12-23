@@ -25,9 +25,17 @@ path=(
 )
 
 # ------------------------------
-# Local configurations
+# Functions
 # ------------------------------
 
-if [[ -e "$HOME/.config/zsh/zshenv.local" ]]; then
-    source "$HOME/.config/zsh/zshenv.local"
-fi
+exists() {
+    local command_name=$1
+    type $command_name &>/dev/null
+}
+
+source-if-exists() {
+    local source_file_path=$1
+    [[ -f $source_file_path ]] && source "$source_file_path"
+}
+
+source-if-exists "$HOME/.config/zsh/zshenv.local"
