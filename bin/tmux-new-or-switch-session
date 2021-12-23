@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+### Start a new tmux session or switch to the existing one
+
+session=${1:-main}
+
+# Not in a tmux session
+if [[ -z $TMUX ]]; then
+    # Start a session with the given name
+    tmux new-session -A -s "$session"
+else
+    # A session with the given name does not exist
+    if ! tmux has-session -t "$session" &>/dev/null; then
+        # Create a session, but do not switch to that
+        TMUX='' tmux new-session -d -s "$session"
+    fi
+    # Switch to the session with the given name
+    tmux switch-client -t "$session"
+fi

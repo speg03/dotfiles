@@ -1,7 +1,7 @@
 # -*- mode: shell-script; -*-
 
 if [[ $TERM_PROGRAM != vscode && -z $TMUX ]]; then
-    run-tmux
+    tmux-new-or-switch-session
 else
     eval "$(starship init zsh)"
 fi

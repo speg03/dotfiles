@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+### Install and run TPM (Tmux Plugin Manager)
+
+TPM_INSTALL_DIR="$HOME/.config/tmux/plugins/tpm"
+if [[ ! -e $TPM_INSTALL_DIR ]]; then
+    # Install TPM if it is not already installed
+    git clone https://github.com/tmux-plugins/tpm "$TPM_INSTALL_DIR"
+fi
+
+exec "$TPM_INSTALL_DIR/tpm"
