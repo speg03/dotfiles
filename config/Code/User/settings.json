@@ -12,4 +12,5 @@
     "python.showStartPage": false,
     "window.restoreWindows": "none",
     "emacs-mcx.useMetaPrefixMacCmd": true,
+    "window.zoomLevel": 1,
 }
