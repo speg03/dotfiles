@@ -41,7 +41,6 @@ if [[ $(uname -s) == Darwin ]]; then
 elif [[ $(uname -s) == Linux ]]; then
     alias ls='ls --color=auto'
     source-if-exists "/usr/share/fzf/shell/key-bindings.zsh"
-    source-if-exists "/usr/share/zsh/site-functions/fzf"
 fi
 
 # ------------------------------
