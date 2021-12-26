@@ -2,6 +2,7 @@
 # Aliases
 # ------------------------------
 
+alias ll='ls -al'
 alias t='tmux-new-or-switch-session'
 
 # ------------------------------
