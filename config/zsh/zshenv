@@ -22,6 +22,7 @@ path=(
     $HOME/.local/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
+    $path
 )
 
 # ------------------------------
