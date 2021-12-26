@@ -36,7 +36,7 @@ exists() {
 
 source-if-exists() {
     local source_file_path=$1
-    [[ -f $source_file_path ]] && source "$source_file_path"
+    [[ -f $source_file_path ]] && source "$source_file_path" || true
 }
 
 source-if-exists "$HOME/.config/zsh/zshenv.local"
