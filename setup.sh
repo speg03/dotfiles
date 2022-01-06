@@ -34,17 +34,16 @@ for src in "$DOTFILES_ROOT"/bin/*; do
     symlink "$src" "$HOME/.local/bin/$(basename "$src")"
 done
 
-symlink .config/gnupg "$HOME/.gnupg"
 symlink .config/zsh/zshenv "$HOME/.zshenv"
 symlink .config/zsh/zshrc "$HOME/.zshrc"
 
 if [[ $(uname -s) == Darwin ]]; then
-    symlink gpg-agent_darwin.conf "$HOME/.config/gnupg/gpg-agent.conf"
+    symlink "$HOME/.config/gnupg/gpg-agent_darwin.conf" "$HOME/.gnupg/gpg-agent.conf"
     symlink keybindings_darwin.json "$HOME/.config/Code/User/keybindings.json"
     symlink "$HOME/.config/Code/User" "$HOME/Library/Application Support/Code/User"
     symlink "$HOME/.config/pypoetry" "$HOME/Library/Application Support/pypoetry"
 elif [[ $(uname -s) == Linux ]]; then
-    symlink gpg-agent_linux.conf "$HOME/.config/gnupg/gpg-agent.conf"
+    symlink "$HOME/.config/gnupg/gpg-agent_linux.conf" "$HOME/.gnupg/gpg-agent.conf"
     symlink keybindings_linux.json "$HOME/.config/Code/User/keybindings.json"
     symlink "$HOME/.config/Code/User" "$HOME/.vscode-server/data/Machine"
 fi
@@ -55,4 +54,4 @@ fi
 
 mkdir -p "$HOME/.cache/zsh"
 mkdir -p "$HOME/.local/lib"
-chmod 0700 "$DOTFILES_ROOT/config/gnupg"
+chmod 0700 "$HOME/.gnupg"

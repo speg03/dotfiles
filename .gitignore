@@ -4,7 +4,6 @@
 /config/git/config.local
 /config/git/credentials
 /config/git/ignore
-/config/gnupg/*
 /config/karabiner/automatic_backups
 /config/pypoetry/auth.toml
 /config/tmux/plugins
