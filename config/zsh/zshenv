@@ -8,6 +8,7 @@ export LANG="en_US.UTF-8"
 
 export GPG_TTY="$(tty)"
 export LESS="-giMR"
+export POETRY_HOME="$HOME/.local/lib/pypoetry"
 
 export HISTFILE="$HOME/.cache/zsh/history"
 export HISTSIZE=2000
