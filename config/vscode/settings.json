@@ -9,8 +9,8 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.showStartPage": false,
-    "window.restoreWindows": "none",
     "emacs-mcx.useMetaPrefixMacCmd": true,
-    "window.zoomLevel": 1,
+    "terminal.integrated.allowChords": false,
+    "window.restoreWindows": "none",
+    "window.zoomLevel": 1
 }
