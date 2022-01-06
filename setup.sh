@@ -40,10 +40,13 @@ symlink .config/zsh/zshrc "$HOME/.zshrc"
 
 if [[ $(uname -s) == Darwin ]]; then
     symlink gpg-agent_darwin.conf "$HOME/.config/gnupg/gpg-agent.conf"
+    symlink keybindings_darwin.json "$HOME/.config/Code/User/keybindings.json"
     symlink "$HOME/.config/Code/User" "$HOME/Library/Application Support/Code/User"
     symlink "$HOME/.config/pypoetry" "$HOME/Library/Application Support/pypoetry"
 elif [[ $(uname -s) == Linux ]]; then
     symlink gpg-agent_linux.conf "$HOME/.config/gnupg/gpg-agent.conf"
+    symlink keybindings_linux.json "$HOME/.config/Code/User/keybindings.json"
+    symlink "$HOME/.config/Code/User" "$HOME/.vscode-server/data/Machine"
 fi
 
 # ------------------------------
