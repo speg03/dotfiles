@@ -1,7 +1,57 @@
-# -*- mode: shell-script; -*-
+# ------------------------------
+# Aliases
+# ------------------------------
+
+alias ll='ls -al'
+alias t='tmux-new-or-switch-session'
+
+# ------------------------------
+# Key bindings
+# ------------------------------
+
+change-repository() {
+    local repo=$(ghq list -p | fzf -1 -q "$LBUFFER")
+    if [[ $repo ]]; then
+        BUFFER="cd $repo"
+        zle accept-line
+    fi
+    zle -R -c
+}
+zle -N change-repository
+bindkey '^@' change-repository
+
+# ------------------------------
+# Completions
+# ------------------------------
+
+autoload -U compinit
+
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+compinit -i -u -d "$HOME/.cache/zsh/compdump"
+
+# ------------------------------
+# OS specific
+# ------------------------------
+
+if [[ $(uname -s) == Darwin ]]; then
+    alias ls='ls -G'
+    source-if-exists "/usr/local/opt/fzf/shell/key-bindings.zsh"
+    source-if-exists "/usr/local/opt/fzf/shell/completion.zsh"
+elif [[ $(uname -s) == Linux ]]; then
+    alias ls='ls --color=auto'
+    source-if-exists "/usr/share/fzf/shell/key-bindings.zsh"
+fi
+
+# ------------------------------
+# Startup
+# ------------------------------
+
+if exists starship; then
+    eval "$(starship init zsh)"
+fi
 
 if [[ $TERM_PROGRAM != vscode && -z $TMUX ]]; then
     tmux-new-or-switch-session
-else
-    eval "$(starship init zsh)"
 fi
