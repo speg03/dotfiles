@@ -46,6 +46,7 @@ if [[ $(uname -s) == Darwin ]]; then
 elif [[ $(uname -s) == Linux ]]; then
     symlink gpg-agent_linux.conf "$HOME/.config/gnupg/gpg-agent.conf"
     symlink keybindings_linux.json "$HOME/.config/Code/User/keybindings.json"
+    symlink "$HOME/.config/Code/User" "$HOME/.vscode-server/data/Machine"
 fi
 
 # ------------------------------
