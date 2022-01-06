@@ -1,0 +1,11 @@
+[
+    {
+        "key": "ctrl+[BracketLeft]",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+[BracketLeft]",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    }
+]
