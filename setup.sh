@@ -30,7 +30,6 @@ symlink local/bin/tmux-plugin-manager
 
 symlink config/git/config
 symlink config/tmux/tmux.conf
-symlink config/flake8
 symlink config/starship.toml
 
 symlink config/zsh/zshenv "$HOME/.zshenv"
