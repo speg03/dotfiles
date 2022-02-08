@@ -53,6 +53,6 @@ if exists starship; then
     eval "$(starship init zsh)"
 fi
 
-if [[ $TERM_PROGRAM != vscode && -z $TMUX ]]; then
+if exists tmux && [[ $TERM != screen* && $TERM_PROGRAM != vscode ]]; then
     tmux-new-or-switch-session
 fi
