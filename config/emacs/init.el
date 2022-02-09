@@ -8,6 +8,7 @@
 
 ;;; Key bindings
 (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
+(define-key key-translation-map (kbd "C-x j") (kbd "C-j"))
 (define-key global-map (kbd "C-x ?") 'help-command)
 
 ;;; Misc
