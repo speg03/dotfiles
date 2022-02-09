@@ -1,14 +1,8 @@
 [core]
 	quotepath = false
-
-[commit]
-	gpgsign = true
-[credential "https://github.com"]
-	helper = !gh auth git-credential
 [ghq]
 	root = ~/.local/src
 [pager]
 	branch = cat
-
 [include]
 	path = config.local
