@@ -2,8 +2,9 @@
 # Aliases
 # ------------------------------
 
+alias e='emacs'
 alias ll='ls -al'
-alias magit='emacs --execute "(magit-status)"'
+alias magit='emacs --funcall magit-status'
 alias t='tmux-new-or-switch-session'
 
 # ------------------------------
