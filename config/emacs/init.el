@@ -16,7 +16,7 @@
 (menu-bar-mode 0)
 
 ;;; Packaging
-(if (and (= emacs-major-version 26) (< emacs-minor-version 3))
+(when (version< emacs-version "26.3")
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
