@@ -1,11 +1,11 @@
 {
-    "python.languageServer": "Pylance",
     "python.venvPath": "${workspaceFolder}/.venv",
     "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
+    "python.analysis.typeCheckingMode": "basic",
     "python.testing.pytestArgs": [
-        "tests"
+        "--no-cov"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
