@@ -1,14 +1,21 @@
 {
     "python.venvPath": "${workspaceFolder}/.venv",
-    "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "~/.local/bin/flake8",
     "python.linting.pylintEnabled": false,
     "python.analysis.typeCheckingMode": "basic",
+    "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
         "--no-cov"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
     "emacs-mcx.useMetaPrefixMacCmd": true,
     "terminal.integrated.allowChords": false,
     "window.restoreWindows": "none",
