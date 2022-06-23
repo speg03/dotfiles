@@ -1,7 +1,7 @@
 {
     "python.venvPath": "${workspaceFolder}/.venv",
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "~/.local/bin/flake8",
+    "python.linting.flake8Path": "/usr/local/bin/flake8",
     "python.linting.pylintEnabled": false,
     "python.analysis.typeCheckingMode": "basic",
     "python.testing.pytestEnabled": true,
