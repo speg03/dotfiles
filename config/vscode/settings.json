@@ -17,6 +17,7 @@
         }
     },
     "emacs-mcx.useMetaPrefixMacCmd": true,
+    "redhat.telemetry.enabled": true,
     "terminal.integrated.allowChords": false,
     "window.restoreWindows": "none",
     "window.zoomLevel": 1
