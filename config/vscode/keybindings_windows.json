@@ -9,6 +9,10 @@
         "when": "terminalFocus"
     },
     {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    {
         "key": "ctrl+m",
         "command": "-editor.action.toggleTabFocusMode"
     }

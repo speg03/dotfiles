@@ -20,5 +20,5 @@
     "redhat.telemetry.enabled": true,
     "terminal.integrated.allowChords": false,
     "window.restoreWindows": "none",
-    "window.zoomLevel": 1
+    "githubPullRequests.terminalLinksHandler": "github"
 }
