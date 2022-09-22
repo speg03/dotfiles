@@ -6,3 +6,5 @@
 	branch = cat
 [include]
 	path = config.local
+[init]
+	defaultBranch = main
