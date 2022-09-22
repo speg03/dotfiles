@@ -1,6 +1,9 @@
 [git_branch]
 symbol = ""
 
+[container]
+disabled = true
+
 [aws]
 disabled = true
 
