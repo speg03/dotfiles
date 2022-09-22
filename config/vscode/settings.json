@@ -1,4 +1,7 @@
 {
+    "emacs-mcx.useMetaPrefixMacCmd": true,
+    "githubPullRequests.fileListLayout": "tree",
+    "githubPullRequests.terminalLinksHandler": "github",
     "python.venvPath": "${workspaceFolder}/.venv",
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "/usr/local/bin/flake8",
@@ -16,9 +19,7 @@
             "source.organizeImports": true
         }
     },
-    "emacs-mcx.useMetaPrefixMacCmd": true,
     "redhat.telemetry.enabled": true,
     "terminal.integrated.allowChords": false,
-    "window.restoreWindows": "none",
-    "githubPullRequests.terminalLinksHandler": "github"
+    "window.restoreWindows": "none"
 }
