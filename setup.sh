@@ -41,11 +41,9 @@ if [[ $(uname -s) == Darwin ]]; then
     symlink config/gnupg/gpg-agent_darwin.conf "$HOME/.gnupg/gpg-agent.conf"
     symlink config/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     symlink config/vscode/keybindings_darwin.json "$HOME/Library/Application Support/Code/User/keybindings.json"
-    symlink config/pypoetry/config.toml "$HOME/Library/Application Support/pypoetry/config.toml"
 elif [[ $(uname -s) == Linux ]]; then
     symlink config/gnupg/gpg-agent_linux.conf "$HOME/.gnupg/gpg-agent.conf"
     symlink config/vscode/settings.json "$HOME/.vscode-server/data/Machine/settings.json"
-    symlink config/pypoetry/config.toml
 fi
 
 # ------------------------------
