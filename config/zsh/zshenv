@@ -20,9 +20,16 @@ export SAVEHIST=1000
 typeset -xU path
 path=(
     $HOME/.local/bin(N-/)
+    /opt/homebrew/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
     $path
+)
+
+typeset -xU fpath
+fpath=(
+    /opt/homebrew/share/zsh/site-functions(N-/)
+    $fpath
 )
 
 # ------------------------------
