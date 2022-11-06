@@ -37,7 +37,6 @@ symlink config/zsh/zshenv "$HOME/.zshenv"
 symlink config/zsh/zshrc "$HOME/.zshrc"
 
 if [[ $(uname -s) == Darwin ]]; then
-    symlink config/karabiner/karabiner.json
     symlink config/gnupg/gpg-agent_darwin.conf "$HOME/.gnupg/gpg-agent.conf"
     symlink config/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     symlink config/vscode/keybindings_darwin.json "$HOME/Library/Application Support/Code/User/keybindings.json"
