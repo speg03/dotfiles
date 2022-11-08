@@ -46,6 +46,7 @@ elif [[ $(uname -s) == Linux ]]; then
     alias ls='ls --color=auto'
     source-if-exists "/usr/share/fzf/shell/key-bindings.zsh"
     source-if-exists "/usr/share/doc/fzf/examples/key-bindings.zsh"
+    source-if-exists "/usr/share/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # ------------------------------
