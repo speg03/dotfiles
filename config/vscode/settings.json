@@ -18,6 +18,8 @@
         }
     },
     "redhat.telemetry.enabled": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
     "terminal.integrated.allowChords": false,
     "window.restoreWindows": "none"
 }
