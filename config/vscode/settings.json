@@ -3,8 +3,6 @@
     "githubPullRequests.fileListLayout": "tree",
     "githubPullRequests.terminalLinksHandler": "github",
     "python.venvPath": "${workspaceFolder}/.venv",
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "${env:HOME}/.local/bin/flake8",
     "python.linting.pylintEnabled": false,
     "python.analysis.typeCheckingMode": "basic",
     "python.testing.pytestEnabled": true,
