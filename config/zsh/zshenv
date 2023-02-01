@@ -6,17 +6,6 @@ setopt NO_GLOBAL_RCS
 
 export LANG="en_US.UTF-8"
 
-export GPG_TTY="$(tty)"
-export LESS="-giMR"
-
-export HISTFILE="$HOME/.cache/zsh/history"
-export HISTSIZE=2000
-export SAVEHIST=1000
-
-# ------------------------------
-# PATH
-# ------------------------------
-
 typeset -xU path
 path=(
     $HOME/.local/bin(N-/)

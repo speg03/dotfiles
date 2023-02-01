@@ -1,4 +1,15 @@
 # ------------------------------
+# Environment Variables
+# ------------------------------
+
+export GPG_TTY="$(tty)"
+export LESS="-giMR"
+
+export HISTFILE="$HOME/.cache/zsh/history"
+export HISTSIZE=2000
+export SAVEHIST=1000
+
+# ------------------------------
 # Aliases
 # ------------------------------
 
