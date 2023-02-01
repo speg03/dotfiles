@@ -1,5 +1,4 @@
 ;;; Auto generated files
-(setq user-emacs-directory "~/.local/share/emacs/")
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (setq cache-directory "~/.cache/emacs/")
 (setq auto-save-list-file-prefix

@@ -32,7 +32,7 @@ symlink config/git/config
 symlink config/tmux/tmux.conf
 symlink config/starship.toml
 
-symlink config/emacs/init.el "$HOME/.emacs"
+symlink config/emacs/init.el "$HOME/.emacs.d/init.el"
 symlink config/zsh/zshenv "$HOME/.zshenv"
 symlink config/zsh/zshrc "$HOME/.zshrc"
 
