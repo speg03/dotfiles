@@ -42,14 +42,14 @@ def main():
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger("generate-proxy-el")
 
-    http_proxy = os.getenv("http_proxy", None)
-    if http_proxy is not None:
-        parse_result = urllib.parse.urlparse(http_proxy)
+    http_proxy = os.getenv("http_proxy", "")
+    res = urllib.parse.urlparse(http_proxy)
+    if res.username and res.password:
         proxy_el = PROXY_EL_TEMPLATE.format(
-            username=parse_result.username,
-            password=parse_result.password,
-            hostname=parse_result.hostname,
-            port=parse_result.port,
+            username=res.username,
+            password=res.password,
+            hostname=res.hostname,
+            port=res.port,
         )
         proxy_el_path = pathlib.Path.home() / ".emacs.d" / "proxy.el"
         proxy_el_path.write_text(proxy_el)
