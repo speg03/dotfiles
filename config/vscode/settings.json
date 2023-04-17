@@ -19,6 +19,7 @@
         }
     },
     "redhat.telemetry.enabled": true,
+    "editor.inlineSuggest.enabled": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "terminal.integrated.allowChords": false,
