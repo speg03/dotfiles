@@ -9,6 +9,7 @@ export LANG="en_US.UTF-8"
 typeset -xU path
 path=(
     $HOME/.local/bin(N-/)
+    $HOME/.cargo/bin(N-/)
     /opt/homebrew/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
