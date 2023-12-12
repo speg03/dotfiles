@@ -3,7 +3,6 @@
     "githubPullRequests.fileListLayout": "tree",
     "githubPullRequests.terminalLinksHandler": "github",
     "python.venvPath": "${workspaceFolder}/.venv",
-    "python.linting.pylintEnabled": false,
     "python.analysis.typeCheckingMode": "basic",
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
@@ -11,11 +10,11 @@
     ],
     "python.testing.unittestEnabled": false,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         }
     },
     "redhat.telemetry.enabled": true,
