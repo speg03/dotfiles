@@ -14,9 +14,6 @@
 (setq inhibit-startup-message t)
 (menu-bar-mode 0)
 
-;;; Proxy
-(load "~/.emacs.d/proxy.el" t)
-
 ;;; Packaging
 (when (version< emacs-version "26.3")
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))

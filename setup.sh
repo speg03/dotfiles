@@ -24,7 +24,6 @@ symlink() {
     fi
 }
 
-symlink local/bin/generate-proxy-el
 symlink local/bin/is-online
 symlink local/bin/tmux-new-or-switch-session
 symlink local/bin/tmux-plugin-manager
@@ -54,5 +53,3 @@ fi
 mkdir -p "$HOME/.cache/zsh"
 mkdir -p "$HOME/.local/lib"
 chmod 0700 "$HOME/.gnupg"
-
-"$DOTFILES_ROOT/local/bin/generate-proxy-el"
