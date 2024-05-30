@@ -5,11 +5,13 @@ setopt NO_GLOBAL_RCS
 # ------------------------------
 
 export LANG="en_US.UTF-8"
+export NPM_CONFIG_PREFIX="$HOME/.local/share/npm"
 
 typeset -xU path
 path=(
     $HOME/.local/bin(N-/)
     $HOME/.cargo/bin(N-/)
+    $NPM_CONFIG_PREFIX/bin(N-/)
     /opt/homebrew/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
