@@ -1,14 +1,11 @@
 {
     "emacs-mcx.useMetaPrefixMacCmd": true,
-    "githubPullRequests.fileListLayout": "tree",
     "githubPullRequests.terminalLinksHandler": "github",
-    "python.venvPath": "${workspaceFolder}/.venv",
     "python.analysis.typeCheckingMode": "basic",
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
         "--no-cov"
     ],
-    "python.testing.unittestEnabled": false,
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
@@ -19,9 +16,7 @@
     },
     "redhat.telemetry.enabled": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
-    "editor.inlineSuggest.enabled": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "terminal.integrated.allowChords": false,
-    "window.restoreWindows": "none"
+    "terminal.integrated.allowChords": false
 }
