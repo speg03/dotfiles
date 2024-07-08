@@ -7,14 +7,14 @@
         "--no-cov"
     ],
     "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-        }
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
     "redhat.telemetry.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
     "editor.inlayHints.enabled": "offUnlessPressed",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
