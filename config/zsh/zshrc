@@ -37,7 +37,8 @@ bindkey '^@' change-repository
 # Completions
 # ------------------------------
 
-autoload -U compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit
 
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -58,6 +59,10 @@ elif [[ $(uname -s) == Linux ]]; then
     source-if-exists "/usr/share/fzf/shell/key-bindings.zsh"
     source-if-exists "/usr/share/doc/fzf/examples/key-bindings.zsh"
     source-if-exists "/usr/share/google-cloud-sdk/completion.zsh.inc"
+    source-if-exists "/snap/google-cloud-cli/current/completion.zsh.inc"
+    if [[ -f /snap/aws-cli/current/aws/dist/aws_completer ]]; then
+        complete -C '/snap/aws-cli/current/aws/dist/aws_completer' aws
+    fi
 fi
 
 # ------------------------------

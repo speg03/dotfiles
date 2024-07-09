@@ -52,4 +52,5 @@ fi
 
 mkdir -p "$HOME/.cache/zsh"
 mkdir -p "$HOME/.local/lib"
+mkdir -p "$HOME/.local/share/zsh/site-functions"
 chmod 0700 "$HOME/.gnupg"

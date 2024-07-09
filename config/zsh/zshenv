@@ -14,6 +14,7 @@ path=(
     $HOME/.cargo/bin(N-/)
     $NPM_CONFIG_PREFIX/bin(N-/)
     /opt/homebrew/bin(N-/)
+    /snap/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
     $path
@@ -21,6 +22,7 @@ path=(
 
 typeset -xU fpath
 fpath=(
+    $HOME/.local/share/zsh/site-functions(N-/)
     /opt/homebrew/share/zsh/site-functions(N-/)
     $fpath
 )
