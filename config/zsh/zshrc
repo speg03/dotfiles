@@ -53,7 +53,7 @@ if [[ $(uname -s) == Darwin ]]; then
     alias ls='ls -G'
     source-if-exists "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
     source-if-exists "/opt/homebrew/opt/fzf/shell/completion.zsh"
-    source-if-exists "/opt/homebrew/share/zsh/site-functions/_google-cloud-sdk"
+    source-if-exists "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
 elif [[ $(uname -s) == Linux ]]; then
     alias ls='ls --color=auto'
     source-if-exists "/usr/share/fzf/shell/key-bindings.zsh"
