@@ -1,0 +1,7 @@
+[tools]
+ghq = "latest"
+starship = "latest"
+uv = "latest"
+
+[settings]
+auto_install_disable_tools = ["python"]

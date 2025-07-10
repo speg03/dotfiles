@@ -30,6 +30,7 @@ symlink local/bin/tmux-plugin-manager
 
 symlink config/git/config
 symlink config/git/ignore
+symlink config/mise/config.toml
 symlink config/tmux/tmux.conf
 symlink config/starship.toml
 
