@@ -30,7 +30,6 @@ symlink local/bin/tmux-plugin-manager
 
 symlink config/git/config
 symlink config/git/ignore
-symlink config/mise/config.toml
 symlink config/tmux/tmux.conf
 symlink config/starship.toml
 
@@ -43,6 +42,7 @@ if [[ $(uname -s) == Darwin ]]; then
     symlink config/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     symlink config/vscode/keybindings_darwin.json "$HOME/Library/Application Support/Code/User/keybindings.json"
 elif [[ $(uname -s) == Linux ]]; then
+    symlink config/mise/config.toml
     symlink config/gnupg/gpg-agent_linux.conf "$HOME/.gnupg/gpg-agent.conf"
     symlink config/vscode/settings.json "$HOME/.vscode-server/data/Machine/settings.json"
 fi
