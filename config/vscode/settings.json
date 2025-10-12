@@ -18,5 +18,7 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "terminal.integrated.allowChords": false
+    "terminal.integrated.allowChords": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.chat.localeOverride": "ja"
 }
