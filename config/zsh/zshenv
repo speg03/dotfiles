@@ -5,6 +5,7 @@ setopt NO_GLOBAL_RCS
 # ------------------------------
 
 export LANG="en_US.UTF-8"
+export AWS_PAGER=""
 export NPM_CONFIG_PREFIX="$HOME/.local/share/npm"
 
 typeset -xU path
