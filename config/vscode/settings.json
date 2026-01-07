@@ -19,6 +19,7 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "terminal.integrated.allowChords": false,
+    "terminal.integrated.suggest.enabled": false,
     "github.copilot.nextEditSuggestions.enabled": true,
     "github.copilot.chat.localeOverride": "ja"
 }
