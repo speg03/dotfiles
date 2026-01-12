@@ -13,6 +13,7 @@ path=(
     $HOME/.local/bin(N-/)
     $HOME/.local/share/mise/shims(N-/)
     $HOME/.cargo/bin(N-/)
+    $HOME/.volta/bin(N-/)
     $NPM_CONFIG_PREFIX/bin(N-/)
     /opt/homebrew/bin(N-/)
     /snap/bin(N-/)
