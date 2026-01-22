@@ -24,16 +24,26 @@ alias t='tmux-new-or-switch-session'
 # Key bindings
 # ------------------------------
 
-change-repository() {
-    local repo=$(ghq list -p | fzf -1 -q "$LBUFFER")
-    if [[ $repo ]]; then
-        BUFFER="cd $repo"
+fuzzy-cd-repo() {
+    local target_dir=""
+    local repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ -n $repo_root ]]; then
+        local selected_path=$(git ls-tree -dr --name-only --full-tree HEAD | fzf -q "$LBUFFER") || return 0
+        if [[ -n $selected_path ]]; then
+            target_dir="$repo_root/$selected_path"
+        fi
+    else
+        target_dir=$(ghq list -p | fzf -q "$LBUFFER") || return 0
+    fi
+
+    if [[ -n $target_dir ]]; then
+        BUFFER="cd $target_dir"
         zle accept-line
     fi
     zle -R -c
 }
-zle -N change-repository
-bindkey '^@' change-repository
+zle -N fuzzy-cd-repo
+bindkey '^@' fuzzy-cd-repo
 
 # ------------------------------
 # Completions
