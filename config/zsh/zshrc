@@ -28,7 +28,7 @@ fuzzy-cd-repo() {
     local target_dir=""
     local repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
     if [[ -n $repo_root ]]; then
-        local selected_path=$(git ls-tree -dr --name-only --full-tree HEAD | fzf -q "$LBUFFER") || return 0
+        local selected_path=$({ echo "."; git ls-tree -dr --name-only --full-tree HEAD; } | fzf -q "$LBUFFER") || return 0
         if [[ -n $selected_path ]]; then
             target_dir="$repo_root/$selected_path"
         fi
