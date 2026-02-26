@@ -7,6 +7,9 @@ disabled = true
 [container]
 disabled = true
 
+[directory]
+truncate_to_repo = false
+
 [aws]
 force_display = true
 
