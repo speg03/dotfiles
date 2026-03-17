@@ -76,15 +76,19 @@ elif [[ $(uname -s) == Linux ]]; then
 fi
 
 # ------------------------------
-# Startup
+# Initialization
 # ------------------------------
 
 if exists starship; then
     eval "$(starship init zsh)"
 fi
 
+source-if-exists "$HOME/.config/zsh/zshrc.local"
+
+# ------------------------------
+# Startup
+# ------------------------------
+
 if exists tmux && [[ $TERM != screen* && $TERM_PROGRAM != vscode ]]; then
     tmux-new-or-switch-session
 fi
-
-source-if-exists "$HOME/.config/zsh/zshrc.local"
