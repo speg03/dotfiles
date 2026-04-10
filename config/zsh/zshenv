@@ -9,13 +9,13 @@ setopt NO_GLOBAL_RCS
 export LANG="en_US.UTF-8"
 export AWS_PAGER=""
 export NPM_CONFIG_PREFIX="$HOME/.local/share/npm"
+export VP_HOME="$HOME/.local/share/vite-plus"
 
 typeset -xU path
 path=(
     $HOME/.local/bin(N-/)
     $HOME/.local/share/mise/shims(N-/)
     $HOME/.cargo/bin(N-/)
-    $HOME/.volta/bin(N-/)
     $NPM_CONFIG_PREFIX/bin(N-/)
     /opt/homebrew/bin(N-/)
     /snap/bin(N-/)
@@ -45,4 +45,5 @@ source-if-exists() {
     [[ -f $source_file_path ]] && source "$source_file_path" || true
 }
 
+source-if-exists "$VP_HOME/env"
 source-if-exists "$HOME/.config/zsh/zshenv.local"
