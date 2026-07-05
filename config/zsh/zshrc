@@ -84,11 +84,3 @@ if exists starship; then
 fi
 
 source-if-exists "$HOME/.config/zsh/zshrc.local"
-
-# ------------------------------
-# Startup
-# ------------------------------
-
-if exists tmux && [[ $TERM != screen* && $TERM_PROGRAM != vscode ]]; then
-    tmux-new-or-switch-session
-fi
