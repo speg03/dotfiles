@@ -18,6 +18,7 @@ path=(
     $HOME/.cargo/bin(N-/)
     $NPM_CONFIG_PREFIX/bin(N-/)
     /opt/homebrew/bin(N-/)
+    /opt/homebrew/sbin(N-/)
     /snap/bin(N-/)
     {/usr/local,/usr,}/bin(N-/)
     {/usr/local,/usr,}/sbin(N-/)
