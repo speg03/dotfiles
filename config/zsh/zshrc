@@ -25,17 +25,9 @@ alias t='tmux-new-or-switch-session'
 # ------------------------------
 
 fuzzy-cd-repo() {
-    local target_dir=""
-    local base_dir=$(git rev-parse --show-toplevel 2>/dev/null)
-    if [[ -n $base_dir ]]; then
-        target_dir=$({ echo "."; git ls-tree -dr --name-only --full-tree HEAD; } | fzf -q "$LBUFFER")
-    else
-        base_dir=$(ghq root)
-        target_dir=$(ghq list | fzf -q "$LBUFFER")
-    fi
-
+    local target_dir=$(ghq list -p | fzf -q "$LBUFFER")
     if [[ -n $target_dir ]]; then
-        BUFFER="cd $base_dir/$target_dir"
+        BUFFER="cd $target_dir"
         zle accept-line
     fi
     zle -R -c
