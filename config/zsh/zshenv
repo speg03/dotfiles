@@ -46,5 +46,6 @@ source-if-exists() {
     [[ -f $source_file_path ]] && source "$source_file_path" || true
 }
 
+source-if-exists "$HOME/.atuin/bin/env"
 source-if-exists "$VP_HOME/env"
 source-if-exists "$HOME/.config/zsh/zshenv.local"
