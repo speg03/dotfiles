@@ -28,6 +28,7 @@ symlink local/bin/is-online
 symlink local/bin/tmux-new-or-switch-session
 symlink local/bin/tmux-plugin-manager
 
+symlink config/atuin/config.toml
 symlink config/git/config
 symlink config/git/ignore
 symlink config/tmux/tmux.conf
