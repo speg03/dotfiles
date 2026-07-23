@@ -1,40 +1,47 @@
 {
-    "emacs-mcx.useMetaPrefixMacCmd": true,
-    "githubPullRequests.terminalLinksHandler": "github",
-    "python.analysis.typeCheckingMode": "basic",
-    "python.testing.pytestEnabled": true,
-    "python.testing.pytestArgs": [
-        "--no-cov"
-    ],
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    },
-    "chat.agent.maxRequests": 1000,
-    "chat.tools.urls.autoApprove": {
-        "https://code.visualstudio.com": true,
-        "https://docs.aws.amazon.com": true,
-        "https://docs.docker.com": true,
-        "https://github.com/microsoft/vscode/wiki/*": true
-    },
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-    },
-    "editor.inlayHints.enabled": "offUnlessPressed",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "terminal.integrated.allowChords": false,
-    "terminal.integrated.suggest.enabled": false,
-    "github.copilot.chat.localeOverride": "ja",
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "redhat.telemetry.enabled": true,
-    "yaml.disableSchemaDetection": [
-        "**/.github/workflows/*.yml",
-        "**/.github/workflows/*.yaml",
-        "**/.gitea/workflows/*.yml",
-        "**/.gitea/workflows/*.yaml",
-        "**/.forgejo/workflows/*.yml",
-        "**/.forgejo/workflows/*.yaml"
-    ]
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.suggest.enabled": false,
+
+  // GitHub Copilot
+  "chat.agent.maxRequests": 1000,
+  "chat.tools.urls.autoApprove": {
+    "https://code.visualstudio.com": true,
+    "https://docs.aws.amazon.com": true,
+    "https://docs.docker.com": true,
+    "https://github.com/microsoft/vscode/wiki/*": true
+  },
+  "github.copilot.chat.localeOverride": "ja",
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  // Python
+  "python.analysis.typeCheckingMode": "basic",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["--no-cov"],
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+
+  // Other extensions
+  "emacs-mcx.useMetaPrefixMacCmd": true,
+  "githubPullRequests.terminalLinksHandler": "github",
+  "redhat.telemetry.enabled": true,
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "[jsonc][markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
