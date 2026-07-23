@@ -7,17 +7,24 @@
   "editor.inlayHints.enabled": "offUnlessPressed",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
+  "git.openRepositoryInParentFolders": "never",
   "terminal.integrated.allowChords": false,
   "terminal.integrated.suggest.enabled": false,
+  "workbench.startupEditor": "none",
 
   // GitHub Copilot
   "chat.agent.maxRequests": 1000,
+  "chat.autopilot.enabled": true,
+  "chat.imageCarousel.enabled": true,
   "chat.tools.urls.autoApprove": {
     "https://code.visualstudio.com": true,
     "https://docs.aws.amazon.com": true,
     "https://docs.docker.com": true,
     "https://github.com/microsoft/vscode/wiki/*": true
   },
+  "chat.viewSessions.orientation": "stacked",
+  "github.copilot.chat.agentDebugLog.enabled": true,
+  "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
   "github.copilot.chat.localeOverride": "ja",
   "github.copilot.nextEditSuggestions.enabled": true,
 
@@ -30,6 +37,7 @@
   },
 
   // Other extensions
+  "claudeCode.preferredLocation": "panel",
   "emacs-mcx.useMetaPrefixMacCmd": true,
   "githubPullRequests.terminalLinksHandler": "github",
   "redhat.telemetry.enabled": true,
