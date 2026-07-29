@@ -2,7 +2,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit",
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
   "explorer.confirmDragAndDrop": false,
@@ -14,16 +14,13 @@
 
   // GitHub Copilot
   "chat.agent.maxRequests": 1000,
-  "chat.autopilot.enabled": true,
-  "chat.imageCarousel.enabled": true,
   "chat.tools.urls.autoApprove": {
     "https://code.visualstudio.com": true,
     "https://docs.aws.amazon.com": true,
     "https://docs.docker.com": true,
-    "https://github.com/microsoft/vscode/wiki/*": true
+    "https://github.com/microsoft/vscode/wiki/*": true,
   },
   "chat.viewSessions.orientation": "stacked",
-  "github.copilot.chat.agentDebugLog.enabled": true,
   "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
   "github.copilot.chat.localeOverride": "ja",
   "github.copilot.nextEditSuggestions.enabled": true,
@@ -33,7 +30,7 @@
   "python.testing.pytestEnabled": true,
   "python.testing.pytestArgs": ["--no-cov"],
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.defaultFormatter": "charliermarsh.ruff",
   },
 
   // Other extensions
@@ -47,9 +44,9 @@
     "**/.gitea/workflows/*.yml",
     "**/.gitea/workflows/*.yaml",
     "**/.forgejo/workflows/*.yml",
-    "**/.forgejo/workflows/*.yaml"
+    "**/.forgejo/workflows/*.yaml",
   ],
-  "[jsonc][markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "[css][jsonc][markdown][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
 }
