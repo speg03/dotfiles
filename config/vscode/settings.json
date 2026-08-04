@@ -46,7 +46,7 @@
     "**/.forgejo/workflows/*.yml",
     "**/.forgejo/workflows/*.yaml",
   ],
-  "[css][jsonc][markdown][typescript][typescriptreact]": {
+  "[css][json][jsonc][markdown][typescript][typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 }
