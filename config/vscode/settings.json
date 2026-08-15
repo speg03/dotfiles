@@ -46,7 +46,10 @@
     "**/.forgejo/workflows/*.yml",
     "**/.forgejo/workflows/*.yaml",
   ],
-  "[css][json][jsonc][markdown][typescript][typescriptreact]": {
+  "[css][github-actions-workflow][json][jsonc][markdown][typescript][typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
   },
 }
